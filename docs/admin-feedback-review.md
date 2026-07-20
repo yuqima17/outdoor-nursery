@@ -59,6 +59,59 @@ If early testing created rows where `feedback_type` contains display labels such
 
 To turn repeated or high-priority feedback into manual review queue candidates, use [supabase/admin-create-review-items-from-feedback.sql](../supabase/admin-create-review-items-from-feedback.sql). Preview Step 1 first; only run the commented insert after checking the candidates.
 
+## Query QA Checklist
+
+Run only the first three read-only query blocks in [supabase/admin-feedback-queries.sql](../supabase/admin-feedback-queries.sql) for the basic QA pass.
+
+### 1. Latest Raw Feedback
+
+Use this to confirm the app is writing rows.
+
+Expected:
+
+- Newest row appears at the top.
+- `place_name` is readable.
+- `feedback_type` is a stable code like `easy_parking`, not `Easy parking`.
+- `source` is not shown in this query, but the table row should have `quick_feedback`.
+- `metadata.feedback_label` contains the button label.
+- `device_id` starts with `anon_`.
+
+If this query returns no rows:
+
+- Submit a new quick feedback from the phone.
+- Confirm `.env` is loaded by restarting Expo.
+- Confirm Supabase RLS allows public insert into `feedback`.
+
+### 2. New Feedback Grouped By Place And Type
+
+Use this to see repeated reports.
+
+Expected:
+
+- `report_count` increases when multiple devices report the same place/type.
+- Single-device testing may show only `1`.
+- `latest_report_at` should match recent phone tests.
+
+If groups look messy:
+
+- Check whether old display-label feedback rows still exist.
+- Run [supabase/normalize-feedback-types.sql](../supabase/normalize-feedback-types.sql) once if needed.
+
+### 3. Higher-Priority Review Candidates
+
+Use this to decide what needs manual review first.
+
+Expected:
+
+- `info_changed`, `needs_maintenance`, `baby_care_missing`, and `parking_was_hard` appear as `high`.
+- baby care detail reports like `family_restroom_available` appear as `medium`.
+- positive confidence signals like `kid_loved_it` appear as `low`.
+
+Important:
+
+- These are signals only.
+- Do not update public place data until the feedback is reviewed.
+
 ## Status Meaning
 
 - `new`: not reviewed yet.

@@ -62,9 +62,9 @@ This file tracks the current build sequence for the Outdoor Nursery MVP.
 | Import Supabase seed data | done | User confirmed `supabase/seed.sql` ran successfully. |
 | Create backend implementation plan | done | See `docs/backend-implementation-plan.md`. |
 | Add backend/database | current | Supabase schema and seed are live; app remote reads and feedback writes are implemented. |
-| Add Supabase place reads | needs_quality_check | App now uses Supabase-first place loading with local JSON fallback. Needs phone check to confirm remote data still displays correctly. |
+| Add Supabase place reads | needs_quality_check | App now uses Supabase-first place loading with local JSON fallback, plus a dev-only Home indicator showing `Supabase` vs `Local fallback`. |
 | Add Supabase quick feedback writes | needs_quality_check | Selecting a quick feedback button inserts an anonymous `feedback` row when Supabase is configured, stores stable feedback codes, and avoids duplicate submissions from the same device/place/type. |
-| Add manual admin feedback queries | done | See `supabase/admin-feedback-queries.sql` and `docs/admin-feedback-review.md`. These help inspect raw feedback and grouped review candidates in Supabase SQL Editor. |
+| Add manual admin feedback queries | needs_quality_check | See `supabase/admin-feedback-queries.sql` and `docs/admin-feedback-review.md`. User can run the first three read-only query blocks later. |
 | Add review queue helper SQL | done | See `supabase/admin-create-review-items-from-feedback.sql`. It previews repeated/high-priority feedback groups and includes a commented insert into `review_queue`. |
 | Define privacy/data boundaries | done | See `docs/privacy-and-data-boundaries.md`. Current MVP avoids accounts, child personal data, contacts, photos, and live location collection. |
 | Define beta readiness checklist | done | See `docs/beta-readiness-checklist.md`. |

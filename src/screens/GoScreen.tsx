@@ -37,7 +37,7 @@ const filters: Array<{ key: FilterKey; label: string }> = [
 
 export function GoScreen() {
   const navigation = useNavigation<Navigation>();
-  const { places } = usePlaces();
+  const { dataSource, errorMessage, isLoading, places } = usePlaces();
   const { isSaved, toggleSaved } = useSavedPlaces();
   const [selectedCategory, setSelectedCategory] = useState<Category | "all">("all");
   const [activeFilter, setActiveFilter] = useState<FilterKey>("recommended");
@@ -75,6 +75,24 @@ export function GoScreen() {
             <Text style={styles.locationPillText}>Bay Area</Text>
           </View>
         </View>
+        {__DEV__ ? (
+          <View style={styles.devStatus}>
+            <Ionicons
+              color={dataSource === "supabase" ? colors.tealDark : colors.coral}
+              name={dataSource === "supabase" ? "cloud-done" : "phone-portrait"}
+              size={15}
+            />
+            <Text style={styles.devStatusText}>
+              Dev · {dataSource === "supabase" ? "Supabase" : "Local fallback"} ·{" "}
+              {isLoading ? "Loading" : `${places.length} places`}
+            </Text>
+            {errorMessage ? (
+              <Text numberOfLines={1} style={styles.devStatusError}>
+                {errorMessage}
+              </Text>
+            ) : null}
+          </View>
+        ) : null}
 
         <View style={styles.hero}>
           <View style={styles.heroTextBlock}>
@@ -238,6 +256,32 @@ const styles = StyleSheet.create({
     color: colors.tealDark,
     fontSize: 13,
     fontWeight: "900"
+  },
+  devStatus: {
+    alignItems: "center",
+    alignSelf: "flex-start",
+    backgroundColor: colors.mintSoft,
+    borderColor: colors.border,
+    borderRadius: 999,
+    borderWidth: 1,
+    flexDirection: "row",
+    gap: 6,
+    marginTop: 12,
+    maxWidth: "100%",
+    paddingHorizontal: 10,
+    paddingVertical: 7
+  },
+  devStatusText: {
+    color: colors.tealDark,
+    fontSize: 12,
+    fontWeight: "900"
+  },
+  devStatusError: {
+    color: colors.coral,
+    flexShrink: 1,
+    fontSize: 11,
+    fontWeight: "800",
+    maxWidth: 170
   },
   hero: {
     backgroundColor: colors.card,

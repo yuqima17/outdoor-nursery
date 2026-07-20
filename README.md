@@ -105,6 +105,8 @@ npm run start:clear
 
 The app falls back to bundled JSON if Supabase is not configured or unavailable.
 
+In development builds, the Home screen shows a small data source indicator: `Supabase` or `Local fallback`.
+
 If Expo Go shows `Cannot find module 'babel-preset-expo'`, stop the dev server, run `npm install`, then restart with `npm run start:clear`.
 
 If your local Node is too old, install/use Node 22 first:
