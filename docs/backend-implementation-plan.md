@@ -163,9 +163,13 @@ Implementation:
 - Insert a `feedback` row into Supabase when a quick feedback button is selected.
 - Use an anonymous device id stored in AsyncStorage.
 - Store source as `quick_feedback`.
+- Store stable snake-case feedback codes in `feedback_type`.
+- Store the display label in `metadata.feedback_label`.
+- Avoid duplicate backend submissions for the same device, place, and feedback type.
 - Store metadata with app version, interaction type, platform, and screen.
 - If remote insert fails, keep local behavior and show no scary error in the MVP.
 - Do not automatically update public place facts.
+- Added [supabase/normalize-feedback-types.sql](../supabase/normalize-feedback-types.sql) to clean up early test rows that stored labels instead of codes.
 
 Feedback insert target:
 

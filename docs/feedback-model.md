@@ -79,6 +79,9 @@ Current prototype behavior:
 - User taps one or more feedback buttons.
 - The selected button state is stored locally on the device.
 - When Supabase is configured, selecting a button also inserts a row into `feedback`.
+- The database stores stable snake-case feedback codes, not display labels.
+- The original button label is stored in `metadata.feedback_label`.
+- The same device only submits the same place/type pair once.
 - Deselecting a button only updates local UI state; it does not delete backend history.
 - No account is required.
 - No public display of feedback is required.
@@ -90,10 +93,11 @@ Current insert payload:
 {
   "place_id": "string",
   "device_id": "anonymous device id",
-  "feedback_type": "Easy parking",
+  "feedback_type": "easy_parking",
   "source": "quick_feedback",
   "metadata": {
     "app_version": "0.1.0",
+    "feedback_label": "Easy parking",
     "interaction": "quick_feedback_select",
     "platform": "expo",
     "submitted_from": "place_detail"

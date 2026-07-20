@@ -113,3 +113,8 @@ The first admin tool can be very simple:
 - Approve / dismiss / needs more info buttons.
 
 No complex dashboard is needed before beta.
+
+Current manual review helper:
+
+- [Admin Feedback Review](admin-feedback-review.md)
+- [Supabase Admin Feedback Queries](../supabase/admin-feedback-queries.sql)

@@ -6,6 +6,11 @@ import { SafeAreaView } from "react-native-safe-area-context";
 
 import { Section } from "../components/Section";
 import { submitQuickFeedback } from "../data/feedback";
+import {
+  feedbackOptions,
+  normalizeFeedbackType,
+  type FeedbackOption
+} from "../data/feedbackOptions";
 import { usePlaces } from "../state/PlacesContext";
 import { useSavedPlaces } from "../state/SavedPlacesContext";
 import { colors } from "../theme";
@@ -24,26 +29,6 @@ import {
   getDirectionsUrl
 } from "../utils/format";
 
-const feedbackOptions = [
-  "Easy parking",
-  "Parking was hard",
-  "Stroller worked",
-  "Restroom was easy",
-  "Baby care was easy",
-  "Changing table available",
-  "Family restroom available",
-  "Good nursing spot",
-  "Baby care missing",
-  "Clean enough",
-  "Crowd was okay",
-  "Too crowded",
-  "Long wait",
-  "Kid loved it",
-  "Good value",
-  "Needs maintenance",
-  "Info changed"
-];
-
 const FEEDBACK_STORAGE_KEY = "outdoor-nursery:place-feedback";
 
 export function PlaceDetailScreen({ route }: PlaceDetailProps) {
@@ -56,7 +41,7 @@ export function PlaceDetailScreen({ route }: PlaceDetailProps) {
     AsyncStorage.getItem(`${FEEDBACK_STORAGE_KEY}:${route.params.placeId}`)
       .then((storedValue) => {
         if (storedValue) {
-          setSelectedFeedback(JSON.parse(storedValue) as string[]);
+          setSelectedFeedback((JSON.parse(storedValue) as string[]).map(normalizeFeedbackType));
         }
       })
       .catch(() => setSelectedFeedback([]));
@@ -163,20 +148,20 @@ export function PlaceDetailScreen({ route }: PlaceDetailProps) {
           <View style={styles.feedbackGrid}>
             {feedbackOptions.map((option) => (
               <Pressable
-                key={option}
+                key={option.type}
                 onPress={() => toggleFeedback(place.id, option, selectedFeedback, setSelectedFeedback)}
                 style={[
                   styles.feedbackButton,
-                  selectedFeedback.includes(option) && styles.feedbackButtonActive
+                  selectedFeedback.includes(option.type) && styles.feedbackButtonActive
                 ]}
               >
                 <Text
                   style={[
                     styles.feedbackText,
-                    selectedFeedback.includes(option) && styles.feedbackTextActive
+                    selectedFeedback.includes(option.type) && styles.feedbackTextActive
                   ]}
                 >
-                  {option}
+                  {option.label}
                 </Text>
               </Pressable>
             ))}
@@ -189,16 +174,16 @@ export function PlaceDetailScreen({ route }: PlaceDetailProps) {
 
 function toggleFeedback(
   placeId: string,
-  option: string,
+  option: FeedbackOption,
   selectedFeedback: string[],
   setSelectedFeedback: React.Dispatch<React.SetStateAction<string[]>>
 ) {
-  const isSelecting = !selectedFeedback.includes(option);
+  const isSelecting = !selectedFeedback.includes(option.type);
 
   setSelectedFeedback((current) => {
-    const next = current.includes(option)
-      ? current.filter((selectedOption) => selectedOption !== option)
-      : [...current, option];
+    const next = current.includes(option.type)
+      ? current.filter((selectedOption) => selectedOption !== option.type)
+      : [...current, option.type];
 
     AsyncStorage.setItem(`${FEEDBACK_STORAGE_KEY}:${placeId}`, JSON.stringify(next)).catch(
       () => undefined
@@ -208,7 +193,11 @@ function toggleFeedback(
   });
 
   if (isSelecting) {
-    submitQuickFeedback({ feedbackType: option, placeId }).catch(() => undefined);
+    submitQuickFeedback({
+      feedbackLabel: option.label,
+      feedbackType: option.type,
+      placeId
+    }).catch(() => undefined);
   }
 }
 

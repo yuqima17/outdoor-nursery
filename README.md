@@ -44,6 +44,7 @@ The first version should stay intentionally small:
 - [Seed Data Guide](docs/seed-data-guide.md)
 - [Feedback Model](docs/feedback-model.md)
 - [Admin Review Flow](docs/admin-review-flow.md)
+- [Admin Feedback Review](docs/admin-feedback-review.md)
 - [Backend MVP Scope](docs/backend-mvp-scope.md)
 - [Backend Decisions](docs/backend-decisions.md)
 - [Backend Setup Guide](docs/backend-setup-guide.md)
@@ -59,6 +60,7 @@ The first version should stay intentionally small:
 - [Bay Area Sample Places](data/sample-places.json): 30 starter places for the first mobile app prototype.
 - [Supabase Seed SQL](supabase/seed.sql): imports the 30 starter places, source rows, and field-level trust facts.
 - [Seed Generator](scripts/generate-supabase-seed.js): regenerates `supabase/seed.sql` from the local JSON data.
+- [Feedback Type Normalizer](supabase/normalize-feedback-types.sql): one-time cleanup for early feedback rows that stored labels instead of stable codes.
 
 ## Development
 
