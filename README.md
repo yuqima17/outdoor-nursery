@@ -61,6 +61,7 @@ The first version should stay intentionally small:
 - [Supabase Seed SQL](supabase/seed.sql): imports the 30 starter places, source rows, and field-level trust facts.
 - [Seed Generator](scripts/generate-supabase-seed.js): regenerates `supabase/seed.sql` from the local JSON data.
 - [Feedback Type Normalizer](supabase/normalize-feedback-types.sql): one-time cleanup for early feedback rows that stored labels instead of stable codes.
+- [Admin Review Queue Helper](supabase/admin-create-review-items-from-feedback.sql): previews and optionally inserts review queue candidates from feedback.
 
 ## Development
 

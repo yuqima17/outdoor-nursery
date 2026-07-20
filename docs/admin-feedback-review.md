@@ -57,6 +57,8 @@ Recommended first checks:
 
 If early testing created rows where `feedback_type` contains display labels such as `Easy parking`, run [supabase/normalize-feedback-types.sql](../supabase/normalize-feedback-types.sql) once.
 
+To turn repeated or high-priority feedback into manual review queue candidates, use [supabase/admin-create-review-items-from-feedback.sql](../supabase/admin-create-review-items-from-feedback.sql). Preview Step 1 first; only run the commented insert after checking the candidates.
+
 ## Status Meaning
 
 - `new`: not reviewed yet.

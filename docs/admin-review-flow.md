@@ -118,3 +118,4 @@ Current manual review helper:
 
 - [Admin Feedback Review](admin-feedback-review.md)
 - [Supabase Admin Feedback Queries](../supabase/admin-feedback-queries.sql)
+- [Supabase Review Queue Helper](../supabase/admin-create-review-items-from-feedback.sql)

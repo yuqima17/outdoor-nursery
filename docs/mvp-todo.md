@@ -65,6 +65,7 @@ This file tracks the current build sequence for the Outdoor Nursery MVP.
 | Add Supabase place reads | needs_quality_check | App now uses Supabase-first place loading with local JSON fallback. Needs phone check to confirm remote data still displays correctly. |
 | Add Supabase quick feedback writes | needs_quality_check | Selecting a quick feedback button inserts an anonymous `feedback` row when Supabase is configured, stores stable feedback codes, and avoids duplicate submissions from the same device/place/type. |
 | Add manual admin feedback queries | done | See `supabase/admin-feedback-queries.sql` and `docs/admin-feedback-review.md`. These help inspect raw feedback and grouped review candidates in Supabase SQL Editor. |
+| Add review queue helper SQL | done | See `supabase/admin-create-review-items-from-feedback.sql`. It previews repeated/high-priority feedback groups and includes a commented insert into `review_queue`. |
 | Add API integrations | later | Google Places, OSM, weather, and city data should come after local prototype. |
 | Add login/accounts | later | Not needed for MVP validation. |
 
