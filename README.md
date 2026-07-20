@@ -49,6 +49,8 @@ The first version should stay intentionally small:
 - [Backend Decisions](docs/backend-decisions.md)
 - [Backend Setup Guide](docs/backend-setup-guide.md)
 - [Backend Implementation Plan](docs/backend-implementation-plan.md)
+- [Privacy And Data Boundaries](docs/privacy-and-data-boundaries.md)
+- [Beta Readiness Checklist](docs/beta-readiness-checklist.md)
 - [Map Strategy](docs/map-strategy.md)
 - [System Design](docs/system-design.md)
 - [Quality Check](docs/quality-check.md)
