@@ -126,7 +126,7 @@ It avoids app secrets and keeps the first import transparent.
 
 Owner: Codex
 
-Status: implemented, needs env values
+Status: implemented, needs phone QA
 
 Implementation:
 
@@ -142,7 +142,7 @@ Implementation:
   - If Supabase env values are configured, loads published places from Supabase.
   - If Supabase is unavailable or returns no published places, falls back to local JSON.
 
-Env variables still needed:
+Env variables configured locally:
 
   - `EXPO_PUBLIC_SUPABASE_URL`
   - `EXPO_PUBLIC_SUPABASE_ANON_KEY`
@@ -155,11 +155,17 @@ UI screens should not call Supabase directly. Screens should call the data servi
 
 Owner: Codex
 
-Implementation idea:
+Status: implemented, needs phone QA
+
+Implementation:
 
 - Keep local selected feedback state for UI responsiveness.
-- Also insert feedback into Supabase when configured.
+- Insert a `feedback` row into Supabase when a quick feedback button is selected.
+- Use an anonymous device id stored in AsyncStorage.
+- Store source as `quick_feedback`.
+- Store metadata with app version, interaction type, platform, and screen.
 - If remote insert fails, keep local behavior and show no scary error in the MVP.
+- Do not automatically update public place facts.
 
 Feedback insert target:
 

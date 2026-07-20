@@ -61,8 +61,9 @@ This file tracks the current build sequence for the Outdoor Nursery MVP.
 | Generate Supabase seed SQL | done | See `supabase/seed.sql` and `scripts/generate-supabase-seed.js`. Imports 30 places, 52 source rows, and 510 facts. |
 | Import Supabase seed data | done | User confirmed `supabase/seed.sql` ran successfully. |
 | Create backend implementation plan | done | See `docs/backend-implementation-plan.md`. |
-| Add backend/database | current | Supabase schema and seed are live; app remote reads are implemented and waiting for `.env` values. |
-| Add Supabase place reads | needs_quality_check | App now uses Supabase-first place loading with local JSON fallback. Needs phone check after env values are configured. |
+| Add backend/database | current | Supabase schema and seed are live; app remote reads and feedback writes are implemented. |
+| Add Supabase place reads | needs_quality_check | App now uses Supabase-first place loading with local JSON fallback. Needs phone check to confirm remote data still displays correctly. |
+| Add Supabase quick feedback writes | needs_quality_check | Selecting a quick feedback button inserts an anonymous `feedback` row when Supabase is configured, while preserving local selected state. |
 | Add API integrations | later | Google Places, OSM, weather, and city data should come after local prototype. |
 | Add login/accounts | later | Not needed for MVP validation. |
 

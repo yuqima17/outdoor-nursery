@@ -74,13 +74,32 @@ MVP button labels used in the app:
 
 ## MVP Behavior
 
-For the local prototype:
+Current prototype behavior:
 
 - User taps one or more feedback buttons.
-- Optional note field appears after button selection.
-- Feedback can be stored locally or logged to the console.
+- The selected button state is stored locally on the device.
+- When Supabase is configured, selecting a button also inserts a row into `feedback`.
+- Deselecting a button only updates local UI state; it does not delete backend history.
 - No account is required.
 - No public display of feedback is required.
+- Remote insert errors are silent in the MVP so the outing screen does not feel fragile.
+
+Current insert payload:
+
+```json
+{
+  "place_id": "string",
+  "device_id": "anonymous device id",
+  "feedback_type": "Easy parking",
+  "source": "quick_feedback",
+  "metadata": {
+    "app_version": "0.1.0",
+    "interaction": "quick_feedback_select",
+    "platform": "expo",
+    "submitted_from": "place_detail"
+  }
+}
+```
 
 ## Later Backend Behavior
 

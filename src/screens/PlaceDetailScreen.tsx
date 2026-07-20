@@ -5,6 +5,7 @@ import { Linking, Pressable, ScrollView, StyleSheet, Text, View } from "react-na
 import { SafeAreaView } from "react-native-safe-area-context";
 
 import { Section } from "../components/Section";
+import { submitQuickFeedback } from "../data/feedback";
 import { usePlaces } from "../state/PlacesContext";
 import { useSavedPlaces } from "../state/SavedPlacesContext";
 import { colors } from "../theme";
@@ -158,12 +159,12 @@ export function PlaceDetailScreen({ route }: PlaceDetailProps) {
           </View>
         </Section>
 
-        <Section title="Quick Feedback" caption="Saved on this device for the prototype.">
+        <Section title="Quick Feedback" caption="Saved on this device and sent when online.">
           <View style={styles.feedbackGrid}>
             {feedbackOptions.map((option) => (
               <Pressable
                 key={option}
-                onPress={() => toggleFeedback(place.id, option, setSelectedFeedback)}
+                onPress={() => toggleFeedback(place.id, option, selectedFeedback, setSelectedFeedback)}
                 style={[
                   styles.feedbackButton,
                   selectedFeedback.includes(option) && styles.feedbackButtonActive
@@ -189,8 +190,11 @@ export function PlaceDetailScreen({ route }: PlaceDetailProps) {
 function toggleFeedback(
   placeId: string,
   option: string,
+  selectedFeedback: string[],
   setSelectedFeedback: React.Dispatch<React.SetStateAction<string[]>>
 ) {
+  const isSelecting = !selectedFeedback.includes(option);
+
   setSelectedFeedback((current) => {
     const next = current.includes(option)
       ? current.filter((selectedOption) => selectedOption !== option)
@@ -202,6 +206,10 @@ function toggleFeedback(
 
     return next;
   });
+
+  if (isSelecting) {
+    submitQuickFeedback({ feedbackType: option, placeId }).catch(() => undefined);
+  }
 }
 
 function formatBringItem(item: string) {
