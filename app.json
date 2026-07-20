@@ -1,0 +1,23 @@
+{
+  "expo": {
+    "name": "Outdoor Nursery",
+    "slug": "outdoor-nursery",
+    "version": "0.1.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#EAF8F2"
+      }
+    },
+    "web": {
+      "bundler": "metro"
+    }
+  }
+}
