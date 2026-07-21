@@ -68,6 +68,8 @@ This file tracks the current build sequence for the Outdoor Nursery MVP.
 | Add review queue helper SQL | done | See `supabase/admin-create-review-items-from-feedback.sql`. It previews repeated/high-priority feedback groups and includes a commented insert into `review_queue`. |
 | Define privacy/data boundaries | done | See `docs/privacy-and-data-boundaries.md`. Current MVP avoids accounts, child personal data, contacts, photos, and live location collection. |
 | Define beta readiness checklist | done | See `docs/beta-readiness-checklist.md`. |
+| Prepare Top 10 official recheck worksheet | done | See `docs/top-10-official-recheck-worksheet.md`. |
+| Define map/distance MVP plan | done | See `docs/map-distance-mvp-plan.md`. Keeps current build on external directions and defers location permission. |
 | Add API integrations | later | Google Places, OSM, weather, and city data should come after local prototype. |
 | Add login/accounts | later | Not needed for MVP validation. |
 

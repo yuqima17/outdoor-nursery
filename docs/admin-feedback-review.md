@@ -63,6 +63,14 @@ To turn repeated or high-priority feedback into manual review queue candidates, 
 
 Run only the first three read-only query blocks in [supabase/admin-feedback-queries.sql](../supabase/admin-feedback-queries.sql) for the basic QA pass.
 
+Recommended order:
+
+1. Submit one fresh quick feedback from the phone.
+2. Run `Latest raw feedback`.
+3. Run `New feedback grouped by place and type`.
+4. Run `Higher-priority review candidates`.
+5. Send the row counts or screenshots back to Codex if anything looks confusing.
+
 ### 1. Latest Raw Feedback
 
 Use this to confirm the app is writing rows.
@@ -111,6 +119,19 @@ Important:
 
 - These are signals only.
 - Do not update public place data until the feedback is reviewed.
+
+## QA Result Notes
+
+Use this table while checking:
+
+| Check | Expected | Result |
+| --- | --- | --- |
+| Latest row appears | yes | todo |
+| `feedback_type` is snake-case | yes | todo |
+| `metadata.feedback_label` exists | yes | todo |
+| `device_id` starts with `anon_` | yes | todo |
+| Grouped query returns understandable counts | yes | todo |
+| Priority query separates high/medium/low | yes | todo |
 
 ## Status Meaning
 

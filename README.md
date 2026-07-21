@@ -52,6 +52,8 @@ The first version should stay intentionally small:
 - [Privacy And Data Boundaries](docs/privacy-and-data-boundaries.md)
 - [Beta Readiness Checklist](docs/beta-readiness-checklist.md)
 - [Map Strategy](docs/map-strategy.md)
+- [Map And Distance MVP Plan](docs/map-distance-mvp-plan.md)
+- [Top 10 Official Recheck Worksheet](docs/top-10-official-recheck-worksheet.md)
 - [System Design](docs/system-design.md)
 - [Quality Check](docs/quality-check.md)
 - [Place Information](docs/place-information.md)

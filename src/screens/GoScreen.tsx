@@ -4,6 +4,7 @@ import { Ionicons } from "@expo/vector-icons";
 import { useMemo, useState } from "react";
 import {
   Linking,
+  RefreshControl,
   ScrollView,
   StyleSheet,
   Text,
@@ -37,7 +38,7 @@ const filters: Array<{ key: FilterKey; label: string }> = [
 
 export function GoScreen() {
   const navigation = useNavigation<Navigation>();
-  const { dataSource, errorMessage, isLoading, places } = usePlaces();
+  const { dataSource, errorMessage, isLoading, places, refreshPlaces } = usePlaces();
   const { isSaved, toggleSaved } = useSavedPlaces();
   const [selectedCategory, setSelectedCategory] = useState<Category | "all">("all");
   const [activeFilter, setActiveFilter] = useState<FilterKey>("recommended");
@@ -64,7 +65,20 @@ export function GoScreen() {
 
   return (
     <SafeAreaView edges={["top"]} style={styles.safeArea}>
-      <ScrollView contentContainerStyle={styles.content} showsVerticalScrollIndicator={false}>
+      <ScrollView
+        contentContainerStyle={styles.content}
+        refreshControl={
+          <RefreshControl
+            colors={[colors.teal]}
+            onRefresh={() => {
+              refreshPlaces().catch(() => undefined);
+            }}
+            refreshing={isLoading}
+            tintColor={colors.teal}
+          />
+        }
+        showsVerticalScrollIndicator={false}
+      >
         <View style={styles.header}>
           <View>
             <Text style={styles.appName}>Outdoor Nursery</Text>
@@ -98,13 +112,14 @@ export function GoScreen() {
           <View style={styles.heroTextBlock}>
             <Text style={styles.heroTitle}>Where should we go today?</Text>
             <Text style={styles.heroSubtitle}>
-              Parent-friendly picks for parks, playgrounds, and easy outdoor mall outings.
+              Parent-friendly picks with stroller notes, restroom clues, and low-stress outing details.
             </Text>
           </View>
           <View style={styles.familyCues}>
-            <FamilyCue icon="happy" label="Little-kid energy" />
-            <FamilyCue icon="walk" label="Easy walks" />
-            <FamilyCue icon="heart" label="Caregiver notes" />
+            <FamilyCue icon="happy" label="Little-kid ready" />
+            <FamilyCue icon="walk" label="Stroller notes" />
+            <FamilyCue icon="heart" label="Baby care" />
+            <FamilyCue icon="time" label="Short outings" />
           </View>
         </View>
 
