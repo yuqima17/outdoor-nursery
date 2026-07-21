@@ -14,8 +14,10 @@ In Supabase:
 
 Useful columns:
 
+- `id`
 - `place_id`
 - `feedback_type`
+- `source`
 - `device_id`
 - `status`
 - `metadata`
@@ -80,7 +82,8 @@ Expected:
 - Newest row appears at the top.
 - `place_name` is readable.
 - `feedback_type` is a stable code like `easy_parking`, not `Easy parking`.
-- `source` is not shown in this query, but the table row should have `quick_feedback`.
+- `source` is `quick_feedback`.
+- `feedback_label` contains the button label.
 - `metadata.feedback_label` contains the button label.
 - `device_id` starts with `anon_`.
 
@@ -97,6 +100,7 @@ Use this to see repeated reports.
 Expected:
 
 - `report_count` increases when multiple devices report the same place/type.
+- `device_count` shows how many anonymous devices reported the same place/type.
 - Single-device testing may show only `1`.
 - `latest_report_at` should match recent phone tests.
 
@@ -128,6 +132,7 @@ Use this table while checking:
 | --- | --- | --- |
 | Latest row appears | yes | todo |
 | `feedback_type` is snake-case | yes | todo |
+| `source` is `quick_feedback` | yes | todo |
 | `metadata.feedback_label` exists | yes | todo |
 | `device_id` starts with `anon_` | yes | todo |
 | Grouped query returns understandable counts | yes | todo |

@@ -4,11 +4,14 @@
 
 -- 1. Latest raw feedback
 select
+  feedback.id,
   feedback.created_at,
   feedback.status,
   places.name as place_name,
   feedback.place_id,
   feedback.feedback_type,
+  feedback.source,
+  feedback.metadata ->> 'feedback_label' as feedback_label,
   feedback.device_id,
   feedback.metadata
 from feedback
@@ -22,12 +25,13 @@ select
   feedback.place_id,
   feedback.feedback_type,
   count(*) as report_count,
+  count(distinct feedback.device_id) as device_count,
   max(feedback.created_at) as latest_report_at
 from feedback
 join places on places.id = feedback.place_id
 where feedback.status = 'new'
 group by places.name, feedback.place_id, feedback.feedback_type
-order by report_count desc, latest_report_at desc;
+order by device_count desc, report_count desc, latest_report_at desc;
 
 -- 3. Higher-priority review candidates
 select
@@ -35,6 +39,7 @@ select
   feedback.place_id,
   feedback.feedback_type,
   count(*) as report_count,
+  count(distinct feedback.device_id) as device_count,
   max(feedback.created_at) as latest_report_at,
   case
     when feedback.feedback_type in (
@@ -73,15 +78,19 @@ order by
     ) then 2
     else 3
   end,
+  device_count desc,
   report_count desc,
   latest_report_at desc;
 
 -- 4. Feedback for one place
 -- Replace the place id before running.
 select
+  id,
   created_at,
   status,
   feedback_type,
+  source,
+  metadata ->> 'feedback_label' as feedback_label,
   device_id,
   metadata
 from feedback

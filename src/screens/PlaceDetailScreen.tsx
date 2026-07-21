@@ -106,9 +106,9 @@ export function PlaceDetailScreen({ route }: PlaceDetailProps) {
             <Info label="Weather" value={place.weather_fit.best_conditions.slice(0, 2).map(formatValue).join(", ")} />
           </View>
           <View style={styles.ageGuidanceCard}>
-            <Text style={styles.ageGuidanceTitle}>Best-fit guidance</Text>
+            <Text style={styles.ageGuidanceTitle}>Family fit notes</Text>
             <Text style={styles.ageGuidanceText}>{place.age_guidance.note}</Text>
-            <Text style={styles.ageFitText}>Quick fit: {formatAgeFit(place.age_fit)}</Text>
+            <Text style={styles.ageFitText}>Best with: {formatAgeFit(place.age_fit)}</Text>
           </View>
         </Section>
 
@@ -134,17 +134,19 @@ export function PlaceDetailScreen({ route }: PlaceDetailProps) {
           <BulletList items={place.parent_notes.avoid_notes} title="Avoid" />
         </Section>
 
-        <Section title="Source">
+        <Section title="Info Status">
           <View style={styles.sourceCard}>
-            <Text style={styles.sourceText}>Last verified: {place.source.last_verified_at}</Text>
-            <Text style={styles.sourceText}>Base data: {formatValue(place.data_quality.base_details)}</Text>
+            <Text style={styles.sourceText}>Last checked: {place.source.last_verified_at}</Text>
             <Text style={styles.sourceText}>
-              Caregiver notes: {formatValue(place.data_quality.caregiver_notes)}
+              Place details: {formatBaseDataStatus(place.data_quality.base_details)}
+            </Text>
+            <Text style={styles.sourceText}>
+              Parent tips: {formatParentTipStatus(place.data_quality.caregiver_notes)}
             </Text>
           </View>
         </Section>
 
-        <Section title="Quick Feedback" caption="Saved on this device and sent when online.">
+        <Section title="Quick Feedback" caption="Tap what matched your visit. Saved here and sent when online.">
           <View style={styles.feedbackGrid}>
             {feedbackOptions.map((option) => (
               <Pressable
@@ -211,6 +213,22 @@ function formatBringItem(item: string) {
   }
 
   return item;
+}
+
+function formatBaseDataStatus(value: string) {
+  if (value === "official_source") {
+    return "Official source checked";
+  }
+
+  return formatValue(value);
+}
+
+function formatParentTipStatus(value: string) {
+  if (value === "needs_parent_verification") {
+    return "Needs more parent visits";
+  }
+
+  return formatValue(value);
 }
 
 function Info({ label, value }: { label: string; value: string }) {

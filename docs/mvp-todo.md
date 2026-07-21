@@ -70,6 +70,8 @@ This file tracks the current build sequence for the Outdoor Nursery MVP.
 | Define beta readiness checklist | done | See `docs/beta-readiness-checklist.md`. |
 | Prepare Top 10 official recheck worksheet | done | See `docs/top-10-official-recheck-worksheet.md`. |
 | Define map/distance MVP plan | done | See `docs/map-distance-mvp-plan.md`. Keeps current build on external directions and defers location permission. |
+| Execute Top 10 official/field recheck | blocked | User wants to skip this for now because field checking is not practical right now. |
+| Create data issue tracker | later | Skip for now; add only when specific data issues come up during normal app review. |
 | Add API integrations | later | Google Places, OSM, weather, and city data should come after local prototype. |
 | Add login/accounts | later | Not needed for MVP validation. |
 
