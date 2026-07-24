@@ -74,6 +74,9 @@ This file tracks the current build sequence for the Outdoor Nursery MVP.
 | Improve Home loading/error/empty states | needs_quality_check | Home now shows parent-friendly refresh, local fallback, no-data, and no-match states instead of relying only on dev diagnostics. |
 | Convert Profile into MVP info page | needs_quality_check | Profile now explains the beta purpose, data status, feedback boundaries, and privacy posture. |
 | Create beta QA checklist | done | See `docs/beta-qa-checklist.md`. This supports friend testing without field-checking place facts. |
+| Create beta feedback log | done | See `docs/beta-feedback-log.md`. Use it to record tester sessions, open feedback items, and decisions. |
+| Define beta issue triage rules | done | See `docs/beta-issue-triage.md`. Issues are grouped as Blocker, High, Medium, or Low. |
+| Draft beta tester invite | done | See `docs/beta-tester-invite.md`. Includes short and longer English messages for friend testing. |
 | Execute Top 10 official/field recheck | blocked | User wants to skip this for now because field checking is not practical right now. |
 | Create data issue tracker | later | Skip for now; add only when specific data issues come up during normal app review. |
 | Add API integrations | later | Google Places, OSM, weather, and city data should come after local prototype. |
@@ -92,6 +95,8 @@ This file tracks the current build sequence for the Outdoor Nursery MVP.
 - Review Home fallback/loading/no-match states during normal use and pull-to-refresh.
 - Review Profile beta/privacy/data wording on phone.
 - Review `docs/beta-qa-checklist.md` before asking friends to test.
+- Review and personalize `docs/beta-tester-invite.md` before sending it to friends.
+- Fill `docs/beta-feedback-log.md` after the first tester session.
 - Review caregiver notes later before production; for now they can remain `needs_parent_verification`.
 - Review whether the Top 10 list and priorities in `docs/top-10-quality-check.md` match the intended first beta experience.
 - Review official recheck queue in `docs/official-recheck-plan.md` before executing source checks.
