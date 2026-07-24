@@ -16,7 +16,7 @@ type Navigation = NativeStackNavigationProp<RootStackParamList>;
 export function SavedScreen() {
   const navigation = useNavigation<Navigation>();
   const { places } = usePlaces();
-  const { isSaved, savedPlaceIds, toggleSaved } = useSavedPlaces();
+  const { isLoaded, isSaved, savedPlaceIds, toggleSaved } = useSavedPlaces();
   const savedPlaces = places.filter((place) => savedPlaceIds.includes(place.id));
 
   return (
@@ -25,7 +25,15 @@ export function SavedScreen() {
         <Text style={styles.title}>Saved Places</Text>
         <Text style={styles.subtitle}>Keep a short list of places you want to try.</Text>
 
-        {savedPlaces.length === 0 ? (
+        {!isLoaded ? (
+          <View style={styles.emptyState}>
+            <Ionicons color={colors.teal} name="heart" size={42} />
+            <Text style={styles.emptyTitle}>Loading saved places</Text>
+            <Text style={styles.emptyText}>Your saved list stays on this phone for now.</Text>
+          </View>
+        ) : null}
+
+        {isLoaded && savedPlaces.length === 0 ? (
           <View style={styles.emptyState}>
             <Ionicons color={colors.teal} name="heart-outline" size={42} />
             <Text style={styles.emptyTitle}>No saved places yet</Text>
@@ -35,7 +43,7 @@ export function SavedScreen() {
           </View>
         ) : null}
 
-        {savedPlaces.map((place) => (
+        {isLoaded ? savedPlaces.map((place) => (
           <PlaceCard
             isSaved={isSaved(place.id)}
             key={place.id}
@@ -46,7 +54,7 @@ export function SavedScreen() {
             onToggleSaved={() => toggleSaved(place.id)}
             place={place}
           />
-        ))}
+        )) : null}
       </ScrollView>
     </SafeAreaView>
   );

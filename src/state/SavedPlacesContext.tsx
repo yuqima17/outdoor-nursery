@@ -4,6 +4,7 @@ import { createContext, PropsWithChildren, useContext, useEffect, useMemo, useSt
 const STORAGE_KEY = "outdoor-nursery:saved-place-ids";
 
 interface SavedPlacesContextValue {
+  isLoaded: boolean;
   savedPlaceIds: string[];
   isSaved: (placeId: string) => boolean;
   toggleSaved: (placeId: string) => void;
@@ -12,6 +13,7 @@ interface SavedPlacesContextValue {
 const SavedPlacesContext = createContext<SavedPlacesContextValue | null>(null);
 
 export function SavedPlacesProvider({ children }: PropsWithChildren) {
+  const [isLoaded, setIsLoaded] = useState(false);
   const [savedPlaceIds, setSavedPlaceIds] = useState<string[]>([]);
 
   useEffect(() => {
@@ -23,15 +25,23 @@ export function SavedPlacesProvider({ children }: PropsWithChildren) {
       })
       .catch(() => {
         setSavedPlaceIds([]);
+      })
+      .finally(() => {
+        setIsLoaded(true);
       });
   }, []);
 
   useEffect(() => {
+    if (!isLoaded) {
+      return;
+    }
+
     AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(savedPlaceIds)).catch(() => undefined);
-  }, [savedPlaceIds]);
+  }, [isLoaded, savedPlaceIds]);
 
   const value = useMemo<SavedPlacesContextValue>(
     () => ({
+      isLoaded,
       savedPlaceIds,
       isSaved: (placeId) => savedPlaceIds.includes(placeId),
       toggleSaved: (placeId) => {
@@ -42,7 +52,7 @@ export function SavedPlacesProvider({ children }: PropsWithChildren) {
         );
       }
     }),
-    [savedPlaceIds]
+    [isLoaded, savedPlaceIds]
   );
 
   return <SavedPlacesContext.Provider value={value}>{children}</SavedPlacesContext.Provider>;

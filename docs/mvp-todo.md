@@ -64,6 +64,7 @@ This file tracks the current build sequence for the Outdoor Nursery MVP.
 | Add backend/database | current | Supabase schema and seed are live; app remote reads and feedback writes are implemented. |
 | Add Supabase place reads | needs_quality_check | App now uses Supabase-first place loading with local JSON fallback, plus a dev-only Home indicator showing `Supabase` vs `Local fallback`. |
 | Add Supabase quick feedback writes | needs_quality_check | Selecting a quick feedback button inserts an anonymous `feedback` row when Supabase is configured, stores stable feedback codes, and avoids duplicate submissions from the same device/place/type. |
+| Add local saved places | needs_quality_check | See `docs/local-save-mvp.md`. Saves are stored on this phone with `AsyncStorage`; cloud sync is intentionally deferred until accounts exist. |
 | Add manual admin feedback queries | needs_quality_check | See `supabase/admin-feedback-queries.sql` and `docs/admin-feedback-review.md`. User can run the first three read-only query blocks later. |
 | Add review queue helper SQL | done | See `supabase/admin-create-review-items-from-feedback.sql`. It previews repeated/high-priority feedback groups and includes a commented insert into `review_queue`. |
 | Define privacy/data boundaries | done | See `docs/privacy-and-data-boundaries.md`. Current MVP avoids accounts, child personal data, contacts, photos, and live location collection. |
@@ -84,6 +85,7 @@ This file tracks the current build sequence for the Outdoor Nursery MVP.
 - Review admission/parking/reservation labels on cards and details.
 - Review whether quick feedback has the right U.S. parent-facing options.
 - Review whether detail best-fit ranges such as `0-8 / all ages`, `2-8 years`, `5-12 years`, and `6 mo+ / all ages` feel accurate enough.
+- Review local Save behavior on phone: save from Home, check Saved tab, unsave from Detail, then reload the app and confirm saved state persists.
 - Review caregiver notes later before production; for now they can remain `needs_parent_verification`.
 - Review whether the Top 10 list and priorities in `docs/top-10-quality-check.md` match the intended first beta experience.
 - Review official recheck queue in `docs/official-recheck-plan.md` before executing source checks.
