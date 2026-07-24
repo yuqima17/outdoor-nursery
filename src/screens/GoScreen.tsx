@@ -57,7 +57,7 @@ export function GoScreen() {
 
       return matchesCategory && matchesSearch && filterPlace(place, activeFilter);
     });
-  }, [activeFilter, searchText, selectedCategory]);
+  }, [activeFilter, places, searchText, selectedCategory]);
 
   const openPlace = (place: Place) => {
     navigation.navigate("PlaceDetail", { placeId: place.id, title: place.name });
@@ -106,6 +106,22 @@ export function GoScreen() {
               </Text>
             ) : null}
           </View>
+        ) : null}
+
+        {isLoading ? (
+          <StatusBanner
+            body="Checking the latest place list. You can keep browsing while it refreshes."
+            icon="sync"
+            title="Refreshing places"
+          />
+        ) : null}
+
+        {errorMessage && dataSource === "local" ? (
+          <StatusBanner
+            body="Live place data did not load, so the app is showing the saved MVP dataset. Pull down to retry."
+            icon="cloud-offline"
+            title="Using saved place data"
+          />
         ) : null}
 
         <View style={styles.hero}>
@@ -182,6 +198,16 @@ export function GoScreen() {
           <Text style={styles.count}>{filteredPlaces.length} available</Text>
         </View>
 
+        {places.length === 0 && !isLoading ? (
+          <View style={styles.emptyState}>
+            <Ionicons color={colors.teal} name="map-outline" size={38} />
+            <Text style={styles.emptyTitle}>No places loaded</Text>
+            <Text style={styles.emptyText}>
+              Pull down to refresh. If this keeps happening, check the data connection.
+            </Text>
+          </View>
+        ) : null}
+
         {filteredPlaces.map((place) => (
           <PlaceCard
             isSaved={isSaved(place.id)}
@@ -193,14 +219,37 @@ export function GoScreen() {
           />
         ))}
 
-        {filteredPlaces.length === 0 ? (
+        {places.length > 0 && filteredPlaces.length === 0 ? (
           <View style={styles.emptyState}>
+            <Ionicons color={colors.teal} name="search-outline" size={38} />
             <Text style={styles.emptyTitle}>No matches yet</Text>
             <Text style={styles.emptyText}>Try removing one filter or searching another area.</Text>
           </View>
         ) : null}
       </ScrollView>
     </SafeAreaView>
+  );
+}
+
+function StatusBanner({
+  body,
+  icon,
+  title
+}: {
+  body: string;
+  icon: keyof typeof Ionicons.glyphMap;
+  title: string;
+}) {
+  return (
+    <View style={styles.statusBanner}>
+      <View style={styles.statusIcon}>
+        <Ionicons color={colors.tealDark} name={icon} size={20} />
+      </View>
+      <View style={styles.statusCopy}>
+        <Text style={styles.statusTitle}>{title}</Text>
+        <Text style={styles.statusBody}>{body}</Text>
+      </View>
+    </View>
   );
 }
 
@@ -297,6 +346,40 @@ const styles = StyleSheet.create({
     fontSize: 11,
     fontWeight: "800",
     maxWidth: 170
+  },
+  statusBanner: {
+    alignItems: "center",
+    backgroundColor: colors.card,
+    borderColor: colors.border,
+    borderRadius: 16,
+    borderWidth: 1,
+    flexDirection: "row",
+    gap: 12,
+    marginTop: 12,
+    padding: 14
+  },
+  statusIcon: {
+    alignItems: "center",
+    backgroundColor: colors.mintSoft,
+    borderRadius: 14,
+    height: 42,
+    justifyContent: "center",
+    width: 42
+  },
+  statusCopy: {
+    flex: 1
+  },
+  statusTitle: {
+    color: colors.ink,
+    fontSize: 14,
+    fontWeight: "900"
+  },
+  statusBody: {
+    color: colors.text,
+    fontSize: 12,
+    fontWeight: "700",
+    lineHeight: 17,
+    marginTop: 3
   },
   hero: {
     backgroundColor: colors.card,

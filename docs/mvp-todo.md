@@ -71,6 +71,9 @@ This file tracks the current build sequence for the Outdoor Nursery MVP.
 | Define beta readiness checklist | done | See `docs/beta-readiness-checklist.md`. |
 | Prepare Top 10 official recheck worksheet | done | See `docs/top-10-official-recheck-worksheet.md`. |
 | Define map/distance MVP plan | done | See `docs/map-distance-mvp-plan.md`. Keeps current build on external directions and defers location permission. |
+| Improve Home loading/error/empty states | needs_quality_check | Home now shows parent-friendly refresh, local fallback, no-data, and no-match states instead of relying only on dev diagnostics. |
+| Convert Profile into MVP info page | needs_quality_check | Profile now explains the beta purpose, data status, feedback boundaries, and privacy posture. |
+| Create beta QA checklist | done | See `docs/beta-qa-checklist.md`. This supports friend testing without field-checking place facts. |
 | Execute Top 10 official/field recheck | blocked | User wants to skip this for now because field checking is not practical right now. |
 | Create data issue tracker | later | Skip for now; add only when specific data issues come up during normal app review. |
 | Add API integrations | later | Google Places, OSM, weather, and city data should come after local prototype. |
@@ -86,6 +89,9 @@ This file tracks the current build sequence for the Outdoor Nursery MVP.
 - Review whether quick feedback has the right U.S. parent-facing options.
 - Review whether detail best-fit ranges such as `0-8 / all ages`, `2-8 years`, `5-12 years`, and `6 mo+ / all ages` feel accurate enough.
 - Review local Save behavior on phone: save from Home, check Saved tab, unsave from Detail, then reload the app and confirm saved state persists.
+- Review Home fallback/loading/no-match states during normal use and pull-to-refresh.
+- Review Profile beta/privacy/data wording on phone.
+- Review `docs/beta-qa-checklist.md` before asking friends to test.
 - Review caregiver notes later before production; for now they can remain `needs_parent_verification`.
 - Review whether the Top 10 list and priorities in `docs/top-10-quality-check.md` match the intended first beta experience.
 - Review official recheck queue in `docs/official-recheck-plan.md` before executing source checks.
