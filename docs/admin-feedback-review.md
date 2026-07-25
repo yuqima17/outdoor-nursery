@@ -56,14 +56,21 @@ Recommended first checks:
 1. Latest raw feedback.
 2. New feedback grouped by place and type.
 3. Higher-priority review candidates.
+4. Feedback summary for the last 7 days.
+5. Place-level issue summary.
+6. Review queue backlog.
 
 If early testing created rows where `feedback_type` contains display labels such as `Easy parking`, run [supabase/normalize-feedback-types.sql](../supabase/normalize-feedback-types.sql) once.
 
 To turn repeated or high-priority feedback into manual review queue candidates, use [supabase/admin-create-review-items-from-feedback.sql](../supabase/admin-create-review-items-from-feedback.sql). Preview Step 1 first; only run the commented insert after checking the candidates.
 
+To update review item and feedback statuses after manual review, use [supabase/admin-review-queue-actions.sql](../supabase/admin-review-queue-actions.sql). All write examples are commented out by default.
+
+For the overall admin routine, see [Admin Workflow](admin-workflow.md).
+
 ## Query QA Checklist
 
-Run only the first three read-only query blocks in [supabase/admin-feedback-queries.sql](../supabase/admin-feedback-queries.sql) for the basic QA pass.
+Run only read-only query blocks in [supabase/admin-feedback-queries.sql](../supabase/admin-feedback-queries.sql) for the basic QA pass.
 
 Recommended order:
 
@@ -71,7 +78,9 @@ Recommended order:
 2. Run `Latest raw feedback`.
 3. Run `New feedback grouped by place and type`.
 4. Run `Higher-priority review candidates`.
-5. Send the row counts or screenshots back to Codex if anything looks confusing.
+5. Run `Feedback summary for the last 7 days`.
+6. Run `Review queue backlog`.
+7. Send the row counts or screenshots back to Codex if anything looks confusing.
 
 ### 1. Latest Raw Feedback
 
@@ -144,6 +153,14 @@ Use this table while checking:
 - `reviewed`: seen by admin, no public fact change yet.
 - `applied`: used to update a public place fact or parent note.
 - `dismissed`: weak, duplicate, unclear, or not actionable.
+
+Review queue statuses:
+
+- `new`: candidate exists, but admin has not started.
+- `in_review`: admin is checking source or context.
+- `approved`: admin agrees the item should inform a data update.
+- `dismissed`: not actionable.
+- `needs_more_info`: wait for more parent reports or official-source confirmation.
 
 ## Priority Guidance
 

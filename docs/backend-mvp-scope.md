@@ -23,6 +23,7 @@ See also:
 - [Backend Setup Guide](backend-setup-guide.md)
 - [Backend Implementation Plan](backend-implementation-plan.md)
 - [Supabase Schema SQL](../supabase/schema.sql)
+- [Admin Workflow](admin-workflow.md)
 - [Admin Feedback Review](admin-feedback-review.md)
 
 ## MVP Backend Responsibilities

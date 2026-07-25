@@ -1,0 +1,122 @@
+-- Outdoor Nursery admin review queue actions
+-- Use these manually in Supabase SQL Editor.
+--
+-- Safety:
+-- - Every write example is commented out by default.
+-- - Replace placeholder ids before running.
+-- - Run read-only queries first in admin-feedback-queries.sql.
+-- - These actions do not update public place data automatically.
+
+-- 1. Mark one review item as in_review
+-- update review_queue
+-- set
+--   status = 'in_review',
+--   notes = coalesce(notes || E'\n', '') || 'Admin started review at ' || now()::text
+-- where id = 'replace-with-review-item-id';
+
+-- 2. Mark linked feedback as reviewed for one review item
+-- update feedback
+-- set
+--   status = 'reviewed',
+--   reviewed_at = now()
+-- where id::text in (
+--   select unnest(source_ids)
+--   from review_queue
+--   where id = 'replace-with-review-item-id'
+-- );
+
+-- 3. Dismiss one review item and dismiss linked feedback
+-- with dismissed_item as (
+--   update review_queue
+--   set
+--     status = 'dismissed',
+--     reviewed_at = now(),
+--     notes = coalesce(notes || E'\n', '') || 'Dismissed: replace-with-reason'
+--   where id = 'replace-with-review-item-id'
+--   returning source_ids
+-- )
+-- update feedback
+-- set
+--   status = 'dismissed',
+--   reviewed_at = now()
+-- where id::text in (
+--   select unnest(source_ids)
+--   from dismissed_item
+-- );
+
+-- 4. Mark one review item as needs_more_info
+-- update review_queue
+-- set
+--   status = 'needs_more_info',
+--   reviewed_at = now(),
+--   notes = coalesce(notes || E'\n', '') || 'Needs more info: replace-with-question-or-source-needed'
+-- where id = 'replace-with-review-item-id';
+
+-- 5. Approve one review item after manually checking sources
+-- This does not update places or place_facts. It only marks the review item approved.
+-- update review_queue
+-- set
+--   status = 'approved',
+--   reviewed_at = now(),
+--   notes = coalesce(notes || E'\n', '') || 'Approved after manual review: replace-with-summary'
+-- where id = 'replace-with-review-item-id';
+
+-- 6. Mark linked feedback as applied after manually updating public data
+-- Only run this after updating place_json/place_facts or parent notes.
+-- update feedback
+-- set
+--   status = 'applied',
+--   reviewed_at = now()
+-- where id::text in (
+--   select unnest(source_ids)
+--   from review_queue
+--   where id = 'replace-with-review-item-id'
+-- );
+
+-- 7. Link one feedback row to an existing review item
+-- update review_queue
+-- set source_ids = array(
+--   select distinct source_id
+--   from unnest(source_ids || array['replace-with-feedback-id']::text[]) as next_source_id(source_id)
+-- )
+-- where id = 'replace-with-review-item-id';
+
+-- 8. Create one manual review item from a specific feedback row
+-- insert into review_queue (
+--   place_id,
+--   field_path,
+--   current_value_json,
+--   proposed_value_json,
+--   reason,
+--   source_type,
+--   source_ids,
+--   priority
+-- )
+-- select
+--   feedback.place_id,
+--   'replace-with-field-path',
+--   place_facts.value_json,
+--   null,
+--   'Manual review from feedback: ' || feedback.feedback_type,
+--   'quick_feedback',
+--   array[feedback.id::text],
+--   'medium'::review_priority
+-- from feedback
+-- left join place_facts
+--   on place_facts.place_id = feedback.place_id
+--  and place_facts.field_path = 'replace-with-field-path'
+-- where feedback.id = 'replace-with-feedback-id';
+
+-- 9. Mark old reviewed feedback as dismissed if it never became a review item
+-- Use sparingly after a manual cleanup pass.
+-- update feedback
+-- set
+--   status = 'dismissed',
+--   reviewed_at = coalesce(reviewed_at, now())
+-- where status = 'reviewed'
+--   and created_at < now() - interval '30 days'
+--   and not exists (
+--     select 1
+--     from review_queue
+--     where feedback.id::text = any(review_queue.source_ids)
+--   );

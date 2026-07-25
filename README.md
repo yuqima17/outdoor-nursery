@@ -43,6 +43,7 @@ The first version should stay intentionally small:
 - [Data Trust Model](docs/data-trust-model.md)
 - [Seed Data Guide](docs/seed-data-guide.md)
 - [Feedback Model](docs/feedback-model.md)
+- [Admin Workflow](docs/admin-workflow.md)
 - [Admin Review Flow](docs/admin-review-flow.md)
 - [Admin Feedback Review](docs/admin-feedback-review.md)
 - [Backend MVP Scope](docs/backend-mvp-scope.md)
@@ -70,6 +71,7 @@ The first version should stay intentionally small:
 - [Seed Generator](scripts/generate-supabase-seed.js): regenerates `supabase/seed.sql` from the local JSON data.
 - [Feedback Type Normalizer](supabase/normalize-feedback-types.sql): one-time cleanup for early feedback rows that stored labels instead of stable codes.
 - [Admin Review Queue Helper](supabase/admin-create-review-items-from-feedback.sql): previews and optionally inserts review queue candidates from feedback.
+- [Admin Review Queue Actions](supabase/admin-review-queue-actions.sql): commented manual status updates for review items and linked feedback.
 
 ## Development
 

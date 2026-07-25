@@ -116,6 +116,8 @@ No complex dashboard is needed before beta.
 
 Current manual review helper:
 
+- [Admin Workflow](admin-workflow.md)
 - [Admin Feedback Review](admin-feedback-review.md)
 - [Supabase Admin Feedback Queries](../supabase/admin-feedback-queries.sql)
 - [Supabase Review Queue Helper](../supabase/admin-create-review-items-from-feedback.sql)
+- [Supabase Review Queue Actions](../supabase/admin-review-queue-actions.sql)
