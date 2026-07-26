@@ -26,7 +26,12 @@ const rows: Array<{ icon: IconName; title: string; body: string }> = [
   {
     icon: "lock-closed-outline",
     title: "Privacy",
-    body: "The MVP does not ask for child information, contacts, photos, accounts, or live location. Saved places stay on this phone for now."
+    body: "The MVP does not ask for child information, contacts, photos, accounts, or live location. Saved places stay on this phone, and quick feedback is anonymous."
+  },
+  {
+    icon: "document-text-outline",
+    title: "Privacy policy",
+    body: "A plain-language privacy policy draft is ready for review before wider beta or TestFlight."
   }
 ];
 

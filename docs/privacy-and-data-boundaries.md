@@ -4,6 +4,8 @@ This document defines the current MVP data boundary for Outdoor Nursery.
 
 It is not a final privacy policy. It is a product and engineering guardrail so the prototype does not collect more data than it needs.
 
+For the parent-facing draft policy, see [Privacy Policy Draft](privacy-policy-draft.md).
+
 ## Current MVP Data Collection
 
 The app currently stores:

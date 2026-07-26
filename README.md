@@ -52,6 +52,7 @@ The first version should stay intentionally small:
 - [Backend Setup Guide](docs/backend-setup-guide.md)
 - [Backend Implementation Plan](docs/backend-implementation-plan.md)
 - [Privacy And Data Boundaries](docs/privacy-and-data-boundaries.md)
+- [Privacy Policy Draft](docs/privacy-policy-draft.md)
 - [Beta Readiness Checklist](docs/beta-readiness-checklist.md)
 - [Beta Distribution Plan](docs/beta-distribution-plan.md)
 - [Release Checklist](docs/release-checklist.md)

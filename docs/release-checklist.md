@@ -56,7 +56,7 @@ Current target:
 
 ## Privacy
 
-- Draft a public-facing privacy policy before TestFlight or wider beta.
+- Review and finalize the public-facing privacy policy draft.
 - Explain anonymous quick feedback.
 - Explain anonymous device id.
 - Explain local saved places.
