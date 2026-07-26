@@ -57,6 +57,8 @@ The first version should stay intentionally small:
 - [Beta Distribution Plan](docs/beta-distribution-plan.md)
 - [Release Checklist](docs/release-checklist.md)
 - [Expo Config Audit](docs/expo-config-audit.md)
+- [EAS Build Plan](docs/eas-build-plan.md)
+- [TestFlight Prep](docs/testflight-prep.md)
 - [Brand Assets](docs/brand-assets.md)
 - [Beta QA Checklist](docs/beta-qa-checklist.md)
 - [Beta Feedback Log](docs/beta-feedback-log.md)

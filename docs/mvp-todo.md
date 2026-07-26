@@ -84,8 +84,10 @@ This file tracks the current build sequence for the Outdoor Nursery MVP.
 | Draft beta tester invite | done | See `docs/beta-tester-invite.md`. Includes short and longer English messages for friend testing. |
 | Define beta distribution plan | needs_quality_check | See `docs/beta-distribution-plan.md`. Recommendation is Expo Go for tiny beta, TestFlight later. |
 | Create release checklist | needs_quality_check | See `docs/release-checklist.md`. Tracks product, app config, backend, data, privacy, QA, and TestFlight readiness. |
-| Audit Expo release config | needs_quality_check | See `docs/expo-config-audit.md`. Current config is fine for Expo Go but missing bundle id, EAS config, icon, and splash for TestFlight. |
+| Audit Expo release config | needs_quality_check | See `docs/expo-config-audit.md`. Current config is fine for Expo Go; TestFlight still needs bundle id, build number, EAS env vars, and Apple setup. |
 | Add draft brand assets | needs_quality_check | Draft icon, splash, Home hero, and visual asset board are in `assets/`. Home now uses the hero image. |
+| Add EAS config draft | needs_quality_check | See `eas.json` and `docs/eas-build-plan.md`. No EAS build has been run yet. |
+| Draft TestFlight prep guide | needs_quality_check | See `docs/testflight-prep.md`. User needs Apple Developer Program, bundle identifier, and App Store Connect setup before TestFlight. |
 | Execute Top 10 official/field recheck | blocked | User wants to skip this for now because field checking is not practical right now. |
 | Create data issue tracker | later | Skip for now; add only when specific data issues come up during normal app review. |
 | Add API integrations | later | Google Places, OSM, weather, and city data should come after local prototype. |
@@ -112,6 +114,9 @@ This file tracks the current build sequence for the Outdoor Nursery MVP.
 - Decide app icon/splash direction before real EAS/TestFlight work.
 - Review draft icon, splash, and Home hero on phone.
 - Review privacy policy draft and choose an effective date before wider beta.
+- Decide whether to enroll in Apple Developer Program.
+- Choose iOS bundle identifier before first EAS/TestFlight build.
+- Decide whether first TestFlight beta is iOS-only.
 - Review caregiver notes later before production; for now they can remain `needs_parent_verification`.
 - Review whether the Top 10 list and priorities in `docs/top-10-quality-check.md` match the intended first beta experience.
 - Review official recheck queue in `docs/official-recheck-plan.md` before executing source checks.

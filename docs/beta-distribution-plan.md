@@ -73,7 +73,7 @@ Not good for:
 
 ## Stage 3: EAS Internal Build
 
-Status: later.
+Status: planned; `eas.json` exists, but no build has been run.
 
 Use this when:
 
@@ -85,10 +85,11 @@ Likely needed:
 
 - Expo account.
 - EAS CLI.
-- `eas.json`.
 - iOS bundle identifier.
 - Android package name if testing Android.
 - App icon and splash assets.
+
+See [EAS Build Plan](eas-build-plan.md).
 
 This can still be private and does not require public App Store listing.
 
@@ -110,6 +111,8 @@ Needed:
 - Privacy details.
 - App icon.
 - Test information and beta review notes.
+
+See [TestFlight Prep](testflight-prep.md).
 
 Recommended first TestFlight scope:
 

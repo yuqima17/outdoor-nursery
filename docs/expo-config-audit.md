@@ -11,9 +11,10 @@ This audit reviews the current Expo release configuration. It is intentionally a
 
 There is currently no:
 
-- `eas.json`
 - iOS bundle identifier
 - Android package name
+
+`eas.json` now exists with `preview` and `production` build profiles.
 
 Draft visual assets now exist:
 
@@ -49,7 +50,6 @@ Add before a real iOS beta build:
 - `ios.buildNumber`, for example `1`.
 - Final app icon.
 - Final splash screen image and background color.
-- EAS config file: `eas.json`.
 - Expo project owner if using an Expo account/team.
 
 Add before Android beta:
@@ -108,8 +108,8 @@ Do not make these until ready for EAS/TestFlight:
 2. Refine final splash image.
 3. Add `ios.bundleIdentifier`.
 4. Decide `ios.supportsTablet`.
-5. Add `eas.json`.
-6. Add build number fields.
+5. Add build number fields.
+6. Configure EAS environment variables.
 
 ## Recommendation
 

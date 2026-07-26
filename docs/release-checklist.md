@@ -26,6 +26,7 @@ Current target:
 
 - Add iOS bundle identifier before EAS/TestFlight.
 - Add Android package name before Android build.
+- Confirm `eas.json` build profiles.
 - Review/refine draft app icon.
 - Review/refine draft splash screen asset.
 - Confirm version and build number strategy.
@@ -102,7 +103,13 @@ Before TestFlight:
 - Beta review notes are written.
 - Tester instructions are written.
 - EAS config exists.
+- EAS env vars are configured.
 - First EAS iOS build succeeds.
+
+See:
+
+- [EAS Build Plan](eas-build-plan.md)
+- [TestFlight Prep](testflight-prep.md)
 
 ## Not Required Yet
 
