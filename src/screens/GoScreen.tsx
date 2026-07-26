@@ -3,6 +3,7 @@ import { useNavigation } from "@react-navigation/native";
 import { Ionicons } from "@expo/vector-icons";
 import { useMemo, useState } from "react";
 import {
+  Image,
   Linking,
   RefreshControl,
   ScrollView,
@@ -35,6 +36,8 @@ const filters: Array<{ key: FilterKey; label: string }> = [
   { key: "restroom", label: "Restrooms" },
   { key: "shade", label: "Shade" }
 ];
+
+const homeHeroImage = require("../../assets/home-hero.png");
 
 export function GoScreen() {
   const navigation = useNavigation<Navigation>();
@@ -125,6 +128,12 @@ export function GoScreen() {
         ) : null}
 
         <View style={styles.hero}>
+          <Image
+            accessibilityIgnoresInvertColors
+            resizeMode="cover"
+            source={homeHeroImage}
+            style={styles.heroImage}
+          />
           <View style={styles.heroTextBlock}>
             <Text style={styles.heroTitle}>Where should we go today?</Text>
             <Text style={styles.heroSubtitle}>
@@ -386,6 +395,12 @@ const styles = StyleSheet.create({
     borderRadius: 22,
     marginTop: 18,
     padding: 20
+  },
+  heroImage: {
+    borderRadius: 17,
+    height: 172,
+    marginBottom: 18,
+    width: "100%"
   },
   heroTextBlock: {
     maxWidth: 320

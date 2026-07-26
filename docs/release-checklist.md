@@ -26,8 +26,8 @@ Current target:
 
 - Add iOS bundle identifier before EAS/TestFlight.
 - Add Android package name before Android build.
-- Add app icon.
-- Add splash screen asset.
+- Review/refine draft app icon.
+- Review/refine draft splash screen asset.
 - Confirm version and build number strategy.
 - Confirm portrait-only orientation is intentional.
 - Confirm tablet support is intentional or disable it.
@@ -77,6 +77,8 @@ Current target:
 - Test Quick Feedback.
 - Test Profile page.
 - Test Supabase fallback behavior.
+- Test Home hero image on phone.
+- Confirm app icon and splash load in Expo/EAS config.
 
 ## Beta Operations
 

@@ -11,12 +11,18 @@ This audit reviews the current Expo release configuration. It is intentionally a
 
 There is currently no:
 
-- `assets/` directory
 - `eas.json`
-- app icon
-- splash image
 - iOS bundle identifier
 - Android package name
+
+Draft visual assets now exist:
+
+- `assets/icon.png`
+- `assets/splash.png`
+- `assets/home-hero.png`
+- `assets/visual-asset-board.png`
+
+See [Brand Assets](brand-assets.md) for direction and status.
 
 ## Current `app.json`
 
@@ -27,9 +33,12 @@ There is currently no:
 | `expo.version` | `0.1.0` | okay | Good MVP version. Need build numbers later. |
 | `expo.orientation` | `portrait` | okay | Matches current phone-first product. |
 | `expo.userInterfaceStyle` | `light` | okay | App currently designed for light mode only. |
+| `expo.icon` | `./assets/icon.png` | draft | Good for prototype; refine before TestFlight/App Store. |
+| `expo.splash` | `./assets/splash.png` | draft | Good for prototype; confirm native splash behavior before EAS/TestFlight. |
 | `assetBundlePatterns` | `["**/*"]` | okay for MVP | Can tighten later if needed. |
 | `ios.supportsTablet` | `true` | needs decision | If the first beta is iPhone-only, set this to `false` later. |
-| `android.adaptiveIcon.backgroundColor` | `#EAF8F2` | incomplete | Needs foreground icon before Android build. |
+| `android.adaptiveIcon.foregroundImage` | `./assets/icon.png` | draft | Good for prototype; Android adaptive icon should be refined separately before Android beta. |
+| `android.adaptiveIcon.backgroundColor` | `#EAF8F2` | okay | Matches current palette. |
 | `web.bundler` | `metro` | okay | Web is not the release target. |
 
 ## Missing Before EAS/TestFlight
@@ -38,8 +47,8 @@ Add before a real iOS beta build:
 
 - `ios.bundleIdentifier`, for example `com.yuqima.outdoornursery`.
 - `ios.buildNumber`, for example `1`.
-- App icon, usually `./assets/icon.png`.
-- Splash screen image and background color.
+- Final app icon.
+- Final splash screen image and background color.
 - EAS config file: `eas.json`.
 - Expo project owner if using an Expo account/team.
 
@@ -47,7 +56,7 @@ Add before Android beta:
 
 - `android.package`, for example `com.yuqima.outdoornursery`.
 - `android.versionCode`.
-- Android adaptive icon foreground image.
+- Final Android adaptive icon foreground image.
 
 ## Current `package.json`
 
@@ -95,8 +104,8 @@ Before beta:
 
 Do not make these until ready for EAS/TestFlight:
 
-1. Create `assets/icon.png`.
-2. Create splash image.
+1. Refine final `assets/icon.png`.
+2. Refine final splash image.
 3. Add `ios.bundleIdentifier`.
 4. Decide `ios.supportsTablet`.
 5. Add `eas.json`.
