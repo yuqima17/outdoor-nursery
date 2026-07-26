@@ -40,6 +40,16 @@ This checklist tracks what needs to happen before Outdoor Nursery is shared beyo
 - Test Quick Feedback.
 - Test local JSON fallback by temporarily removing Supabase env values.
 
+## Release Configuration
+
+- Review [Beta Distribution Plan](beta-distribution-plan.md).
+- Review [Release Checklist](release-checklist.md).
+- Review [Expo Config Audit](expo-config-audit.md).
+- Decide whether the next test stays on Expo Go or moves to TestFlight.
+- Decide whether first beta is iOS-only.
+- Decide app icon and splash direction before EAS/TestFlight.
+- Add bundle identifier only when moving toward EAS/TestFlight.
+
 ## Privacy
 
 - Confirm no account is required for MVP.

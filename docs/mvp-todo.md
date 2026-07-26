@@ -81,6 +81,9 @@ This file tracks the current build sequence for the Outdoor Nursery MVP.
 | Create beta feedback log | done | See `docs/beta-feedback-log.md`. Use it to record tester sessions, open feedback items, and decisions. |
 | Define beta issue triage rules | done | See `docs/beta-issue-triage.md`. Issues are grouped as Blocker, High, Medium, or Low. |
 | Draft beta tester invite | done | See `docs/beta-tester-invite.md`. Includes short and longer English messages for friend testing. |
+| Define beta distribution plan | needs_quality_check | See `docs/beta-distribution-plan.md`. Recommendation is Expo Go for tiny beta, TestFlight later. |
+| Create release checklist | needs_quality_check | See `docs/release-checklist.md`. Tracks product, app config, backend, data, privacy, QA, and TestFlight readiness. |
+| Audit Expo release config | needs_quality_check | See `docs/expo-config-audit.md`. Current config is fine for Expo Go but missing bundle id, EAS config, icon, and splash for TestFlight. |
 | Execute Top 10 official/field recheck | blocked | User wants to skip this for now because field checking is not practical right now. |
 | Create data issue tracker | later | Skip for now; add only when specific data issues come up during normal app review. |
 | Add API integrations | later | Google Places, OSM, weather, and city data should come after local prototype. |
@@ -103,6 +106,8 @@ This file tracks the current build sequence for the Outdoor Nursery MVP.
 - Fill `docs/beta-feedback-log.md` after the first tester session.
 - Run read-only admin queries in Supabase SQL Editor and review whether the feedback/review queue output is understandable.
 - Review `docs/place-data-update-sop.md` before manually changing any public place data.
+- Review beta distribution decision: stay on Expo Go for friend testing or prepare TestFlight.
+- Decide app icon/splash direction before real EAS/TestFlight work.
 - Review caregiver notes later before production; for now they can remain `needs_parent_verification`.
 - Review whether the Top 10 list and priorities in `docs/top-10-quality-check.md` match the intended first beta experience.
 - Review official recheck queue in `docs/official-recheck-plan.md` before executing source checks.
