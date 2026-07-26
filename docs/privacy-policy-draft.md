@@ -101,7 +101,7 @@ Before wider beta or public release, decide:
 
 ## Contact
 
-Contact email: todo@example.com
+Contact email: outdoornursery@gmail.com
 
 Use this contact for privacy questions, data questions, or feedback about the app.
 
@@ -109,4 +109,4 @@ Use this contact for privacy questions, data questions, or feedback about the ap
 
 This policy may change as the app moves from MVP prototype to beta.
 
-Before a public release, this draft should become a final public privacy policy with the correct contact email, effective date, and release scope.
+Before a public release, this draft should become a final public privacy policy with the correct effective date and release scope.

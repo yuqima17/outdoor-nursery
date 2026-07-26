@@ -63,7 +63,7 @@ Current target:
 - Confirm no child personal data is collected.
 - Confirm no live location collection.
 - Decide feedback retention expectations.
-- Decide support/contact email.
+- Confirm support/contact email: `outdoornursery@gmail.com`.
 
 ## QA
 

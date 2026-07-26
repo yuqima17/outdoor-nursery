@@ -72,7 +72,7 @@ This file tracks the current build sequence for the Outdoor Nursery MVP.
 | Define place data update SOP | needs_quality_check | See `docs/place-data-update-sop.md`. Feedback must move through review before public place data changes. |
 | Add place update SQL templates | needs_quality_check | See `supabase/admin-place-update-templates.sql`. Templates update `place_json` and `place_facts` together, then mark review/feedback status. |
 | Define privacy/data boundaries | done | See `docs/privacy-and-data-boundaries.md`. Current MVP avoids accounts, child personal data, contacts, photos, and live location collection. |
-| Draft privacy policy | needs_quality_check | See `docs/privacy-policy-draft.md`. Needs final contact email, effective date, and review before wider beta/TestFlight. |
+| Draft privacy policy | needs_quality_check | See `docs/privacy-policy-draft.md`. Contact email is `outdoornursery@gmail.com`; needs effective date and review before wider beta/TestFlight. |
 | Define beta readiness checklist | done | See `docs/beta-readiness-checklist.md`. |
 | Prepare Top 10 official recheck worksheet | done | See `docs/top-10-official-recheck-worksheet.md`. |
 | Define map/distance MVP plan | done | See `docs/map-distance-mvp-plan.md`. Keeps current build on external directions and defers location permission. |
@@ -111,7 +111,7 @@ This file tracks the current build sequence for the Outdoor Nursery MVP.
 - Review beta distribution decision: stay on Expo Go for friend testing or prepare TestFlight.
 - Decide app icon/splash direction before real EAS/TestFlight work.
 - Review draft icon, splash, and Home hero on phone.
-- Review privacy policy draft and choose a real contact email before wider beta.
+- Review privacy policy draft and choose an effective date before wider beta.
 - Review caregiver notes later before production; for now they can remain `needs_parent_verification`.
 - Review whether the Top 10 list and priorities in `docs/top-10-quality-check.md` match the intended first beta experience.
 - Review official recheck queue in `docs/official-recheck-plan.md` before executing source checks.
