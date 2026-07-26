@@ -46,6 +46,7 @@ The first version should stay intentionally small:
 - [Admin Workflow](docs/admin-workflow.md)
 - [Admin Review Flow](docs/admin-review-flow.md)
 - [Admin Feedback Review](docs/admin-feedback-review.md)
+- [Place Data Update SOP](docs/place-data-update-sop.md)
 - [Backend MVP Scope](docs/backend-mvp-scope.md)
 - [Backend Decisions](docs/backend-decisions.md)
 - [Backend Setup Guide](docs/backend-setup-guide.md)
@@ -72,6 +73,7 @@ The first version should stay intentionally small:
 - [Feedback Type Normalizer](supabase/normalize-feedback-types.sql): one-time cleanup for early feedback rows that stored labels instead of stable codes.
 - [Admin Review Queue Helper](supabase/admin-create-review-items-from-feedback.sql): previews and optionally inserts review queue candidates from feedback.
 - [Admin Review Queue Actions](supabase/admin-review-queue-actions.sql): commented manual status updates for review items and linked feedback.
+- [Admin Place Update Templates](supabase/admin-place-update-templates.sql): commented templates for updating `place_json`, `place_facts`, source rows, and applied feedback safely.
 
 ## Development
 

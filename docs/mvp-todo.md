@@ -69,6 +69,8 @@ This file tracks the current build sequence for the Outdoor Nursery MVP.
 | Add review queue helper SQL | done | See `supabase/admin-create-review-items-from-feedback.sql`. It previews repeated/high-priority feedback groups and includes a commented insert into `review_queue`. |
 | Define backend/admin workflow | needs_quality_check | See `docs/admin-workflow.md`. Supabase SQL Editor is the first admin surface; custom admin UI is deferred. |
 | Add review queue action SQL | needs_quality_check | See `supabase/admin-review-queue-actions.sql`. Write queries are commented out and should only be run after manual review. |
+| Define place data update SOP | needs_quality_check | See `docs/place-data-update-sop.md`. Feedback must move through review before public place data changes. |
+| Add place update SQL templates | needs_quality_check | See `supabase/admin-place-update-templates.sql`. Templates update `place_json` and `place_facts` together, then mark review/feedback status. |
 | Define privacy/data boundaries | done | See `docs/privacy-and-data-boundaries.md`. Current MVP avoids accounts, child personal data, contacts, photos, and live location collection. |
 | Define beta readiness checklist | done | See `docs/beta-readiness-checklist.md`. |
 | Prepare Top 10 official recheck worksheet | done | See `docs/top-10-official-recheck-worksheet.md`. |
@@ -100,6 +102,7 @@ This file tracks the current build sequence for the Outdoor Nursery MVP.
 - Review and personalize `docs/beta-tester-invite.md` before sending it to friends.
 - Fill `docs/beta-feedback-log.md` after the first tester session.
 - Run read-only admin queries in Supabase SQL Editor and review whether the feedback/review queue output is understandable.
+- Review `docs/place-data-update-sop.md` before manually changing any public place data.
 - Review caregiver notes later before production; for now they can remain `needs_parent_verification`.
 - Review whether the Top 10 list and priorities in `docs/top-10-quality-check.md` match the intended first beta experience.
 - Review official recheck queue in `docs/official-recheck-plan.md` before executing source checks.

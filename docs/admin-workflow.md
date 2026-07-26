@@ -16,6 +16,8 @@ Help the admin answer four questions:
 - [Admin Feedback Queries](../supabase/admin-feedback-queries.sql): read-only dashboard and QA queries.
 - [Review Queue Helper](../supabase/admin-create-review-items-from-feedback.sql): preview and optional insert of review queue candidates from feedback groups.
 - [Review Queue Actions](../supabase/admin-review-queue-actions.sql): manual status updates for review queue and linked feedback.
+- [Place Data Update SOP](place-data-update-sop.md): rules for safely changing public place data.
+- [Place Update Templates](../supabase/admin-place-update-templates.sql): commented SQL templates for updating `place_json` and `place_facts` together.
 - [Admin Feedback Review](admin-feedback-review.md): feedback format and QA expectations.
 - [Admin Review Flow](admin-review-flow.md): product rules for reviewing user feedback.
 
@@ -36,11 +38,25 @@ Help the admin answer four questions:
 8. Mark review items as `in_review`, `approved`, `dismissed`, or `needs_more_info`.
 9. Mark linked feedback as `reviewed`, `applied`, or `dismissed`.
 
+## Data Update Workflow
+
+Use this only after a review item is checked.
+
+1. Read [Place Data Update SOP](place-data-update-sop.md).
+2. Preview the current value in [Place Update Templates](../supabase/admin-place-update-templates.sql).
+3. Update `places.place_json` for the field the app should display.
+4. Upsert the matching `place_facts` row for trust/source metadata.
+5. Add or refresh a `place_sources` row if an official source was checked.
+6. Mark the review item `approved`.
+7. Mark linked feedback `applied`.
+8. If the change should persist in repo seed data, update `data/sample-places.json` and regenerate `supabase/seed.sql`.
+
 ## Safety Rules
 
 - Quick feedback is a signal, not proof.
 - Feedback never directly updates public place facts.
 - Do not update `places.place_json` without also considering `place_facts`.
+- If `places.place_json` changes, the matching `place_facts` row should usually change in the same transaction.
 - Recheck official sources for fees, reservations, hours, restroom availability, closures, and safety-related details.
 - Parent feedback can support parent notes, but public facts should stay conservative.
 

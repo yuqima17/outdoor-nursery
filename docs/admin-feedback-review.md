@@ -196,4 +196,6 @@ Before changing a place fact:
 4. Update `place_json` and `place_facts` together.
 5. Mark related feedback as `applied` or `reviewed`.
 
+Use [Place Data Update SOP](place-data-update-sop.md) and [supabase/admin-place-update-templates.sql](../supabase/admin-place-update-templates.sql) for the manual update steps.
+
 For now, manual review in Supabase is enough. A full admin UI can wait.

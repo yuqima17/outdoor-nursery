@@ -25,6 +25,7 @@ See also:
 - [Supabase Schema SQL](../supabase/schema.sql)
 - [Admin Workflow](admin-workflow.md)
 - [Admin Feedback Review](admin-feedback-review.md)
+- [Place Data Update SOP](place-data-update-sop.md)
 
 ## MVP Backend Responsibilities
 
