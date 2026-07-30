@@ -45,10 +45,11 @@ This checklist tracks what needs to happen before Outdoor Nursery is shared beyo
 - Review [Beta Distribution Plan](beta-distribution-plan.md).
 - Review [Release Checklist](release-checklist.md).
 - Review [Expo Config Audit](expo-config-audit.md).
-- Decide whether the next test stays on Expo Go or moves to TestFlight.
-- Decide whether first beta is iOS-only.
-- Decide app icon and splash direction before EAS/TestFlight.
-- Add bundle identifier only when moving toward EAS/TestFlight.
+- Next test can stay on Expo Go while EAS/TestFlight setup is prepared.
+- First beta scope is iOS-only and iPhone-only.
+- iOS bundle identifier is configured as `com.yuqima.outdoornursery`.
+- Decide app icon and splash direction before TestFlight.
+- Create or log into an Expo account before the first EAS build.
 
 ## Privacy
 
@@ -63,4 +64,4 @@ This checklist tracks what needs to happen before Outdoor Nursery is shared beyo
 - Decide who can edit Supabase data.
 - Decide commit/release rhythm.
 - Make a simple QA checklist for every build.
-- Decide whether TestFlight is needed before public app store work.
+- Use TestFlight before public app store work when asynchronous tester installs are needed.

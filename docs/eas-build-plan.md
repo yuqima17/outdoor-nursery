@@ -16,15 +16,17 @@ Current status:
 - Draft icon and splash are configured.
 - Supabase backend is configured through public env vars.
 - `eas.json` exists.
+- Apple Developer Program membership is active.
+- First beta target is iOS only.
+- iOS bundle identifier is `com.yuqima.outdoornursery`.
+- First iOS build number is `1`.
 - No EAS build has been run yet.
 
 Still missing before a real iOS build:
 
-- Apple Developer Program membership.
 - Expo account / EAS login.
-- iOS bundle identifier.
 - App Store Connect app record, before TestFlight submission.
-- Final privacy policy effective date.
+- Public privacy policy URL, before TestFlight submission.
 
 ## Current `eas.json`
 
@@ -100,13 +102,12 @@ Do these first:
 
 1. Create or confirm Expo account.
 2. Install/login with EAS CLI.
-3. Decide iOS bundle identifier.
-4. Add `ios.bundleIdentifier` to `app.json`.
-5. Decide whether `ios.supportsTablet` should remain `true`.
-6. Add `ios.buildNumber` if not relying fully on EAS remote increment.
-7. Confirm icon and splash are acceptable for beta.
-8. Confirm `.env` values are set in EAS environment.
-9. Run local checks:
+3. Confirm `ios.bundleIdentifier` is `com.yuqima.outdoornursery`.
+4. Confirm `ios.supportsTablet` is `false` for the first iPhone-only beta.
+5. Confirm `ios.buildNumber` is ready for the first build.
+6. Confirm icon and splash are acceptable for beta.
+7. Confirm `.env` values are set in EAS environment.
+8. Run local checks:
 
 ```bash
 npm run typecheck
@@ -118,6 +119,14 @@ npm exec expo export -- --platform ios --output-dir /tmp/nursery-app-export-test
 For the first real build, use iOS only.
 
 Recommended sequence:
+
+```bash
+npx eas-cli login
+npx eas-cli build:configure
+npx eas-cli build --platform ios --profile preview
+```
+
+If EAS CLI is installed globally, the shorter form also works:
 
 ```bash
 eas login
@@ -142,10 +151,6 @@ eas submit --platform ios --profile production
 
 ## Decisions Needed From User
 
-- Apple Developer Program: yes/no and timing.
-- Bundle identifier:
-  - `com.outdoornursery.app`
-  - `com.yuqima.outdoornursery`
-  - another owner/domain-based value
-- First beta scope: iOS-only or iOS + Android.
 - Whether the current draft icon/splash are good enough for TestFlight.
+- Whether to create a new Expo account or use an existing one.
+- Where to host the public privacy policy URL.

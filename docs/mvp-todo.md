@@ -12,11 +12,11 @@ This file tracks the current build sequence for the Outdoor Nursery MVP.
 
 ## Current Recommended Path
 
-1. Finish first data and product documents.
-2. Quality-check the seed data and page requirements.
-3. Build an Expo + React Native mobile app prototype from local JSON.
-4. Test the flow with a few parents.
-5. Only then design backend/API ingestion in detail.
+1. Keep using Expo Go for fast phone QA.
+2. Prepare EAS/TestFlight configuration for a first iPhone-only beta.
+3. Create or log into an Expo account.
+4. Configure EAS environment variables.
+5. Run the first EAS iOS preview build.
 
 ## Todo List
 
@@ -72,7 +72,7 @@ This file tracks the current build sequence for the Outdoor Nursery MVP.
 | Define place data update SOP | needs_quality_check | See `docs/place-data-update-sop.md`. Feedback must move through review before public place data changes. |
 | Add place update SQL templates | needs_quality_check | See `supabase/admin-place-update-templates.sql`. Templates update `place_json` and `place_facts` together, then mark review/feedback status. |
 | Define privacy/data boundaries | done | See `docs/privacy-and-data-boundaries.md`. Current MVP avoids accounts, child personal data, contacts, photos, and live location collection. |
-| Draft privacy policy | needs_quality_check | See `docs/privacy-policy-draft.md`. Contact email is `outdoornursery@gmail.com`; needs effective date and review before wider beta/TestFlight. |
+| Draft privacy policy | needs_quality_check | See `docs/privacy-policy-draft.md`. Contact email is `outdoornursery@gmail.com`; effective date is July 30, 2026; needs final review before wider beta/TestFlight. |
 | Define beta readiness checklist | done | See `docs/beta-readiness-checklist.md`. |
 | Prepare Top 10 official recheck worksheet | done | See `docs/top-10-official-recheck-worksheet.md`. |
 | Define map/distance MVP plan | done | See `docs/map-distance-mvp-plan.md`. Keeps current build on external directions and defers location permission. |
@@ -84,10 +84,10 @@ This file tracks the current build sequence for the Outdoor Nursery MVP.
 | Draft beta tester invite | done | See `docs/beta-tester-invite.md`. Includes short and longer English messages for friend testing. |
 | Define beta distribution plan | needs_quality_check | See `docs/beta-distribution-plan.md`. Recommendation is Expo Go for tiny beta, TestFlight later. |
 | Create release checklist | needs_quality_check | See `docs/release-checklist.md`. Tracks product, app config, backend, data, privacy, QA, and TestFlight readiness. |
-| Audit Expo release config | needs_quality_check | See `docs/expo-config-audit.md`. Current config is fine for Expo Go; TestFlight still needs bundle id, build number, EAS env vars, and Apple setup. |
+| Audit Expo release config | needs_quality_check | See `docs/expo-config-audit.md`. iOS bundle id, iOS build number, and iPhone-only support are configured; TestFlight still needs Expo account/login, EAS env vars, and App Store Connect setup. |
 | Add draft brand assets | needs_quality_check | Draft icon, splash, Home hero, and visual asset board are in `assets/`. Home now uses the hero image. |
 | Add EAS config draft | needs_quality_check | See `eas.json` and `docs/eas-build-plan.md`. No EAS build has been run yet. |
-| Draft TestFlight prep guide | needs_quality_check | See `docs/testflight-prep.md`. User needs Apple Developer Program, bundle identifier, and App Store Connect setup before TestFlight. |
+| Draft TestFlight prep guide | needs_quality_check | See `docs/testflight-prep.md`. Apple Developer is active and bundle id is configured; user still needs Expo account/login and App Store Connect setup before TestFlight. |
 | Execute Top 10 official/field recheck | blocked | User wants to skip this for now because field checking is not practical right now. |
 | Create data issue tracker | later | Skip for now; add only when specific data issues come up during normal app review. |
 | Add API integrations | later | Google Places, OSM, weather, and city data should come after local prototype. |
@@ -113,14 +113,13 @@ This file tracks the current build sequence for the Outdoor Nursery MVP.
 - Review beta distribution decision: stay on Expo Go for friend testing or prepare TestFlight.
 - Decide app icon/splash direction before real EAS/TestFlight work.
 - Review draft icon, splash, and Home hero on phone.
-- Review privacy policy draft and choose an effective date before wider beta.
-- Decide whether to enroll in Apple Developer Program.
-- Choose iOS bundle identifier before first EAS/TestFlight build.
-- Decide whether first TestFlight beta is iOS-only.
+- Review privacy policy before wider beta.
+- Create or log into an Expo account before first EAS build.
+- Create App Store Connect app record before TestFlight submission.
 - Review caregiver notes later before production; for now they can remain `needs_parent_verification`.
 - Review whether the Top 10 list and priorities in `docs/top-10-quality-check.md` match the intended first beta experience.
 - Review official recheck queue in `docs/official-recheck-plan.md` before executing source checks.
 - Later decision: choose Supabase vs Firebase for backend.
 - Next backend action: create Supabase Free project `outdoor-nursery-dev`.
 - Later decision: decide whether beta requires accounts or allows anonymous feedback.
-- Later decision: decide whether first beta is iOS-only or iOS + Android.
+- Later decision: decide when to add Android.

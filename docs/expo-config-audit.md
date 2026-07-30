@@ -1,6 +1,6 @@
 # Expo Config Audit
 
-This audit reviews the current Expo release configuration. It is intentionally an audit, not a release change.
+This audit reviews the current Expo release configuration for the first iOS beta path.
 
 ## Current Files
 
@@ -9,10 +9,7 @@ This audit reviews the current Expo release configuration. It is intentionally a
 - `.env.example`
 - `.nvmrc`
 
-There is currently no:
-
-- iOS bundle identifier
-- Android package name
+There is currently no Android package name because the first beta is iOS-only.
 
 `eas.json` now exists with `preview` and `production` build profiles.
 
@@ -37,20 +34,21 @@ See [Brand Assets](brand-assets.md) for direction and status.
 | `expo.icon` | `./assets/icon.png` | draft | Good for prototype; refine before TestFlight/App Store. |
 | `expo.splash` | `./assets/splash.png` | draft | Good for prototype; confirm native splash behavior before EAS/TestFlight. |
 | `assetBundlePatterns` | `["**/*"]` | okay for MVP | Can tighten later if needed. |
-| `ios.supportsTablet` | `true` | needs decision | If the first beta is iPhone-only, set this to `false` later. |
+| `ios.bundleIdentifier` | `com.yuqima.outdoornursery` | configured | Stable identifier for the first iOS beta. |
+| `ios.buildNumber` | `1` | configured | First TestFlight/internal iOS build number. |
+| `ios.supportsTablet` | `false` | configured | First beta is iPhone-only. |
 | `android.adaptiveIcon.foregroundImage` | `./assets/icon.png` | draft | Good for prototype; Android adaptive icon should be refined separately before Android beta. |
 | `android.adaptiveIcon.backgroundColor` | `#EAF8F2` | okay | Matches current palette. |
 | `web.bundler` | `metro` | okay | Web is not the release target. |
 
 ## Missing Before EAS/TestFlight
 
-Add before a real iOS beta build:
+Still needed before a real iOS beta build:
 
-- `ios.bundleIdentifier`, for example `com.yuqima.outdoornursery`.
-- `ios.buildNumber`, for example `1`.
-- Final app icon.
-- Final splash screen image and background color.
-- Expo project owner if using an Expo account/team.
+- Final app icon review.
+- Final splash screen image and background color review.
+- Expo project owner/account after Expo signup/login.
+- EAS environment variables.
 
 Add before Android beta:
 
@@ -102,18 +100,16 @@ Before beta:
 
 ## Recommended Next Config Changes
 
-Do not make these until ready for EAS/TestFlight:
+Next config changes before EAS/TestFlight:
 
-1. Refine final `assets/icon.png`.
-2. Refine final splash image.
-3. Add `ios.bundleIdentifier`.
-4. Decide `ios.supportsTablet`.
-5. Add build number fields.
-6. Configure EAS environment variables.
+1. Refine final `assets/icon.png` if needed.
+2. Refine final splash image if needed.
+3. Create/log into Expo account.
+4. Configure EAS environment variables.
 
 ## Recommendation
 
-Keep the current config for Expo Go testing.
+Keep this config for Expo Go testing and the first iOS beta path.
 
 Move to EAS/TestFlight only after:
 

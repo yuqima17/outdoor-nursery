@@ -7,9 +7,9 @@ This checklist tracks what Outdoor Nursery needs before a real beta build or sto
 Current target:
 
 - Small private beta.
-- iOS first.
+- iOS first, iPhone-only.
 - Bay Area only.
-- Expo Go or private EAS/TestFlight later.
+- Expo Go now; EAS/TestFlight preparation in progress.
 - No public App Store release yet.
 
 ## Product
@@ -24,14 +24,14 @@ Current target:
 
 ## App Configuration
 
-- Add iOS bundle identifier before EAS/TestFlight.
+- iOS bundle identifier configured: `com.yuqima.outdoornursery`.
 - Add Android package name before Android build.
 - Confirm `eas.json` build profiles.
 - Review/refine draft app icon.
 - Review/refine draft splash screen asset.
-- Confirm version and build number strategy.
+- Confirm version and build number strategy. Current first iOS build number is `1`.
 - Confirm portrait-only orientation is intentional.
-- Confirm tablet support is intentional or disable it.
+- Tablet support disabled for first iPhone-only beta.
 - Confirm permissions are minimal.
 
 ## Backend
@@ -57,7 +57,7 @@ Current target:
 
 ## Privacy
 
-- Review and finalize the public-facing privacy policy draft.
+- Review and finalize the public-facing privacy policy.
 - Explain anonymous quick feedback.
 - Explain anonymous device id.
 - Explain local saved places.
@@ -65,6 +65,7 @@ Current target:
 - Confirm no live location collection.
 - Decide feedback retention expectations.
 - Confirm support/contact email: `outdoornursery@gmail.com`.
+- Confirm effective date: July 30, 2026.
 
 ## QA
 
@@ -95,7 +96,7 @@ Current target:
 Before TestFlight:
 
 - Apple Developer account exists.
-- Bundle identifier is final enough.
+- Bundle identifier is final enough: `com.yuqima.outdoornursery`.
 - App Store Connect app record exists.
 - App icon is ready.
 - Splash screen is ready.

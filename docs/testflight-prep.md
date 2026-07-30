@@ -11,7 +11,7 @@ References:
 
 ## Current Recommendation
 
-Do not move to TestFlight until after 3-5 Expo Go friend tests.
+Outdoor Nursery is now being prepared for a first iOS TestFlight path.
 
 Use TestFlight when:
 
@@ -26,44 +26,36 @@ These steps require your accounts or decisions.
 
 ### 1. Apple Developer Program
 
-You need an Apple Developer Program membership before TestFlight.
-
-What to do:
-
-1. Go to https://developer.apple.com/programs/
-2. Enroll with your Apple ID.
-3. Choose individual or organization.
-4. Complete payment and verification.
+Apple Developer Program membership is active.
 
 Notes:
 
 - This is separate from a normal Apple ID.
-- Apple may take time to approve enrollment.
-- Codex cannot complete this for you.
+- Codex cannot access Apple Developer or App Store Connect unless you complete the account steps yourself.
 
 ### 2. Expo Account
 
 You need an Expo account to use EAS Build.
 
-What to do later:
+Status: not created yet.
+
+What to do next:
 
 ```bash
 npx eas-cli login
 ```
 
-or install EAS CLI globally if preferred.
+If you do not have an Expo account yet, create one first at https://expo.dev/signup, then run the login command.
 
 ### 3. Bundle Identifier
 
-Choose one stable iOS bundle identifier.
+Chosen iOS bundle identifier:
 
-Recommended options:
+```text
+com.yuqima.outdoornursery
+```
 
-- `com.outdoornursery.app`
-- `com.yuqima.outdoornursery`
-- `com.outdoornursery.mobile`
-
-Pick one before the first TestFlight build. Changing it later is possible but annoying.
+This is now configured in `app.json`.
 
 ### 4. App Store Connect App Record
 
@@ -72,7 +64,7 @@ Before submitting to TestFlight, create an app record in App Store Connect.
 You will need:
 
 - App name: `Outdoor Nursery`
-- Bundle identifier
+- Bundle identifier: `com.yuqima.outdoornursery`
 - SKU, for example `outdoor-nursery-ios`
 - Primary language
 - Category
@@ -88,16 +80,21 @@ outdoornursery@gmail.com
 
 Before TestFlight, choose:
 
-- Privacy policy effective date.
 - Whether the privacy policy will live in a public URL.
 - Support URL or support email path.
+
+Chosen privacy policy effective date:
+
+```text
+July 30, 2026
+```
 
 ## What Codex Can Do
 
 Codex can help with:
 
-- Add `ios.bundleIdentifier` after you choose it.
-- Add `ios.buildNumber`.
+- Add or update `ios.bundleIdentifier`.
+- Add or update `ios.buildNumber`.
 - Adjust `ios.supportsTablet`.
 - Update `eas.json`.
 - Prepare EAS environment variable instructions.
@@ -149,8 +146,10 @@ Checklist:
 
 - Apple Developer Program active.
 - Expo/EAS login works.
-- Bundle identifier chosen.
+- Bundle identifier chosen: `com.yuqima.outdoornursery`.
 - `app.json` has `ios.bundleIdentifier`.
+- `app.json` has `ios.buildNumber`.
+- `app.json` has `ios.supportsTablet: false` for the first iPhone-only beta.
 - `eas.json` exists.
 - EAS env vars are configured.
 - Privacy policy draft has effective date and contact email.
@@ -161,7 +160,6 @@ Checklist:
 
 Blocked until user decides or completes:
 
-- Apple Developer Program enrollment.
-- iOS bundle identifier.
-- Whether first TestFlight is iOS-only.
+- Expo account creation/login.
+- App Store Connect app record.
 - Where the final privacy policy will be hosted.

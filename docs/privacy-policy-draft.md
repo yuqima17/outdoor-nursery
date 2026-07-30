@@ -1,10 +1,10 @@
 # Outdoor Nursery Privacy Policy Draft
 
-Effective date: Draft for private beta
+Effective date: July 30, 2026
 
 Outdoor Nursery is a small app for helping parents and caregivers find baby- and kid-friendly places to go, such as parks, playgrounds, and outdoor malls.
 
-This draft explains what the MVP collects today. It should be reviewed before TestFlight, a wider beta, or any public App Store release.
+This policy explains what the MVP collects today. It should be reviewed again before a wider beta or any public App Store release.
 
 ## What We Collect
 
@@ -109,4 +109,4 @@ Use this contact for privacy questions, data questions, or feedback about the ap
 
 This policy may change as the app moves from MVP prototype to beta.
 
-Before a public release, this draft should become a final public privacy policy with the correct effective date and release scope.
+Before a public release, this policy should be reviewed again for the correct release scope.

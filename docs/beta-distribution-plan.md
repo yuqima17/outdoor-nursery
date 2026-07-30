@@ -4,12 +4,12 @@ This plan explains how to let other people test Outdoor Nursery without jumping 
 
 ## Current Recommendation
 
-Use Expo Go for the next tiny beta, then move to TestFlight when the app needs testing beyond people who can follow setup instructions.
+Use Expo Go for the next tiny beta while preparing the iOS TestFlight path.
 
 Recommended path:
 
 ```text
-Local phone QA -> Expo Go friend test -> EAS internal build -> TestFlight -> App Store
+Local phone QA -> Expo Go friend test -> EAS internal iOS build -> TestFlight -> App Store
 ```
 
 ## Stage 1: Local Phone QA
@@ -73,7 +73,7 @@ Not good for:
 
 ## Stage 3: EAS Internal Build
 
-Status: planned; `eas.json` exists, but no build has been run.
+Status: preparing; `eas.json` exists, Apple Developer membership is active, bundle id is configured, but no build has been run.
 
 Use this when:
 
@@ -85,7 +85,7 @@ Likely needed:
 
 - Expo account.
 - EAS CLI.
-- iOS bundle identifier.
+- iOS bundle identifier: `com.yuqima.outdoornursery`.
 - Android package name if testing Android.
 - App icon and splash assets.
 
@@ -107,7 +107,7 @@ Needed:
 
 - Apple Developer Program account.
 - App Store Connect app record.
-- iOS bundle identifier.
+- iOS bundle identifier: `com.yuqima.outdoornursery`.
 - Privacy details.
 - App icon.
 - Test information and beta review notes.
@@ -117,6 +117,7 @@ See [TestFlight Prep](testflight-prep.md).
 Recommended first TestFlight scope:
 
 - iOS only.
+- iPhone only for the first beta.
 - 5-10 trusted testers.
 - Bay Area data only.
 - Anonymous quick feedback only.
@@ -152,9 +153,9 @@ Reasons:
 
 Before moving from Expo Go to TestFlight, decide:
 
-- Apple Developer account: yes/no.
+- Apple Developer account: active.
 - App display name: `Outdoor Nursery` or another name.
-- Bundle id, likely `com.yuqima.outdoornursery` or similar.
-- Whether beta is iOS-only.
+- Bundle id: `com.yuqima.outdoornursery`.
+- Beta scope: iOS-only for now.
 - Whether Supabase project should remain dev-only or move to a production project.
 - Whether current anonymous feedback is enough for beta.
