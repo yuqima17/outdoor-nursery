@@ -5,6 +5,7 @@ import { Ionicons } from "@expo/vector-icons";
 import { StatusBar } from "expo-status-bar";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 
+import { AppErrorBoundary } from "./src/components/AppErrorBoundary";
 import { PlaceDetailScreen } from "./src/screens/PlaceDetailScreen";
 import { ProfileScreen } from "./src/screens/ProfileScreen";
 import { SavedScreen } from "./src/screens/SavedScreen";
@@ -51,31 +52,33 @@ function MainTabs() {
 
 export default function App() {
   return (
-    <SafeAreaProvider>
-      <PlacesProvider>
-        <SavedPlacesProvider>
-          <NavigationContainer>
-            <StatusBar style="dark" />
-            <Stack.Navigator
-              screenOptions={{
-                contentStyle: { backgroundColor: colors.background },
-                headerBackTitle: "Back",
-                headerShadowVisible: false,
-                headerStyle: { backgroundColor: colors.background },
-                headerTintColor: colors.ink,
-                headerTitleStyle: { fontWeight: "800" }
-              }}
-            >
-              <Stack.Screen component={MainTabs} name="Tabs" options={{ headerShown: false }} />
-              <Stack.Screen
-                component={PlaceDetailScreen}
-                name="PlaceDetail"
-                options={({ route }) => ({ title: route.params.title })}
-              />
-            </Stack.Navigator>
-          </NavigationContainer>
-        </SavedPlacesProvider>
-      </PlacesProvider>
-    </SafeAreaProvider>
+    <AppErrorBoundary>
+      <SafeAreaProvider>
+        <PlacesProvider>
+          <SavedPlacesProvider>
+            <NavigationContainer>
+              <StatusBar style="dark" />
+              <Stack.Navigator
+                screenOptions={{
+                  contentStyle: { backgroundColor: colors.background },
+                  headerBackTitle: "Back",
+                  headerShadowVisible: false,
+                  headerStyle: { backgroundColor: colors.background },
+                  headerTintColor: colors.ink,
+                  headerTitleStyle: { fontWeight: "800" }
+                }}
+              >
+                <Stack.Screen component={MainTabs} name="Tabs" options={{ headerShown: false }} />
+                <Stack.Screen
+                  component={PlaceDetailScreen}
+                  name="PlaceDetail"
+                  options={({ route }) => ({ title: route.params.title })}
+                />
+              </Stack.Navigator>
+            </NavigationContainer>
+          </SavedPlacesProvider>
+        </PlacesProvider>
+      </SafeAreaProvider>
+    </AppErrorBoundary>
   );
 }

@@ -28,15 +28,16 @@ See [Brand Assets](brand-assets.md) for direction and status.
 | --- | --- | --- | --- |
 | `expo.name` | `Outdoor Nursery` | okay for MVP | User-facing display name can stay unless product name changes. |
 | `expo.slug` | `outdoornursery` | configured | Matches the linked Expo project slug. |
-| `expo.version` | `0.1.0` | okay | Good MVP version. Need build numbers later. |
+| `expo.version` | `0.1.0` | okay | Good MVP version. |
 | `expo.orientation` | `portrait` | okay | Matches current phone-first product. |
 | `expo.userInterfaceStyle` | `light` | okay | App currently designed for light mode only. |
 | `expo.icon` | `./assets/icon.png` | draft | Good for prototype; refine before TestFlight/App Store. |
 | `expo.splash` | `./assets/splash.png` | draft | Good for prototype; confirm native splash behavior before EAS/TestFlight. |
 | `assetBundlePatterns` | `["**/*"]` | okay for MVP | Can tighten later if needed. |
 | `ios.bundleIdentifier` | `com.yuqima.outdoornursery` | configured | Stable identifier for the first iOS beta. |
-| `ios.buildNumber` | `1` | configured | First TestFlight/internal iOS build number. |
+| `ios.buildNumber` | `2` | configured | Incremented after first internal build opened to a blank screen. |
 | `ios.supportsTablet` | `false` | configured | First beta is iPhone-only. |
+| `ios.infoPlist.ITSAppUsesNonExemptEncryption` | `false` | configured | Records standard/exempt encryption usage for Apple export compliance prompt. |
 | `expo.owner` | `yuqiexpos-team` | configured | Project is linked under the Expo team account. |
 | `extra.eas.projectId` | `338f84dc-eb17-40c2-99d1-61205a5257a1` | configured | Local app is linked to the Expo project. |
 | `android.adaptiveIcon.foregroundImage` | `./assets/icon.png` | draft | Good for prototype; Android adaptive icon should be refined separately before Android beta. |
@@ -49,7 +50,7 @@ Still needed before a real iOS beta build:
 
 - Final app icon review.
 - Final splash screen image and background color review.
-- First EAS build.
+- Next EAS preview build and phone check.
 
 Add before Android beta:
 

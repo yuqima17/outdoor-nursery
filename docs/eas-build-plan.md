@@ -19,10 +19,11 @@ Current status:
 - Apple Developer Program membership is active.
 - First beta target is iOS only.
 - iOS bundle identifier is `com.yuqima.outdoornursery`.
-- First iOS build number is `1`.
+- Current iOS build number is `2`.
 - Local app is linked to Expo project `338f84dc-eb17-40c2-99d1-61205a5257a1` under owner `yuqiexpos-team`.
 - EAS project environment variables are configured for `development`, `preview`, and `production`.
-- No EAS build has been run yet.
+- First EAS iOS preview build installed but opened to a blank screen.
+- EAS env vars were re-written from the local `.env`, and build `2` adds runtime error fallback UI plus safer Supabase config handling.
 
 Still missing before a real iOS build:
 
@@ -120,7 +121,7 @@ npm exec expo export -- --platform ios --output-dir /tmp/nursery-app-export-test
 
 ## Recommended First Build
 
-For the first real build, use iOS only.
+For the next preview build, use iOS only.
 
 Recommended sequence:
 

@@ -29,7 +29,7 @@ Current target:
 - Confirm `eas.json` build profiles.
 - Review/refine draft app icon.
 - Review/refine draft splash screen asset.
-- Confirm version and build number strategy. Current first iOS build number is `1`.
+- Confirm version and build number strategy. Current iOS build number is `2`.
 - Confirm portrait-only orientation is intentional.
 - Tablet support disabled for first iPhone-only beta.
 - Confirm permissions are minimal.
