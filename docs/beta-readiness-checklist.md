@@ -49,7 +49,8 @@ This checklist tracks what needs to happen before Outdoor Nursery is shared beyo
 - First beta scope is iOS-only and iPhone-only.
 - iOS bundle identifier is configured as `com.yuqima.outdoornursery`.
 - Decide app icon and splash direction before TestFlight.
-- Create or log into an Expo account before the first EAS build.
+- EAS env vars are configured for development, preview, and production.
+- Run first EAS iOS preview build.
 
 ## Privacy
 

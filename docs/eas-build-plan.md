@@ -21,6 +21,7 @@ Current status:
 - iOS bundle identifier is `com.yuqima.outdoornursery`.
 - First iOS build number is `1`.
 - Local app is linked to Expo project `338f84dc-eb17-40c2-99d1-61205a5257a1` under owner `yuqiexpos-team`.
+- EAS project environment variables are configured for `development`, `preview`, and `production`.
 - No EAS build has been run yet.
 
 Still missing before a real iOS build:
@@ -89,10 +90,13 @@ The app uses public Expo env vars:
 - `EXPO_PUBLIC_SUPABASE_URL`
 - `EXPO_PUBLIC_SUPABASE_ANON_KEY`
 
-For EAS builds, these must be available to the build job. Later options:
+For EAS builds, these are configured in the linked Expo/EAS project for:
 
-1. Add them as EAS environment variables/secrets.
-2. Use a local `.env` only for local Expo Go testing.
+- `development`
+- `preview`
+- `production`
+
+The local `.env` remains for Expo Go and local development.
 
 Do not add any Supabase service role key to the app or EAS public environment.
 
@@ -106,7 +110,7 @@ Do these first:
 4. Confirm `ios.supportsTablet` is `false` for the first iPhone-only beta.
 5. Confirm `ios.buildNumber` is ready for the first build.
 6. Confirm icon and splash are acceptable for beta.
-7. Confirm `.env` values are set in EAS environment.
+7. Confirm EAS environment variables are visible in the Expo dashboard if needed.
 8. Run local checks:
 
 ```bash
@@ -152,5 +156,4 @@ eas submit --platform ios --profile production
 ## Decisions Needed From User
 
 - Whether the current draft icon/splash are good enough for TestFlight.
-- Whether to create a new Expo account or use an existing one.
 - Where to host the public privacy policy URL.

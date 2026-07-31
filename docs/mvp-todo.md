@@ -14,9 +14,9 @@ This file tracks the current build sequence for the Outdoor Nursery MVP.
 
 1. Keep using Expo Go for fast phone QA.
 2. Prepare EAS/TestFlight configuration for a first iPhone-only beta.
-3. Create or log into an Expo account.
-4. Configure EAS environment variables.
-5. Run the first EAS iOS preview build.
+3. Run the first EAS iOS preview build.
+4. If preview works, create the App Store Connect app record.
+5. Prepare the first TestFlight candidate build.
 
 ## Todo List
 
@@ -84,10 +84,10 @@ This file tracks the current build sequence for the Outdoor Nursery MVP.
 | Draft beta tester invite | done | See `docs/beta-tester-invite.md`. Includes short and longer English messages for friend testing. |
 | Define beta distribution plan | needs_quality_check | See `docs/beta-distribution-plan.md`. Recommendation is Expo Go for tiny beta, TestFlight later. |
 | Create release checklist | needs_quality_check | See `docs/release-checklist.md`. Tracks product, app config, backend, data, privacy, QA, and TestFlight readiness. |
-| Audit Expo release config | needs_quality_check | See `docs/expo-config-audit.md`. iOS bundle id, iOS build number, and iPhone-only support are configured; TestFlight still needs Expo account/login, EAS env vars, and App Store Connect setup. |
+| Audit Expo release config | needs_quality_check | See `docs/expo-config-audit.md`. iOS bundle id, iOS build number, iPhone-only support, Expo project link, and EAS env vars are configured; TestFlight still needs first EAS build and App Store Connect setup. |
 | Add draft brand assets | needs_quality_check | Draft icon, splash, Home hero, and visual asset board are in `assets/`. Home now uses the hero image. |
 | Add EAS config draft | needs_quality_check | See `eas.json` and `docs/eas-build-plan.md`. No EAS build has been run yet. |
-| Draft TestFlight prep guide | needs_quality_check | See `docs/testflight-prep.md`. Apple Developer is active and bundle id is configured; user still needs Expo account/login and App Store Connect setup before TestFlight. |
+| Draft TestFlight prep guide | needs_quality_check | See `docs/testflight-prep.md`. Apple Developer and Expo login are active, bundle id and env vars are configured; user still needs App Store Connect setup before TestFlight. |
 | Execute Top 10 official/field recheck | blocked | User wants to skip this for now because field checking is not practical right now. |
 | Create data issue tracker | later | Skip for now; add only when specific data issues come up during normal app review. |
 | Add API integrations | later | Google Places, OSM, weather, and city data should come after local prototype. |
@@ -114,7 +114,7 @@ This file tracks the current build sequence for the Outdoor Nursery MVP.
 - Decide app icon/splash direction before real EAS/TestFlight work.
 - Review draft icon, splash, and Home hero on phone.
 - Review privacy policy before wider beta.
-- Create or log into an Expo account before first EAS build.
+- Run first EAS iOS preview build.
 - Create App Store Connect app record before TestFlight submission.
 - Review caregiver notes later before production; for now they can remain `needs_parent_verification`.
 - Review whether the Top 10 list and priorities in `docs/top-10-quality-check.md` match the intended first beta experience.

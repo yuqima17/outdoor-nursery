@@ -49,7 +49,7 @@ Still needed before a real iOS beta build:
 
 - Final app icon review.
 - Final splash screen image and background color review.
-- EAS environment variables.
+- First EAS build.
 
 Add before Android beta:
 
@@ -98,6 +98,7 @@ Before beta:
 - Confirm `.env` points to the intended Supabase project.
 - Confirm no service role key is ever added to the mobile app.
 - Confirm feedback table has insert-only public behavior.
+- EAS project env vars are configured for `development`, `preview`, and `production`.
 
 ## Recommended Next Config Changes
 
@@ -105,8 +106,7 @@ Next config changes before EAS/TestFlight:
 
 1. Refine final `assets/icon.png` if needed.
 2. Refine final splash image if needed.
-3. Create/log into Expo account.
-4. Configure EAS environment variables.
+3. Run the first EAS iOS build.
 
 ## Recommendation
 

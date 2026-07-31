@@ -37,15 +37,15 @@ Notes:
 
 You need an Expo account to use EAS Build.
 
-Status: not created yet.
+Status: active. CLI login works as `yuqi_expo`.
 
-What to do next:
+Useful check:
 
 ```bash
-npx eas-cli login
+npx eas-cli@latest whoami
 ```
 
-If you do not have an Expo account yet, create one first at https://expo.dev/signup, then run the login command.
+The linked project is under `yuqiexpos-team`.
 
 ### 3. Bundle Identifier
 
@@ -160,6 +160,5 @@ Checklist:
 
 Blocked until user decides or completes:
 
-- Expo account creation/login.
 - App Store Connect app record.
 - Where the final privacy policy will be hosted.

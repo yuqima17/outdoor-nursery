@@ -38,6 +38,7 @@ Current target:
 
 - Confirm Supabase project is the intended beta project.
 - Confirm `.env` uses the beta Supabase URL and anon key.
+- Confirm EAS env vars are configured for development, preview, and production.
 - Confirm seed data is imported.
 - Confirm app reads `Dev · Supabase · 30 places` in development.
 - Confirm quick feedback writes rows to Supabase.
