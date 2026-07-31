@@ -73,7 +73,7 @@ Not good for:
 
 ## Stage 3: EAS Internal Build
 
-Status: preparing; `eas.json` exists, Apple Developer membership is active, bundle id is configured, but no build has been run.
+Status: debugging; `eas.json` exists, Apple Developer membership is active, bundle id is configured, and the first internal iOS build installed but opened to a blank screen.
 
 Use this when:
 

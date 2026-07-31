@@ -1,6 +1,6 @@
 # EAS Build Plan
 
-This plan prepares Outdoor Nursery for EAS builds without running a build yet.
+This plan tracks Outdoor Nursery EAS builds and the current debug path.
 
 References:
 
@@ -19,11 +19,12 @@ Current status:
 - Apple Developer Program membership is active.
 - First beta target is iOS only.
 - iOS bundle identifier is `com.yuqima.outdoornursery`.
-- Current iOS build number is `2`.
+- Current iOS build number is `3`.
 - Local app is linked to Expo project `338f84dc-eb17-40c2-99d1-61205a5257a1` under owner `yuqiexpos-team`.
 - EAS project environment variables are configured for `development`, `preview`, and `production`.
 - First EAS iOS preview build installed but opened to a blank screen.
 - EAS env vars were re-written from the local `.env`, and build `2` adds runtime error fallback UI plus safer Supabase config handling.
+- Build `3` adds `expo-dev-client` and a development build profile so runtime errors can be inspected without a USB cable.
 
 Still missing before a real iOS build:
 
@@ -34,7 +35,14 @@ Still missing before a real iOS build:
 
 ```json
 {
+  "cli": {
+    "appVersionSource": "local"
+  },
   "build": {
+    "development": {
+      "developmentClient": true,
+      "distribution": "internal"
+    },
     "preview": {
       "distribution": "internal"
     },
@@ -52,6 +60,20 @@ Still missing before a real iOS build:
 
 ## Profiles
 
+### `development`
+
+Purpose:
+
+- Debug build for a registered iPhone.
+- Opens through Expo Dev Client and connects to Metro for clearer runtime errors.
+- Use when an internal preview build opens to a blank screen.
+
+Command:
+
+```bash
+npx eas-cli@latest build --platform ios --profile development
+```
+
 ### `preview`
 
 Purpose:
@@ -59,7 +81,7 @@ Purpose:
 - Internal install-style build testing.
 - Useful before TestFlight if we want a real app build but do not want App Store submission yet.
 
-Command later:
+Command:
 
 ```bash
 eas build --platform ios --profile preview
@@ -121,15 +143,16 @@ npm exec expo export -- --platform ios --output-dir /tmp/nursery-app-export-test
 
 ## Recommended First Build
 
-For the next preview build, use iOS only.
+For the next debug build, use iOS only.
 
 Recommended sequence:
 
 ```bash
-npx eas-cli login
-npx eas-cli build:configure
-npx eas-cli build --platform ios --profile preview
+npm run start:clear
+npx eas-cli@latest build --platform ios --profile development
 ```
+
+After installing the development build, keep Metro running and open the app from the dev client.
 
 If EAS CLI is installed globally, the shorter form also works:
 
