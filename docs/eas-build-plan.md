@@ -20,11 +20,11 @@ Current status:
 - First beta target is iOS only.
 - iOS bundle identifier is `com.yuqima.outdoornursery`.
 - First iOS build number is `1`.
+- Local app is linked to Expo project `338f84dc-eb17-40c2-99d1-61205a5257a1` under owner `yuqiexpos-team`.
 - No EAS build has been run yet.
 
 Still missing before a real iOS build:
 
-- Expo account / EAS login.
 - App Store Connect app record, before TestFlight submission.
 - Public privacy policy URL, before TestFlight submission.
 
@@ -100,8 +100,8 @@ Do not add any Supabase service role key to the app or EAS public environment.
 
 Do these first:
 
-1. Create or confirm Expo account.
-2. Install/login with EAS CLI.
+1. Confirm EAS CLI login works.
+2. Confirm Expo project link in `app.json`.
 3. Confirm `ios.bundleIdentifier` is `com.yuqima.outdoornursery`.
 4. Confirm `ios.supportsTablet` is `false` for the first iPhone-only beta.
 5. Confirm `ios.buildNumber` is ready for the first build.

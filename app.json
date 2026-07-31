@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "Outdoor Nursery",
-    "slug": "outdoor-nursery",
+    "slug": "outdoornursery",
     "version": "0.1.0",
     "orientation": "portrait",
     "userInterfaceStyle": "light",
@@ -27,6 +27,12 @@
     },
     "web": {
       "bundler": "metro"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "338f84dc-eb17-40c2-99d1-61205a5257a1"
+      }
+    },
+    "owner": "yuqiexpos-team"
   }
 }

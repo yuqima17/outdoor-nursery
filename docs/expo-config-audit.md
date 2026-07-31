@@ -27,7 +27,7 @@ See [Brand Assets](brand-assets.md) for direction and status.
 | Field | Current value | Status | Notes |
 | --- | --- | --- | --- |
 | `expo.name` | `Outdoor Nursery` | okay for MVP | User-facing display name can stay unless product name changes. |
-| `expo.slug` | `outdoor-nursery` | okay | Fine for Expo project naming. |
+| `expo.slug` | `outdoornursery` | configured | Matches the linked Expo project slug. |
 | `expo.version` | `0.1.0` | okay | Good MVP version. Need build numbers later. |
 | `expo.orientation` | `portrait` | okay | Matches current phone-first product. |
 | `expo.userInterfaceStyle` | `light` | okay | App currently designed for light mode only. |
@@ -37,6 +37,8 @@ See [Brand Assets](brand-assets.md) for direction and status.
 | `ios.bundleIdentifier` | `com.yuqima.outdoornursery` | configured | Stable identifier for the first iOS beta. |
 | `ios.buildNumber` | `1` | configured | First TestFlight/internal iOS build number. |
 | `ios.supportsTablet` | `false` | configured | First beta is iPhone-only. |
+| `expo.owner` | `yuqiexpos-team` | configured | Project is linked under the Expo team account. |
+| `extra.eas.projectId` | `338f84dc-eb17-40c2-99d1-61205a5257a1` | configured | Local app is linked to the Expo project. |
 | `android.adaptiveIcon.foregroundImage` | `./assets/icon.png` | draft | Good for prototype; Android adaptive icon should be refined separately before Android beta. |
 | `android.adaptiveIcon.backgroundColor` | `#EAF8F2` | okay | Matches current palette. |
 | `web.bundler` | `metro` | okay | Web is not the release target. |
@@ -47,7 +49,6 @@ Still needed before a real iOS beta build:
 
 - Final app icon review.
 - Final splash screen image and background color review.
-- Expo project owner/account after Expo signup/login.
 - EAS environment variables.
 
 Add before Android beta:
