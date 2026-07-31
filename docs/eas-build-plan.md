@@ -19,12 +19,13 @@ Current status:
 - Apple Developer Program membership is active.
 - First beta target is iOS only.
 - iOS bundle identifier is `com.yuqima.outdoornursery`.
-- Current iOS build number is `3`.
+- Current iOS build number is `4`.
 - Local app is linked to Expo project `338f84dc-eb17-40c2-99d1-61205a5257a1` under owner `yuqiexpos-team`.
 - EAS project environment variables are configured for `development`, `preview`, and `production`.
 - First EAS iOS preview build installed but opened to a blank screen.
 - EAS env vars were re-written from the local `.env`, and build `2` adds runtime error fallback UI plus safer Supabase config handling.
 - Build `3` adds `expo-dev-client` and a development build profile so runtime errors can be inspected without a USB cable.
+- Build `4` adds the SDK 54-compatible `expo-font` native module after the development build reported `Cannot find native module 'ExpoFontLoader'`.
 
 Still missing before a real iOS build:
 

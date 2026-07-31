@@ -35,7 +35,7 @@ See [Brand Assets](brand-assets.md) for direction and status.
 | `expo.splash` | `./assets/splash.png` | draft | Good for prototype; confirm native splash behavior before EAS/TestFlight. |
 | `assetBundlePatterns` | `["**/*"]` | okay for MVP | Can tighten later if needed. |
 | `ios.bundleIdentifier` | `com.yuqima.outdoornursery` | configured | Stable identifier for the first iOS beta. |
-| `ios.buildNumber` | `3` | configured | Incremented for the first EAS development debug build. |
+| `ios.buildNumber` | `4` | configured | Incremented after adding the missing SDK-compatible `expo-font` native module. |
 | `ios.supportsTablet` | `false` | configured | First beta is iPhone-only. |
 | `ios.infoPlist.ITSAppUsesNonExemptEncryption` | `false` | configured | Records standard/exempt encryption usage for Apple export compliance prompt. |
 | `expo.owner` | `yuqiexpos-team` | configured | Project is linked under the Expo team account. |
@@ -43,6 +43,7 @@ See [Brand Assets](brand-assets.md) for direction and status.
 | `android.adaptiveIcon.foregroundImage` | `./assets/icon.png` | draft | Good for prototype; Android adaptive icon should be refined separately before Android beta. |
 | `android.adaptiveIcon.backgroundColor` | `#EAF8F2` | okay | Matches current palette. |
 | `web.bundler` | `metro` | okay | Web is not the release target. |
+| `plugins` | `["expo-font"]` | configured | Ensures the native font loader is included in custom builds. |
 
 ## Missing Before EAS/TestFlight
 

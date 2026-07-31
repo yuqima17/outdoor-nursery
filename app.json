@@ -16,7 +16,7 @@
     ],
     "ios": {
       "bundleIdentifier": "com.yuqima.outdoornursery",
-      "buildNumber": "3",
+      "buildNumber": "4",
       "supportsTablet": false,
       "infoPlist": {
         "ITSAppUsesNonExemptEncryption": false
@@ -36,6 +36,9 @@
         "projectId": "338f84dc-eb17-40c2-99d1-61205a5257a1"
       }
     },
-    "owner": "yuqiexpos-team"
+    "owner": "yuqiexpos-team",
+    "plugins": [
+      "expo-font"
+    ]
   }
 }

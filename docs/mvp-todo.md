@@ -86,7 +86,7 @@ This file tracks the current build sequence for the Outdoor Nursery MVP.
 | Create release checklist | needs_quality_check | See `docs/release-checklist.md`. Tracks product, app config, backend, data, privacy, QA, and TestFlight readiness. |
 | Audit Expo release config | needs_quality_check | See `docs/expo-config-audit.md`. iOS bundle id, iOS build number, iPhone-only support, Expo project link, and EAS env vars are configured; TestFlight still needs first EAS build and App Store Connect setup. |
 | Add draft brand assets | needs_quality_check | Draft icon, splash, Home hero, and visual asset board are in `assets/`. Home now uses the hero image. |
-| Add EAS config draft | needs_quality_check | See `eas.json` and `docs/eas-build-plan.md`. First internal iOS build installed but opened to a blank screen; build `3` adds Expo Dev Client for better runtime debugging without a USB cable. |
+| Add EAS config draft | needs_quality_check | See `eas.json` and `docs/eas-build-plan.md`. First internal iOS build installed but opened to a blank screen; build `4` adds SDK-compatible `expo-font` after Expo Dev Client exposed the missing native module. |
 | Draft TestFlight prep guide | needs_quality_check | See `docs/testflight-prep.md`. Apple Developer and Expo login are active, bundle id and env vars are configured; user still needs App Store Connect setup before TestFlight. |
 | Execute Top 10 official/field recheck | blocked | User wants to skip this for now because field checking is not practical right now. |
 | Create data issue tracker | later | Skip for now; add only when specific data issues come up during normal app review. |
