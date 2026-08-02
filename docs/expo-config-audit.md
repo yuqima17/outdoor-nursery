@@ -35,7 +35,7 @@ See [Brand Assets](brand-assets.md) for direction and status.
 | `expo.splash` | `./assets/splash.png` | draft | Good for prototype; confirm native splash behavior before EAS/TestFlight. |
 | `assetBundlePatterns` | `["**/*"]` | okay for MVP | Can tighten later if needed. |
 | `ios.bundleIdentifier` | `com.yuqima.outdoornursery` | configured | Stable identifier for the first iOS beta. |
-| `ios.buildNumber` | `4` | configured | Incremented after adding the missing SDK-compatible `expo-font` native module. |
+| `ios.buildNumber` | `5` | configured | Incremented for the normal preview build after the `expo-font` fix. |
 | `ios.supportsTablet` | `false` | configured | First beta is iPhone-only. |
 | `ios.infoPlist.ITSAppUsesNonExemptEncryption` | `false` | configured | Records standard/exempt encryption usage for Apple export compliance prompt. |
 | `expo.owner` | `yuqiexpos-team` | configured | Project is linked under the Expo team account. |
@@ -51,7 +51,7 @@ Still needed before a real iOS beta build:
 
 - Final app icon review.
 - Final splash screen image and background color review.
-- EAS development build and phone check.
+- EAS preview build and phone check.
 
 Add before Android beta:
 

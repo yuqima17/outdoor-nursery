@@ -19,13 +19,14 @@ Current status:
 - Apple Developer Program membership is active.
 - First beta target is iOS only.
 - iOS bundle identifier is `com.yuqima.outdoornursery`.
-- Current iOS build number is `4`.
+- Current iOS build number is `5`.
 - Local app is linked to Expo project `338f84dc-eb17-40c2-99d1-61205a5257a1` under owner `yuqiexpos-team`.
 - EAS project environment variables are configured for `development`, `preview`, and `production`.
 - First EAS iOS preview build installed but opened to a blank screen.
 - EAS env vars were re-written from the local `.env`, and build `2` adds runtime error fallback UI plus safer Supabase config handling.
 - Build `3` adds `expo-dev-client` and a development build profile so runtime errors can be inspected without a USB cable.
 - Build `4` adds the SDK 54-compatible `expo-font` native module after the development build reported `Cannot find native module 'ExpoFontLoader'`.
+- Build `5` is the next normal preview/internal build to confirm the `expo-font` fix works without Metro.
 
 Still missing before a real iOS build:
 
@@ -142,18 +143,17 @@ npm run typecheck
 npm exec expo export -- --platform ios --output-dir /tmp/nursery-app-export-test
 ```
 
-## Recommended First Build
+## Recommended Next Build
 
-For the next debug build, use iOS only.
+For the next normal phone check, use an iOS preview build.
 
 Recommended sequence:
 
 ```bash
-npm run start:clear
-npx eas-cli@latest build --platform ios --profile development
+npx eas-cli@latest build --platform ios --profile preview
 ```
 
-After installing the development build, keep Metro running and open the app from the dev client.
+After installing the preview build, open it directly from the Home screen. It should not require Metro.
 
 If EAS CLI is installed globally, the shorter form also works:
 
