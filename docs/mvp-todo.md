@@ -88,6 +88,9 @@ This file tracks the current build sequence for the Outdoor Nursery MVP.
 | Add draft brand assets | needs_quality_check | Draft icon, splash, Home hero, and visual asset board are in `assets/`. Home now uses the hero image. |
 | Add EAS config draft | needs_quality_check | See `eas.json` and `docs/eas-build-plan.md`. First internal iOS build installed but opened to a blank screen; build `4` fixed the missing `expo-font` native module; build `5` is the normal preview check. |
 | Draft TestFlight prep guide | needs_quality_check | See `docs/testflight-prep.md`. Apple Developer and Expo login are active, bundle id and env vars are configured; user still needs App Store Connect setup before TestFlight. |
+| Prepare App Store Connect metadata | needs_quality_check | See `docs/app-store-connect-metadata.md`. Copy/paste values are ready; user still needs to create the app record in App Store Connect. |
+| Prepare TestFlight beta notes | needs_quality_check | See `docs/testflight-beta-notes.md`. Beta description, review notes, tester instructions, and pass criteria are drafted. |
+| Prepare public privacy policy artifact | needs_quality_check | See `docs/privacy-policy-public.md` and `public/privacy-policy.html`. Needs a public URL before external TestFlight. |
 | Execute Top 10 official/field recheck | blocked | User wants to skip this for now because field checking is not practical right now. |
 | Create data issue tracker | later | Skip for now; add only when specific data issues come up during normal app review. |
 | Add API integrations | later | Google Places, OSM, weather, and city data should come after local prototype. |
@@ -116,6 +119,7 @@ This file tracks the current build sequence for the Outdoor Nursery MVP.
 - Review privacy policy before wider beta.
 - Run first EAS iOS preview build.
 - Create App Store Connect app record before TestFlight submission.
+- Choose where to host `public/privacy-policy.html`.
 - Review caregiver notes later before production; for now they can remain `needs_parent_verification`.
 - Review whether the Top 10 list and priorities in `docs/top-10-quality-check.md` match the intended first beta experience.
 - Review official recheck queue in `docs/official-recheck-plan.md` before executing source checks.

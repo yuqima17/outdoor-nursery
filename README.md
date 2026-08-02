@@ -53,12 +53,15 @@ The first version should stay intentionally small:
 - [Backend Implementation Plan](docs/backend-implementation-plan.md)
 - [Privacy And Data Boundaries](docs/privacy-and-data-boundaries.md)
 - [Privacy Policy Draft](docs/privacy-policy-draft.md)
+- [Privacy Policy Public Copy](docs/privacy-policy-public.md)
 - [Beta Readiness Checklist](docs/beta-readiness-checklist.md)
 - [Beta Distribution Plan](docs/beta-distribution-plan.md)
 - [Release Checklist](docs/release-checklist.md)
 - [Expo Config Audit](docs/expo-config-audit.md)
 - [EAS Build Plan](docs/eas-build-plan.md)
 - [TestFlight Prep](docs/testflight-prep.md)
+- [App Store Connect Metadata](docs/app-store-connect-metadata.md)
+- [TestFlight Beta Notes](docs/testflight-beta-notes.md)
 - [Brand Assets](docs/brand-assets.md)
 - [Beta QA Checklist](docs/beta-qa-checklist.md)
 - [Beta Feedback Log](docs/beta-feedback-log.md)
@@ -71,6 +74,10 @@ The first version should stay intentionally small:
 - [Quality Check](docs/quality-check.md)
 - [Place Information](docs/place-information.md)
 - [Feature Ideas](docs/feature-ideas.md)
+
+## Public Policy Artifact
+
+- [Privacy Policy HTML](public/privacy-policy.html): static page prepared for a future public privacy policy URL.
 
 ## Seed Data
 

@@ -59,6 +59,8 @@ Current target:
 ## Privacy
 
 - Review and finalize the public-facing privacy policy.
+- Public privacy policy copy exists in `docs/privacy-policy-public.md`.
+- Static privacy policy HTML exists in `public/privacy-policy.html`.
 - Explain anonymous quick feedback.
 - Explain anonymous device id.
 - Explain local saved places.
@@ -102,8 +104,9 @@ Before TestFlight:
 - App icon is ready.
 - Splash screen is ready.
 - Privacy policy URL exists.
-- Beta review notes are written.
-- Tester instructions are written.
+- Beta review notes are written in `docs/testflight-beta-notes.md`.
+- Tester instructions are written in `docs/testflight-beta-notes.md`.
+- App Store Connect copy/paste metadata is written in `docs/app-store-connect-metadata.md`.
 - EAS config exists.
 - EAS env vars are configured.
 - First EAS iOS build succeeds.

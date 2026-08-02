@@ -70,6 +70,11 @@ You will need:
 - Category
 - Contact/support info
 
+Prepared copy/paste values:
+
+- [App Store Connect Metadata](app-store-connect-metadata.md)
+- [TestFlight Beta Notes](testflight-beta-notes.md)
+
 ### 5. Privacy/Support Info
 
 Current support email:
@@ -88,6 +93,11 @@ Chosen privacy policy effective date:
 ```text
 July 30, 2026
 ```
+
+Prepared public policy files:
+
+- [Privacy Policy Public Copy](privacy-policy-public.md)
+- `public/privacy-policy.html`
 
 ## What Codex Can Do
 
@@ -153,6 +163,9 @@ Checklist:
 - `eas.json` exists.
 - EAS env vars are configured.
 - Privacy policy draft has effective date and contact email.
+- App Store Connect metadata draft exists.
+- TestFlight beta notes draft exists.
+- Public privacy policy copy exists.
 - Local checks pass.
 - First EAS build succeeds.
 
