@@ -61,6 +61,8 @@ Current target:
 - Review and finalize the public-facing privacy policy.
 - Public privacy policy copy exists in `docs/privacy-policy-public.md`.
 - Static privacy policy HTML exists in `public/privacy-policy.html`.
+- GitHub Pages deploy workflow exists in `.github/workflows/deploy-pages.yml`.
+- Publish the privacy policy with GitHub Pages and copy the final URL into App Store Connect.
 - Explain anonymous quick feedback.
 - Explain anonymous device id.
 - Explain local saved places.
@@ -110,11 +112,13 @@ Before TestFlight:
 - EAS config exists.
 - EAS env vars are configured.
 - First EAS iOS build succeeds.
+- GitHub Pages is enabled and `public/privacy-policy.html` loads from the final public URL.
 
 See:
 
 - [EAS Build Plan](eas-build-plan.md)
 - [TestFlight Prep](testflight-prep.md)
+- [GitHub Pages Hosting](github-pages-hosting.md)
 
 ## Not Required Yet
 

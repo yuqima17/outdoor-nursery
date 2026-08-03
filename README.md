@@ -54,6 +54,7 @@ The first version should stay intentionally small:
 - [Privacy And Data Boundaries](docs/privacy-and-data-boundaries.md)
 - [Privacy Policy Draft](docs/privacy-policy-draft.md)
 - [Privacy Policy Public Copy](docs/privacy-policy-public.md)
+- [GitHub Pages Hosting](docs/github-pages-hosting.md)
 - [Beta Readiness Checklist](docs/beta-readiness-checklist.md)
 - [Beta Distribution Plan](docs/beta-distribution-plan.md)
 - [Release Checklist](docs/release-checklist.md)
@@ -78,6 +79,7 @@ The first version should stay intentionally small:
 ## Public Policy Artifact
 
 - [Privacy Policy HTML](public/privacy-policy.html): static page prepared for a future public privacy policy URL.
+- [GitHub Pages Hosting](docs/github-pages-hosting.md): GitHub Pages setup notes for publishing the privacy policy URL.
 
 ## Seed Data
 

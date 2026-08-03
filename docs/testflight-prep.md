@@ -98,6 +98,7 @@ Prepared public policy files:
 
 - [Privacy Policy Public Copy](privacy-policy-public.md)
 - `public/privacy-policy.html`
+- [GitHub Pages Hosting](github-pages-hosting.md)
 
 ## What Codex Can Do
 
@@ -166,12 +167,14 @@ Checklist:
 - App Store Connect metadata draft exists.
 - TestFlight beta notes draft exists.
 - Public privacy policy copy exists.
+- GitHub Pages deploy workflow exists.
+- Final privacy policy URL is copied into App Store Connect.
 - Local checks pass.
 - First EAS build succeeds.
 
 ## Current Blockers
 
-Blocked until user decides or completes:
+Blocked until user completes:
 
 - App Store Connect app record.
-- Where the final privacy policy will be hosted.
+- GitHub repository creation/push and GitHub Pages enablement.
