@@ -35,7 +35,7 @@ See [Brand Assets](brand-assets.md) for direction and status.
 | `expo.splash` | `./assets/splash.png` | draft | Good for prototype; confirm native splash behavior before EAS/TestFlight. |
 | `assetBundlePatterns` | `["**/*"]` | okay for MVP | Can tighten later if needed. |
 | `ios.bundleIdentifier` | `com.yuqima.outdoornursery` | configured | Stable identifier for the first iOS beta. |
-| `ios.buildNumber` | `5` | configured | Incremented for the normal preview build after the `expo-font` fix. |
+| `ios.buildNumber` | `6` | configured | Current App Store Connect/TestFlight build number. |
 | `ios.supportsTablet` | `false` | configured | First beta is iPhone-only. |
 | `ios.infoPlist.ITSAppUsesNonExemptEncryption` | `false` | configured | Records standard/exempt encryption usage for Apple export compliance prompt. |
 | `expo.owner` | `yuqiexpos-team` | configured | Project is linked under the Expo team account. |
@@ -45,13 +45,14 @@ See [Brand Assets](brand-assets.md) for direction and status.
 | `web.bundler` | `metro` | okay | Web is not the release target. |
 | `plugins` | `["expo-font"]` | configured | Ensures the native font loader is included in custom builds. |
 
-## Missing Before EAS/TestFlight
+## Missing Before Wider TestFlight
 
-Still needed before a real iOS beta build:
+Still useful before inviting external testers:
 
 - Final app icon review.
 - Final splash screen image and background color review.
-- EAS preview build and phone check.
+- Additional owner QA on internal TestFlight.
+- External tester list.
 
 Add before Android beta:
 
@@ -104,19 +105,18 @@ Before beta:
 
 ## Recommended Next Config Changes
 
-Next config changes before EAS/TestFlight:
+Next config changes before a wider TestFlight beta:
 
 1. Refine final `assets/icon.png` if needed.
 2. Refine final splash image if needed.
-3. Run the first EAS iOS build.
+3. Keep incrementing `ios.buildNumber` for each new TestFlight upload.
 
 ## Recommendation
 
-Keep this config for Expo Go testing and the first iOS beta path.
+Keep this config for internal TestFlight and the first iOS beta path.
 
-Move to EAS/TestFlight only after:
+Move to external TestFlight only after:
 
-- 3-5 friend tests are done.
 - High-severity UX issues are fixed.
-- Privacy wording is ready.
-- App icon/splash direction is chosen.
+- An external tester list exists.
+- The current internal build still passes owner smoke testing.

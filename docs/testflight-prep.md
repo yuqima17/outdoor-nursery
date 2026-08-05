@@ -11,7 +11,7 @@ References:
 
 ## Current Recommendation
 
-Outdoor Nursery is now being prepared for a first iOS TestFlight path.
+Outdoor Nursery now has a first iOS TestFlight build available through internal testing.
 
 Use TestFlight when:
 
@@ -83,10 +83,15 @@ Current support email:
 outdoornursery@gmail.com
 ```
 
-Before TestFlight, choose:
+Current public privacy policy URL:
 
-- Whether the privacy policy will live in a public URL.
-- Support URL or support email path.
+```text
+https://yuqima17.github.io/outdoor-nursery/privacy-policy.html
+```
+
+Current support path:
+
+- Support/contact email: `outdoornursery@gmail.com`
 
 Chosen privacy policy effective date:
 
@@ -172,9 +177,25 @@ Checklist:
 - Local checks pass.
 - First EAS build succeeds.
 
+## Internal TestFlight Status
+
+Current internal TestFlight build:
+
+```text
+Version: 0.1.0
+Build: 6
+Date: August 5, 2026
+Status: Internal TestFlight smoke test passed on user's iPhone.
+```
+
+Internal test result:
+
+- App installed through TestFlight.
+- App opened successfully.
+- User confirmed the internal test passed.
+
 ## Current Blockers
 
-Blocked until user completes:
+No current blocker for internal TestFlight.
 
-- App Store Connect app record.
-- GitHub repository creation/push and GitHub Pages enablement.
+External TestFlight is intentionally skipped for now because there are no external testers available yet.

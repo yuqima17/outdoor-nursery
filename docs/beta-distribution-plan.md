@@ -4,12 +4,12 @@ This plan explains how to let other people test Outdoor Nursery without jumping 
 
 ## Current Recommendation
 
-Use Expo Go for the next tiny beta while preparing the iOS TestFlight path.
+Use internal TestFlight for owner QA, then move to external TestFlight when testers are available.
 
 Recommended path:
 
 ```text
-Local phone QA -> Expo Go friend test -> EAS internal iOS build -> TestFlight -> App Store
+Local phone QA -> EAS internal iOS build -> Internal TestFlight -> External TestFlight when testers exist -> App Store
 ```
 
 ## Stage 1: Local Phone QA
@@ -44,7 +44,7 @@ Limits:
 
 ## Stage 2: Expo Go Friend Test
 
-Status: next practical step.
+Status: skipped for now.
 
 Use this when:
 
@@ -73,7 +73,15 @@ Not good for:
 
 ## Stage 3: EAS Internal Build
 
-Status: debugging; `eas.json` exists, Apple Developer membership is active, bundle id is configured, and the first internal iOS build installed but opened to a blank screen.
+Status: done enough for MVP beta setup.
+
+Current result:
+
+```text
+Version: 0.1.0
+Build: 6
+Internal TestFlight smoke test: passed on user's iPhone
+```
 
 Use this when:
 
@@ -93,9 +101,9 @@ See [EAS Build Plan](eas-build-plan.md).
 
 This can still be private and does not require public App Store listing.
 
-## Stage 4: TestFlight
+## Stage 4: External TestFlight
 
-Status: later, before wider beta.
+Status: intentionally skipped until external testers are available.
 
 Use this when:
 
@@ -114,11 +122,11 @@ Needed:
 
 See [TestFlight Prep](testflight-prep.md).
 
-Recommended first TestFlight scope:
+Recommended first external TestFlight scope when ready:
 
 - iOS only.
 - iPhone only for the first beta.
-- 5-10 trusted testers.
+- 3-5 trusted testers.
 - Bay Area data only.
 - Anonymous quick feedback only.
 - No account system.
@@ -151,7 +159,7 @@ Reasons:
 
 ## Decision Points
 
-Before moving from Expo Go to TestFlight, decide:
+Before moving from internal TestFlight to external TestFlight, decide:
 
 - Apple Developer account: active.
 - App display name: `Outdoor Nursery` or another name.
@@ -159,3 +167,4 @@ Before moving from Expo Go to TestFlight, decide:
 - Beta scope: iOS-only for now.
 - Whether Supabase project should remain dev-only or move to a production project.
 - Whether current anonymous feedback is enough for beta.
+- Who the first external testers are.

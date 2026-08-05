@@ -19,19 +19,20 @@ Current status:
 - Apple Developer Program membership is active.
 - First beta target is iOS only.
 - iOS bundle identifier is `com.yuqima.outdoornursery`.
-- Current iOS build number is `5`.
+- Current iOS build number is `6`.
 - Local app is linked to Expo project `338f84dc-eb17-40c2-99d1-61205a5257a1` under owner `yuqiexpos-team`.
 - EAS project environment variables are configured for `development`, `preview`, and `production`.
 - First EAS iOS preview build installed but opened to a blank screen.
 - EAS env vars were re-written from the local `.env`, and build `2` adds runtime error fallback UI plus safer Supabase config handling.
 - Build `3` adds `expo-dev-client` and a development build profile so runtime errors can be inspected without a USB cable.
 - Build `4` adds the SDK 54-compatible `expo-font` native module after the development build reported `Cannot find native module 'ExpoFontLoader'`.
-- Build `5` is the next normal preview/internal build to confirm the `expo-font` fix works without Metro.
+- Build `5` confirmed the normal preview/internal path after the `expo-font` fix.
+- Production build `0.1.0 (6)` was uploaded to App Store Connect and passed internal TestFlight smoke testing on the user's iPhone.
 
-Still missing before a real iOS build:
+Current release path note:
 
-- App Store Connect app record, before TestFlight submission.
-- Public privacy policy URL, before TestFlight submission.
+- Internal TestFlight is usable for owner QA.
+- External TestFlight is intentionally skipped until external testers are available.
 
 ## Current `eas.json`
 
@@ -145,7 +146,7 @@ npm exec expo export -- --platform ios --output-dir /tmp/nursery-app-export-test
 
 ## Recommended Next Build
 
-For the next normal phone check, use an iOS preview build.
+For local owner QA that does not need TestFlight, use an iOS preview build.
 
 Recommended sequence:
 
@@ -163,11 +164,10 @@ eas build:configure
 eas build --platform ios --profile preview
 ```
 
-If preview is successful and the app opens correctly, then prepare TestFlight:
+For the next TestFlight candidate, use a production build with auto-submit:
 
 ```bash
-eas build --platform ios --profile production
-eas submit --platform ios --profile production
+npx eas-cli@latest build --platform ios --profile production --auto-submit
 ```
 
 ## Do Not Do Yet
@@ -181,4 +181,4 @@ eas submit --platform ios --profile production
 ## Decisions Needed From User
 
 - Whether the current draft icon/splash are good enough for TestFlight.
-- Where to host the public privacy policy URL.
+- Who the first external TestFlight testers are.

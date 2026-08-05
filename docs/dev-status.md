@@ -13,6 +13,7 @@ This file tracks the current implementation state after the first code pass.
 - AsyncStorage for prototype feedback selections
 - npm package workflow
 - Explicit `babel-preset-expo` dev dependency for Metro/Babel resolution
+- EAS/TestFlight iOS distribution path
 
 ## Implemented
 
@@ -82,6 +83,16 @@ npm install succeeds and package-lock.json is present
 iOS Metro bundle/export passed
 ```
 
+TestFlight validation:
+
+```text
+Version: 0.1.0
+iOS build number: 6
+Distribution: Internal TestFlight
+Result: passed owner smoke test on August 5, 2026
+External testing: skipped until testers are available
+```
+
 Second-pass polish completed:
 
 ```text
@@ -143,12 +154,10 @@ Run the app and check:
 
 ## Blocked / Not Done
 
-- No backend.
 - No account system.
-- Admin review flow is documented but not implemented.
 - No real user-submitted caregiver note flow yet.
 - No embedded map.
-- No production icon or splash assets.
+- External TestFlight is skipped until testers are available.
 
 ## How To Run
 

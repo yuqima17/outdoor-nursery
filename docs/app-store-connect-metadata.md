@@ -33,7 +33,7 @@ Use these values after the app record exists.
 | Age rating target | 4+ | App is for adults/caregivers, has no accounts, no public user content, no ads, and no live location. |
 | Support email | `outdoornursery@gmail.com` | Use for beta feedback and privacy questions. |
 | Support URL | Pending | Can use the same hosted page or site as the privacy policy later. |
-| Privacy policy URL | Pending | Host `public/privacy-policy.html` before TestFlight external beta. |
+| Privacy policy URL | `https://yuqima17.github.io/outdoor-nursery/privacy-policy.html` | Hosted with GitHub Pages. |
 
 ## App Privacy Draft
 
@@ -105,7 +105,6 @@ The app does not collect child personal information, contacts, photos, payment i
 
 ## User Must Still Do
 
-- Create the app record in App Store Connect.
-- Host a public privacy policy URL.
-- Enter App Privacy answers in App Store Connect.
-- Decide whether the draft category, age rating, and privacy answers feel right before external TestFlight.
+- Keep App Store Connect metadata current as the product changes.
+- Decide whether the draft category, age rating, and privacy answers still feel right before external TestFlight.
+- Add external testers later when testers are available.

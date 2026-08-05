@@ -12,11 +12,10 @@ This file tracks the current build sequence for the Outdoor Nursery MVP.
 
 ## Current Recommended Path
 
-1. Keep using Expo Go for fast phone QA.
-2. Prepare EAS/TestFlight configuration for a first iPhone-only beta.
-3. Run the first EAS iOS preview build.
-4. If preview works, create the App Store Connect app record.
-5. Prepare the first TestFlight candidate build.
+1. Continue owner QA through internal TestFlight.
+2. Keep external TestFlight skipped until testers are available.
+3. Improve the MVP product/data experience before inviting outside testers.
+4. Keep GitHub, Supabase, EAS, and App Store Connect docs up to date as release state changes.
 
 ## Todo List
 
@@ -82,15 +81,15 @@ This file tracks the current build sequence for the Outdoor Nursery MVP.
 | Create beta feedback log | done | See `docs/beta-feedback-log.md`. Use it to record tester sessions, open feedback items, and decisions. |
 | Define beta issue triage rules | done | See `docs/beta-issue-triage.md`. Issues are grouped as Blocker, High, Medium, or Low. |
 | Draft beta tester invite | done | See `docs/beta-tester-invite.md`. Includes short and longer English messages for friend testing. |
-| Define beta distribution plan | needs_quality_check | See `docs/beta-distribution-plan.md`. Recommendation is Expo Go for tiny beta, TestFlight later. |
+| Define beta distribution plan | needs_quality_check | See `docs/beta-distribution-plan.md`. Current path is internal TestFlight first; external TestFlight is skipped until testers are available. |
 | Create release checklist | needs_quality_check | See `docs/release-checklist.md`. Tracks product, app config, backend, data, privacy, QA, and TestFlight readiness. |
-| Audit Expo release config | needs_quality_check | See `docs/expo-config-audit.md`. iOS bundle id, iOS build number, iPhone-only support, Expo project link, and EAS env vars are configured; TestFlight still needs first EAS build and App Store Connect setup. |
+| Audit Expo release config | needs_quality_check | See `docs/expo-config-audit.md`. iOS bundle id, iPhone-only support, Expo project link, and EAS env vars are configured; current iOS build number is `6`. |
 | Add draft brand assets | needs_quality_check | Draft icon, splash, Home hero, and visual asset board are in `assets/`. Home now uses the hero image. |
-| Add EAS config draft | needs_quality_check | See `eas.json` and `docs/eas-build-plan.md`. First internal iOS build installed but opened to a blank screen; build `4` fixed the missing `expo-font` native module; build `5` is the normal preview check. |
-| Draft TestFlight prep guide | needs_quality_check | See `docs/testflight-prep.md`. Apple Developer and Expo login are active, bundle id and env vars are configured; user still needs App Store Connect setup before TestFlight. |
-| Prepare App Store Connect metadata | needs_quality_check | See `docs/app-store-connect-metadata.md`. Copy/paste values are ready; user still needs to create the app record in App Store Connect. |
+| Add EAS config draft | needs_quality_check | See `eas.json` and `docs/eas-build-plan.md`. Production build `0.1.0 (6)` is in App Store Connect and passed internal TestFlight smoke testing. |
+| Draft TestFlight prep guide | needs_quality_check | See `docs/testflight-prep.md`. Internal TestFlight build `0.1.0 (6)` passed owner smoke testing; external TestFlight is skipped for now. |
+| Prepare App Store Connect metadata | needs_quality_check | See `docs/app-store-connect-metadata.md`. App Store Connect app record exists and privacy policy URL is hosted on GitHub Pages. |
 | Prepare TestFlight beta notes | needs_quality_check | See `docs/testflight-beta-notes.md`. Beta description, review notes, tester instructions, and pass criteria are drafted. |
-| Prepare public privacy policy artifact | needs_quality_check | See `docs/privacy-policy-public.md` and `public/privacy-policy.html`. Needs a public URL before external TestFlight. |
+| Prepare public privacy policy artifact | done | See `docs/privacy-policy-public.md` and `public/privacy-policy.html`. Public URL is `https://yuqima17.github.io/outdoor-nursery/privacy-policy.html`. |
 | Execute Top 10 official/field recheck | blocked | User wants to skip this for now because field checking is not practical right now. |
 | Create data issue tracker | later | Skip for now; add only when specific data issues come up during normal app review. |
 | Add API integrations | later | Google Places, OSM, weather, and city data should come after local prototype. |
@@ -113,13 +112,11 @@ This file tracks the current build sequence for the Outdoor Nursery MVP.
 - Fill `docs/beta-feedback-log.md` after the first tester session.
 - Run read-only admin queries in Supabase SQL Editor and review whether the feedback/review queue output is understandable.
 - Review `docs/place-data-update-sop.md` before manually changing any public place data.
-- Review beta distribution decision: stay on Expo Go for friend testing or prepare TestFlight.
+- Review beta distribution decision when external testers become available.
 - Decide app icon/splash direction before real EAS/TestFlight work.
 - Review draft icon, splash, and Home hero on phone.
 - Review privacy policy before wider beta.
-- Run first EAS iOS preview build.
-- Create App Store Connect app record before TestFlight submission.
-- Choose where to host `public/privacy-policy.html`.
+- Internal TestFlight build `0.1.0 (6)` has passed owner smoke testing.
 - Review caregiver notes later before production; for now they can remain `needs_parent_verification`.
 - Review whether the Top 10 list and priorities in `docs/top-10-quality-check.md` match the intended first beta experience.
 - Review official recheck queue in `docs/official-recheck-plan.md` before executing source checks.

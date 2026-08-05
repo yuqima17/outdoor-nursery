@@ -1,6 +1,19 @@
 # Beta QA Checklist
 
-Use this checklist when a friend tests the Outdoor Nursery MVP on a phone.
+Use this checklist when testing the Outdoor Nursery MVP on a phone.
+
+## Current QA Status
+
+Latest internal TestFlight smoke test:
+
+```text
+Version: 0.1.0
+Build: 6
+Date: August 5, 2026
+Result: passed on user's iPhone
+```
+
+External friend testing is intentionally skipped for now because no external testers are available yet.
 
 ## Before Testing
 
@@ -60,6 +73,7 @@ For each issue, write:
 
 - Field-checking place facts.
 - Official website rechecks for every place.
+- External TestFlight testing until testers are available.
 - Login, cloud saved places, or account settings.
 - Text feedback from users.
 - Live location and map distance.

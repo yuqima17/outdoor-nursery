@@ -9,7 +9,8 @@ Current target:
 - Small private beta.
 - iOS first, iPhone-only.
 - Bay Area only.
-- Expo Go now; EAS/TestFlight preparation in progress.
+- Internal TestFlight build is available and passed a user phone smoke test.
+- External TestFlight is intentionally skipped until testers are available.
 - No public App Store release yet.
 
 ## Product
@@ -29,7 +30,7 @@ Current target:
 - Confirm `eas.json` build profiles.
 - Review/refine draft app icon.
 - Review/refine draft splash screen asset.
-- Confirm version and build number strategy. Current iOS build number is `5`.
+- Confirm version and build number strategy. Current iOS build number is `6`.
 - Confirm portrait-only orientation is intentional.
 - Tablet support disabled for first iPhone-only beta.
 - Confirm permissions are minimal.
@@ -62,7 +63,8 @@ Current target:
 - Public privacy policy copy exists in `docs/privacy-policy-public.md`.
 - Static privacy policy HTML exists in `public/privacy-policy.html`.
 - GitHub Pages deploy workflow exists in `.github/workflows/deploy-pages.yml`.
-- Publish the privacy policy with GitHub Pages and copy the final URL into App Store Connect.
+- Privacy policy is published at `https://yuqima17.github.io/outdoor-nursery/privacy-policy.html`.
+- Privacy policy URL is copied into App Store Connect.
 - Explain anonymous quick feedback.
 - Explain anonymous device id.
 - Explain local saved places.
@@ -86,11 +88,12 @@ Current target:
 - Test Supabase fallback behavior.
 - Test Home hero image on phone.
 - Confirm app icon and splash load in Expo/EAS config.
+- Internal TestFlight build `0.1.0 (6)` installed and passed a smoke test on the user's iPhone.
 
 ## Beta Operations
 
-- Choose first 3-5 testers.
-- Send tester invite.
+- Choose first 3-5 testers later.
+- Send tester invite later.
 - Record results in beta feedback log.
 - Triage issues as Blocker, High, Medium, Low.
 - Decide build rhythm: ad hoc, weekly, or after meaningful changes.
@@ -113,6 +116,7 @@ Before TestFlight:
 - EAS env vars are configured.
 - First EAS iOS build succeeds.
 - GitHub Pages is enabled and `public/privacy-policy.html` loads from the final public URL.
+- Internal TestFlight build `0.1.0 (6)` is visible in App Store Connect and passed smoke testing.
 
 See:
 
@@ -130,3 +134,4 @@ See:
 - Live location.
 - In-app maps.
 - Public App Store listing.
+- External TestFlight testers.
