@@ -30,7 +30,7 @@ Current target:
 - Confirm `eas.json` build profiles.
 - Review/refine draft app icon.
 - Review/refine draft splash screen asset.
-- Confirm version and build number strategy. Current iOS build number is `6`.
+- Confirm version and build number strategy. Current iOS build number is `7`.
 - Confirm portrait-only orientation is intentional.
 - Tablet support disabled for first iPhone-only beta.
 - Confirm permissions are minimal.
@@ -89,6 +89,7 @@ Current target:
 - Test Home hero image on phone.
 - Confirm app icon and splash load in Expo/EAS config.
 - Internal TestFlight build `0.1.0 (6)` installed and passed a smoke test on the user's iPhone.
+- Latest production build `0.1.0 (7)` finished on EAS and was submitted successfully; it is waiting for App Store Connect/TestFlight processing or availability.
 
 ## Beta Operations
 
@@ -117,6 +118,7 @@ Before TestFlight:
 - First EAS iOS build succeeds.
 - GitHub Pages is enabled and `public/privacy-policy.html` loads from the final public URL.
 - Internal TestFlight build `0.1.0 (6)` is visible in App Store Connect and passed smoke testing.
+- Latest candidate build `0.1.0 (7)` has been submitted to App Store Connect/TestFlight and is waiting for processing or availability.
 
 See:
 

@@ -16,7 +16,7 @@
     ],
     "ios": {
       "bundleIdentifier": "com.yuqima.outdoornursery",
-      "buildNumber": "6",
+      "buildNumber": "7",
       "supportsTablet": false,
       "infoPlist": {
         "ITSAppUsesNonExemptEncryption": false

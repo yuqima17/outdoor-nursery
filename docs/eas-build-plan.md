@@ -19,7 +19,7 @@ Current status:
 - Apple Developer Program membership is active.
 - First beta target is iOS only.
 - iOS bundle identifier is `com.yuqima.outdoornursery`.
-- Current iOS build number is `6`.
+- Current iOS build number is `7`.
 - Local app is linked to Expo project `338f84dc-eb17-40c2-99d1-61205a5257a1` under owner `yuqiexpos-team`.
 - EAS project environment variables are configured for `development`, `preview`, and `production`.
 - First EAS iOS preview build installed but opened to a blank screen.
@@ -28,6 +28,7 @@ Current status:
 - Build `4` adds the SDK 54-compatible `expo-font` native module after the development build reported `Cannot find native module 'ExpoFontLoader'`.
 - Build `5` confirmed the normal preview/internal path after the `expo-font` fix.
 - Production build `0.1.0 (6)` was uploaded to App Store Connect and passed internal TestFlight smoke testing on the user's iPhone.
+- Production build `0.1.0 (7)` finished successfully on EAS and EAS submission `dcf7cf44-5209-4e04-925a-4b17a27d8373` finished on August 6, 2026. The build is waiting for App Store Connect/TestFlight processing or availability.
 
 Current release path note:
 
@@ -55,7 +56,9 @@ Current release path note:
   },
   "submit": {
     "production": {
-      "ios": {}
+      "ios": {
+        "ascAppId": "6797605509"
+      }
     }
   }
 }
@@ -168,6 +171,16 @@ For the next TestFlight candidate, use a production build with auto-submit:
 
 ```bash
 npx eas-cli@latest build --platform ios --profile production --auto-submit
+```
+
+Latest production candidate:
+
+```text
+Version: 0.1.0
+Build: 7
+Build ID: 03821bed-b085-4bc4-808e-9a87a70cc65b
+Submission ID: dcf7cf44-5209-4e04-925a-4b17a27d8373
+Status: build finished; EAS submission finished; waiting for App Store Connect/TestFlight processing or availability
 ```
 
 ## Do Not Do Yet

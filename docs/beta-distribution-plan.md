@@ -79,8 +79,9 @@ Current result:
 
 ```text
 Version: 0.1.0
-Build: 6
-Internal TestFlight smoke test: passed on user's iPhone
+Build: 7
+Internal TestFlight smoke test: build 6 passed on user's iPhone
+Latest candidate: build 7 submitted successfully and waiting for App Store Connect/TestFlight processing or availability
 ```
 
 Use this when:

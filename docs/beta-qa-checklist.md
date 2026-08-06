@@ -13,6 +13,15 @@ Date: August 5, 2026
 Result: passed on user's iPhone
 ```
 
+Latest candidate:
+
+```text
+Version: 0.1.0
+Build: 7
+Date: August 6, 2026
+Result: EAS build and submission finished; waiting for App Store Connect/TestFlight processing or availability
+```
+
 External friend testing is intentionally skipped for now because no external testers are available yet.
 
 ## Before Testing
