@@ -27,6 +27,7 @@ This file captures product ideas beyond the first MVP. The MVP scope is defined 
 - Photos focused on paths, bathrooms, entrances, seating, shade, and play areas.
 - Recent caregiver notes.
 - Safety and accessibility warnings.
+- Place cards that adapt after reviewed vote patterns, such as surfacing parking warnings, stroller comfort, restroom reliability, crowd level, cleanliness, or value when repeated feedback makes those details more important.
 
 ## Planning
 

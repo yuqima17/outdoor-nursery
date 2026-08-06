@@ -87,3 +87,12 @@ Use softer language for uncertain or experience-based facts:
 ## MVP Rule
 
 The current local prototype can keep simple `data_quality` fields, but the backend should move toward field-level trust before public launch.
+
+## Vote-Informed Cards
+
+Paired quick feedback can help decide which facts deserve more prominence on place cards, but vote totals are signals, not facts. Future card updates should use thresholds and admin review before changing public summaries, for example:
+
+- Repeated `parking_was_hard` votes can surface a parking caution.
+- Repeated `stroller_was_hard` votes can soften stroller-friendly language.
+- Repeated `restroom_was_hard` or `needs_cleaning` votes can move restroom or cleanliness details higher on the card.
+- Repeated `good_value` or `felt_pricey` votes can adjust value language after review.

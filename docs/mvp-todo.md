@@ -65,6 +65,7 @@ This file tracks the current build sequence for the Outdoor Nursery MVP.
 | Add Supabase quick feedback writes | needs_quality_check | Selecting a quick feedback button inserts an anonymous `feedback` row when Supabase is configured, stores stable feedback codes, and avoids duplicate submissions from the same device/place/type. |
 | Add local saved places | needs_quality_check | See `docs/local-save-mvp.md`. Saves are stored on this phone with `AsyncStorage`; cloud sync is intentionally deferred until accounts exist. |
 | Add manual admin feedback queries | needs_quality_check | See `supabase/admin-feedback-queries.sql` and `docs/admin-feedback-review.md`. User can run the first three read-only query blocks later. |
+| Use vote results to refine place card info | later | Use repeated paired feedback signals to reorder or soften card facts such as parking, stroller, restroom, crowd, cleanliness, and value after admin review. Do not let raw votes directly overwrite public place cards. |
 | Add review queue helper SQL | done | See `supabase/admin-create-review-items-from-feedback.sql`. It previews repeated/high-priority feedback groups and includes a commented insert into `review_queue`. |
 | Define backend/admin workflow | needs_quality_check | See `docs/admin-workflow.md`. Supabase SQL Editor is the first admin surface; custom admin UI is deferred. |
 | Add review queue action SQL | needs_quality_check | See `supabase/admin-review-queue-actions.sql`. Write queries are commented out and should only be run after manual review. |
