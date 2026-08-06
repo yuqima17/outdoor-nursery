@@ -5,6 +5,7 @@ import { useMemo, useState } from "react";
 import {
   Image,
   Linking,
+  Pressable,
   RefreshControl,
   ScrollView,
   StyleSheet,
@@ -14,7 +15,6 @@ import {
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
-import { FilterChip } from "../components/FilterChip";
 import { PlaceCard } from "../components/PlaceCard";
 import { categoryDescriptions, categoryLabels } from "../data/places";
 import { usePlaces } from "../state/PlacesContext";
@@ -30,9 +30,9 @@ type FilterKey = "recommended" | "free" | "stroller" | "restroom" | "shade";
 const categories = Object.keys(categoryLabels) as Category[];
 
 const filters: Array<{ key: FilterKey; label: string }> = [
-  { key: "recommended", label: "Recommended" },
+  { key: "recommended", label: "Good for today" },
   { key: "free", label: "Free" },
-  { key: "stroller", label: "Stroller-friendly" },
+  { key: "stroller", label: "Easy stroller" },
   { key: "restroom", label: "Restrooms" },
   { key: "shade", label: "Shade" }
 ];
@@ -85,7 +85,7 @@ export function GoScreen() {
         <View style={styles.header}>
           <View>
             <Text style={styles.appName}>Outdoor Nursery</Text>
-            <Text style={styles.location}>Bay Area · {places.length} places</Text>
+            <Text style={styles.location}>Bay Area · {places.length} baby-friendly ideas</Text>
           </View>
           <View style={styles.locationPill}>
             <Ionicons color={colors.teal} name="location" size={18} />
@@ -127,37 +127,56 @@ export function GoScreen() {
           />
         ) : null}
 
-        <View style={styles.hero}>
+        <View style={styles.plannerCard}>
           <Image
             accessibilityIgnoresInvertColors
             resizeMode="cover"
             source={homeHeroImage}
-            style={styles.heroImage}
+            style={styles.plannerImage}
           />
-          <View style={styles.heroTextBlock}>
-            <Text style={styles.heroTitle}>Where should we go today?</Text>
-            <Text style={styles.heroSubtitle}>
-              Parent-friendly picks with stroller notes, restroom clues, and low-stress outing details.
-            </Text>
+          <View style={styles.plannerBody}>
+            <View style={styles.plannerCopy}>
+              <View style={styles.plannerMetaRow}>
+                <View style={styles.eyebrowRow}>
+                  <Ionicons color={colors.coral} name="sunny" size={15} />
+                  <Text style={styles.eyebrow}>Today's outing planner</Text>
+                </View>
+                <View style={styles.plannerBadge}>
+                  <Text style={styles.plannerBadgeText}>Parent notes first</Text>
+                </View>
+              </View>
+              <Text style={styles.heroTitle}>Where should we go today?</Text>
+              <Text style={styles.heroSubtitle}>
+                Practical Bay Area picks for babies, toddlers, and low-stress family walks.
+              </Text>
+            </View>
           </View>
           <View style={styles.familyCues}>
-            <FamilyCue icon="happy" label="Little-kid ready" />
-            <FamilyCue icon="walk" label="Stroller notes" />
-            <FamilyCue icon="heart" label="Baby care" />
-            <FamilyCue icon="time" label="Short outings" />
+            <FamilyCue icon="happy" label="Baby-friendly" />
+            <FamilyCue icon="walk" label="Easy walking" />
+            <FamilyCue icon="water" label="Break spots" />
           </View>
         </View>
 
-        <View style={styles.searchBox}>
-          <Ionicons color={colors.muted} name="search" size={22} />
-          <TextInput
-            autoCapitalize="none"
-            onChangeText={setSearchText}
-            placeholder="Search parks, playgrounds, malls"
-            placeholderTextColor={colors.muted}
-            style={styles.searchInput}
-            value={searchText}
-          />
+        <View style={styles.searchRow}>
+          <View style={styles.searchBox}>
+            <Ionicons color={colors.muted} name="search" size={22} />
+            <TextInput
+              autoCapitalize="none"
+              onChangeText={setSearchText}
+              placeholder="Search place, area, feature"
+              placeholderTextColor={colors.muted}
+              style={styles.searchInput}
+              value={searchText}
+            />
+          </View>
+          <Pressable
+            accessibilityLabel="Show good places for today"
+            onPress={() => setActiveFilter("recommended")}
+            style={({ pressed }) => [styles.searchAction, pressed && styles.pressed]}
+          >
+            <Ionicons color={colors.card} name="sparkles" size={21} />
+          </Pressable>
         </View>
 
         <ScrollView
@@ -165,14 +184,16 @@ export function GoScreen() {
           horizontal
           showsHorizontalScrollIndicator={false}
         >
-          <FilterChip
+          <CategoryPill
             active={selectedCategory === "all"}
+            icon="compass"
             label="All"
             onPress={() => setSelectedCategory("all")}
           />
           {categories.map((category) => (
-            <FilterChip
+            <CategoryPill
               active={selectedCategory === category}
+              icon={iconForCategory(category)}
               key={category}
               label={categoryLabels[category]}
               onPress={() => setSelectedCategory(category)}
@@ -187,23 +208,19 @@ export function GoScreen() {
           </View>
         ) : null}
 
-        <ScrollView
-          contentContainerStyle={styles.filterScroller}
-          horizontal
-          showsHorizontalScrollIndicator={false}
-        >
+        <View style={styles.shortcutGrid}>
           {filters.map((filter) => (
-            <FilterChip
+            <ShortcutButton
               active={activeFilter === filter.key}
               key={filter.key}
               label={filter.label}
               onPress={() => setActiveFilter(filter.key)}
             />
           ))}
-        </ScrollView>
+        </View>
 
         <View style={styles.listHeader}>
-          <Text style={styles.sectionTitle}>Recommended Places</Text>
+          <Text style={styles.sectionTitle}>{titleForFilter(activeFilter)}</Text>
           <Text style={styles.count}>{filteredPlaces.length} available</Text>
         </View>
 
@@ -271,6 +288,93 @@ function FamilyCue({ icon, label }: { icon: keyof typeof Ionicons.glyphMap; labe
   );
 }
 
+function CategoryPill({
+  active,
+  icon,
+  label,
+  onPress
+}: {
+  active: boolean;
+  icon: keyof typeof Ionicons.glyphMap;
+  label: string;
+  onPress: () => void;
+}) {
+  return (
+    <Pressable
+      accessibilityRole="button"
+      onPress={onPress}
+      style={({ pressed }) => [
+        styles.categoryPill,
+        active && styles.categoryPillActive,
+        pressed && styles.pressed
+      ]}
+    >
+      <View style={[styles.categoryIcon, active && styles.categoryIconActive]}>
+        <Ionicons color={active ? colors.card : colors.tealDark} name={icon} size={18} />
+      </View>
+      <Text style={[styles.categoryPillText, active && styles.categoryPillTextActive]}>
+        {label}
+      </Text>
+    </Pressable>
+  );
+}
+
+function ShortcutButton({
+  active,
+  label,
+  onPress
+}: {
+  active: boolean;
+  label: string;
+  onPress: () => void;
+}) {
+  return (
+    <Pressable
+      accessibilityRole="button"
+      onPress={onPress}
+      style={({ pressed }) => [
+        styles.shortcutButton,
+        active && styles.shortcutButtonActive,
+        pressed && styles.pressed
+      ]}
+    >
+      <Text style={[styles.shortcutText, active && styles.shortcutTextActive]}>{label}</Text>
+    </Pressable>
+  );
+}
+
+function iconForCategory(category: Category) {
+  if (category === "playground") {
+    return "happy";
+  }
+
+  if (category === "outdoor_mall") {
+    return "storefront";
+  }
+
+  return "leaf";
+}
+
+function titleForFilter(filter: FilterKey) {
+  if (filter === "free") {
+    return "Free Outings";
+  }
+
+  if (filter === "stroller") {
+    return "Easy Stroller Walks";
+  }
+
+  if (filter === "restroom") {
+    return "Restroom-Friendly";
+  }
+
+  if (filter === "shade") {
+    return "Shade Breaks";
+  }
+
+  return "Good For Today";
+}
+
 function filterPlace(place: Place, filter: FilterKey) {
   if (filter === "free") {
     return place.cost.type === "free";
@@ -296,6 +400,9 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: colors.background
   },
+  pressed: {
+    opacity: 0.84
+  },
   content: {
     padding: 18,
     paddingBottom: 28
@@ -311,9 +418,9 @@ const styles = StyleSheet.create({
     fontWeight: "900"
   },
   location: {
-    color: colors.muted,
+    color: colors.coral,
     fontSize: 14,
-    fontWeight: "700",
+    fontWeight: "900",
     marginTop: 3
   },
   locationPill: {
@@ -333,7 +440,7 @@ const styles = StyleSheet.create({
   devStatus: {
     alignItems: "center",
     alignSelf: "flex-start",
-    backgroundColor: colors.mintSoft,
+    backgroundColor: colors.card,
     borderColor: colors.border,
     borderRadius: 999,
     borderWidth: 1,
@@ -390,43 +497,82 @@ const styles = StyleSheet.create({
     lineHeight: 17,
     marginTop: 3
   },
-  hero: {
+  plannerCard: {
     backgroundColor: colors.card,
-    borderRadius: 22,
+    borderColor: colors.border,
+    borderRadius: 18,
+    borderWidth: 1,
     marginTop: 18,
-    padding: 20
+    overflow: "hidden",
+    paddingBottom: 16
   },
-  heroImage: {
-    borderRadius: 17,
-    height: 172,
-    marginBottom: 18,
+  plannerImage: {
+    height: 124,
     width: "100%"
   },
-  heroTextBlock: {
-    maxWidth: 320
+  plannerBody: {
+    paddingHorizontal: 16,
+    paddingTop: 14
+  },
+  plannerCopy: {
+    flex: 1
+  },
+  plannerMetaRow: {
+    alignItems: "center",
+    flexDirection: "row",
+    gap: 10,
+    justifyContent: "space-between",
+    marginBottom: 8
+  },
+  eyebrowRow: {
+    alignItems: "center",
+    flexDirection: "row",
+    flexShrink: 1,
+    gap: 6
+  },
+  eyebrow: {
+    color: colors.coral,
+    fontSize: 12,
+    fontWeight: "900",
+    letterSpacing: 0,
+    textTransform: "uppercase"
   },
   heroTitle: {
     color: colors.ink,
-    fontSize: 30,
+    fontSize: 28,
     fontWeight: "900",
-    lineHeight: 34
+    lineHeight: 32
   },
   heroSubtitle: {
     color: colors.text,
-    fontSize: 15,
+    fontSize: 14,
     fontWeight: "700",
-    lineHeight: 21,
-    marginTop: 10
+    lineHeight: 20,
+    marginTop: 8
+  },
+  plannerBadge: {
+    backgroundColor: colors.cream,
+    borderRadius: 999,
+    flexShrink: 0,
+    paddingHorizontal: 9,
+    paddingVertical: 6
+  },
+  plannerBadgeText: {
+    color: colors.tealDark,
+    fontSize: 10,
+    fontWeight: "900",
+    lineHeight: 13
   },
   familyCues: {
     flexDirection: "row",
     flexWrap: "wrap",
     gap: 8,
-    marginTop: 16
+    marginTop: 14,
+    paddingHorizontal: 16
   },
   familyCue: {
     alignItems: "center",
-    backgroundColor: colors.mintSoft,
+    backgroundColor: colors.panel,
     borderColor: colors.border,
     borderRadius: 999,
     borderWidth: 1,
@@ -440,15 +586,35 @@ const styles = StyleSheet.create({
     fontSize: 12,
     fontWeight: "900"
   },
+  searchRow: {
+    alignItems: "center",
+    flexDirection: "row",
+    gap: 10,
+    marginTop: 16
+  },
   searchBox: {
     alignItems: "center",
     backgroundColor: colors.card,
-    borderRadius: 20,
+    borderColor: colors.border,
+    borderRadius: 14,
+    borderWidth: 1,
+    flex: 1,
     flexDirection: "row",
     gap: 10,
-    marginTop: 16,
     minHeight: 58,
     paddingHorizontal: 16
+  },
+  searchAction: {
+    alignItems: "center",
+    backgroundColor: colors.coral,
+    borderRadius: 14,
+    height: 58,
+    justifyContent: "center",
+    shadowColor: colors.coral,
+    shadowOffset: { width: 0, height: 8 },
+    shadowOpacity: 0.18,
+    shadowRadius: 14,
+    width: 58
   },
   searchInput: {
     color: colors.ink,
@@ -460,12 +626,43 @@ const styles = StyleSheet.create({
     gap: 10,
     paddingVertical: 16
   },
-  filterScroller: {
-    gap: 10,
-    paddingBottom: 16
+  categoryPill: {
+    alignItems: "center",
+    backgroundColor: colors.card,
+    borderColor: colors.border,
+    borderRadius: 14,
+    borderWidth: 1,
+    flexDirection: "row",
+    gap: 8,
+    minHeight: 48,
+    paddingHorizontal: 12,
+    paddingVertical: 8
+  },
+  categoryPillActive: {
+    backgroundColor: colors.teal,
+    borderColor: colors.teal
+  },
+  categoryIcon: {
+    alignItems: "center",
+    backgroundColor: colors.mintSoft,
+    borderRadius: 10,
+    height: 30,
+    justifyContent: "center",
+    width: 30
+  },
+  categoryIconActive: {
+    backgroundColor: "rgba(255,255,255,0.18)"
+  },
+  categoryPillText: {
+    color: colors.text,
+    fontSize: 13,
+    fontWeight: "900"
+  },
+  categoryPillTextActive: {
+    color: colors.card
   },
   categoryNote: {
-    backgroundColor: colors.mintSoft,
+    backgroundColor: colors.panel,
     borderColor: colors.border,
     borderRadius: 16,
     borderWidth: 1,
@@ -483,6 +680,33 @@ const styles = StyleSheet.create({
     fontWeight: "700",
     lineHeight: 18,
     marginTop: 3
+  },
+  shortcutGrid: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+    gap: 10,
+    marginBottom: 18
+  },
+  shortcutButton: {
+    backgroundColor: colors.card,
+    borderColor: colors.border,
+    borderRadius: 12,
+    borderWidth: 1,
+    minHeight: 42,
+    paddingHorizontal: 13,
+    paddingVertical: 11
+  },
+  shortcutButtonActive: {
+    backgroundColor: colors.cream,
+    borderColor: "#F3D992"
+  },
+  shortcutText: {
+    color: colors.text,
+    fontSize: 13,
+    fontWeight: "900"
+  },
+  shortcutTextActive: {
+    color: colors.ink
   },
   listHeader: {
     alignItems: "center",

@@ -81,7 +81,7 @@ export function PlaceCard({
       <View style={styles.actions}>
         <Pressable onPress={onDirections} style={[styles.actionButton, styles.secondaryAction]}>
           <Ionicons color={colors.tealDark} name="navigate" size={18} />
-          <Text style={styles.secondaryActionText}>Directions</Text>
+          <Text style={styles.secondaryActionText}>Go</Text>
         </Pressable>
         <Pressable onPress={onOpen} style={[styles.actionButton, styles.primaryAction]}>
           <Text style={styles.primaryActionText}>Details</Text>
@@ -118,13 +118,15 @@ function iconForCategory(category: Place["category"]) {
 const styles = StyleSheet.create({
   card: {
     backgroundColor: colors.card,
-    borderRadius: 18,
+    borderColor: colors.border,
+    borderRadius: 14,
+    borderWidth: 1,
     marginBottom: 16,
     padding: 16,
     shadowColor: colors.shadow,
-    shadowOpacity: 0.25,
-    shadowRadius: 12,
-    shadowOffset: { width: 0, height: 8 },
+    shadowOpacity: 0.14,
+    shadowRadius: 14,
+    shadowOffset: { width: 0, height: 7 },
     elevation: 2
   },
   pressed: {
@@ -138,10 +140,10 @@ const styles = StyleSheet.create({
   imagePlaceholder: {
     width: 72,
     height: 72,
-    borderRadius: 16,
+    borderRadius: 13,
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: colors.mintSoft
+    backgroundColor: colors.mint
   },
   titleBlock: {
     flex: 1
@@ -161,10 +163,12 @@ const styles = StyleSheet.create({
   saveButton: {
     width: 38,
     height: 38,
-    borderRadius: 19,
+    borderRadius: 12,
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: colors.mintSoft
+    backgroundColor: colors.panel,
+    borderColor: colors.border,
+    borderWidth: 1
   },
   tags: {
     flexDirection: "row",
@@ -173,8 +177,10 @@ const styles = StyleSheet.create({
     marginTop: 14
   },
   tag: {
-    backgroundColor: colors.mint,
-    borderRadius: 10,
+    backgroundColor: colors.mintSoft,
+    borderColor: colors.border,
+    borderRadius: 9,
+    borderWidth: 1,
     paddingHorizontal: 10,
     paddingVertical: 6
   },
@@ -192,7 +198,7 @@ const styles = StyleSheet.create({
   infoItem: {
     width: "47%",
     backgroundColor: colors.panel,
-    borderRadius: 14,
+    borderRadius: 12,
     minHeight: 70,
     paddingHorizontal: 12,
     paddingVertical: 10
@@ -222,7 +228,7 @@ const styles = StyleSheet.create({
   },
   actionButton: {
     flex: 1,
-    borderRadius: 14,
+    borderRadius: 12,
     minHeight: 48,
     alignItems: "center",
     justifyContent: "center",
@@ -233,7 +239,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.teal
   },
   secondaryAction: {
-    backgroundColor: colors.mint
+    backgroundColor: colors.cream
   },
   primaryActionText: {
     color: colors.card,

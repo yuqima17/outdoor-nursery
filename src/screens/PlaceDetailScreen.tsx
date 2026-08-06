@@ -5,10 +5,11 @@ import { Linking, Pressable, ScrollView, StyleSheet, Text, View } from "react-na
 import { SafeAreaView } from "react-native-safe-area-context";
 
 import { Section } from "../components/Section";
-import { submitQuickFeedback } from "../data/feedback";
+import { clearFeedbackVote, fetchFeedbackVoteCounts, submitFeedbackVote } from "../data/feedback";
 import {
-  feedbackOptions,
+  feedbackPairs,
   normalizeFeedbackType,
+  type FeedbackPair,
   type FeedbackOption
 } from "../data/feedbackOptions";
 import { usePlaces } from "../state/PlacesContext";
@@ -30,21 +31,38 @@ import {
 } from "../utils/format";
 
 const FEEDBACK_STORAGE_KEY = "outdoor-nursery:place-feedback";
+type FeedbackVoteCounts = Record<string, number>;
 
 export function PlaceDetailScreen({ route }: PlaceDetailProps) {
   const { getPlace } = usePlaces();
   const place = getPlace(route.params.placeId);
   const { isSaved, toggleSaved } = useSavedPlaces();
   const [selectedFeedback, setSelectedFeedback] = useState<string[]>([]);
+  const [feedbackVoteCounts, setFeedbackVoteCounts] = useState<FeedbackVoteCounts>({});
 
   useEffect(() => {
     AsyncStorage.getItem(`${FEEDBACK_STORAGE_KEY}:${route.params.placeId}`)
       .then((storedValue) => {
         if (storedValue) {
-          setSelectedFeedback((JSON.parse(storedValue) as string[]).map(normalizeFeedbackType));
+          setSelectedFeedback(
+            normalizeStoredFeedbackSelection((JSON.parse(storedValue) as string[]).map(normalizeFeedbackType))
+          );
         }
       })
       .catch(() => setSelectedFeedback([]));
+  }, [route.params.placeId]);
+
+  useEffect(() => {
+    fetchFeedbackVoteCounts(route.params.placeId)
+      .then((counts) => {
+        setFeedbackVoteCounts(
+          counts.reduce<FeedbackVoteCounts>((nextCounts, count) => {
+            nextCounts[count.feedbackType] = count.voteCount;
+            return nextCounts;
+          }, {})
+        );
+      })
+      .catch(() => setFeedbackVoteCounts({}));
   }, [route.params.placeId]);
 
   if (!place) {
@@ -147,25 +165,25 @@ export function PlaceDetailScreen({ route }: PlaceDetailProps) {
         </Section>
 
         <Section title="Quick Feedback" caption="Tap what matched your visit. Saved here and sent when online.">
-          <View style={styles.feedbackGrid}>
-            {feedbackOptions.map((option) => (
-              <Pressable
-                key={option.type}
-                onPress={() => toggleFeedback(place.id, option, selectedFeedback, setSelectedFeedback)}
-                style={[
-                  styles.feedbackButton,
-                  selectedFeedback.includes(option.type) && styles.feedbackButtonActive
-                ]}
-              >
-                <Text
-                  style={[
-                    styles.feedbackText,
-                    selectedFeedback.includes(option.type) && styles.feedbackTextActive
-                  ]}
-                >
-                  {option.label}
-                </Text>
-              </Pressable>
+          <View style={styles.feedbackPairs}>
+            {feedbackPairs.map((pair) => (
+              <FeedbackVotePair
+                counts={feedbackVoteCounts}
+                key={pair.topic}
+                onSelect={(option, oppositeOption) =>
+                  toggleFeedback(
+                    place.id,
+                    pair.topic,
+                    option,
+                    oppositeOption,
+                    selectedFeedback,
+                    setSelectedFeedback,
+                    setFeedbackVoteCounts
+                  )
+                }
+                pair={pair}
+                selectedFeedback={selectedFeedback}
+              />
             ))}
           </View>
         </Section>
@@ -176,16 +194,25 @@ export function PlaceDetailScreen({ route }: PlaceDetailProps) {
 
 function toggleFeedback(
   placeId: string,
+  voteTopic: string,
   option: FeedbackOption,
+  oppositeOption: FeedbackOption,
   selectedFeedback: string[],
-  setSelectedFeedback: React.Dispatch<React.SetStateAction<string[]>>
+  setSelectedFeedback: React.Dispatch<React.SetStateAction<string[]>>,
+  setFeedbackVoteCounts: React.Dispatch<React.SetStateAction<FeedbackVoteCounts>>
 ) {
-  const isSelecting = !selectedFeedback.includes(option.type);
+  const previousVoteType = selectedFeedback.find(
+    (selectedOption) =>
+      selectedOption === option.type || selectedOption === oppositeOption.type
+  );
+  const isDeselecting = previousVoteType === option.type;
 
   setSelectedFeedback((current) => {
-    const next = current.includes(option.type)
-      ? current.filter((selectedOption) => selectedOption !== option.type)
-      : [...current, option.type];
+    const withoutPair = current.filter(
+      (selectedOption) =>
+        selectedOption !== option.type && selectedOption !== oppositeOption.type
+    );
+    const next = isDeselecting ? withoutPair : [...withoutPair, option.type];
 
     AsyncStorage.setItem(`${FEEDBACK_STORAGE_KEY}:${placeId}`, JSON.stringify(next)).catch(
       () => undefined
@@ -194,13 +221,148 @@ function toggleFeedback(
     return next;
   });
 
-  if (isSelecting) {
-    submitQuickFeedback({
-      feedbackLabel: option.label,
-      feedbackType: option.type,
-      placeId
+  if (isDeselecting) {
+    setFeedbackVoteCounts((current) => ({
+      ...current,
+      [option.type]: Math.max((current[option.type] ?? 0) - 1, 0)
+    }));
+
+    clearFeedbackVote({
+      placeId,
+      voteTopic
     }).catch(() => undefined);
+
+    return;
   }
+
+  setFeedbackVoteCounts((current) => ({
+    ...current,
+    [option.type]: (current[option.type] ?? 0) + 1,
+    ...(previousVoteType
+      ? { [previousVoteType]: Math.max((current[previousVoteType] ?? 0) - 1, 0) }
+      : {})
+  }));
+
+  submitFeedbackVote({
+    feedbackLabel: option.label,
+    feedbackType: option.type,
+    placeId,
+    voteTopic
+  }).catch(() => undefined);
+}
+
+function normalizeStoredFeedbackSelection(feedbackTypes: string[]) {
+  const pairedTypes = new Set<string>(
+    feedbackPairs.flatMap((pair) => [pair.positive.type, pair.negative.type])
+  );
+  const latestByTopic = new Map<string, string>();
+  const unpairedTypes = feedbackTypes.filter((feedbackType) => !pairedTypes.has(feedbackType));
+
+  feedbackTypes.forEach((feedbackType) => {
+    const pair = feedbackPairs.find(
+      (feedbackPair) =>
+        feedbackPair.positive.type === feedbackType || feedbackPair.negative.type === feedbackType
+    );
+
+    if (pair) {
+      latestByTopic.set(pair.topic, feedbackType);
+    }
+  });
+
+  return [...unpairedTypes, ...latestByTopic.values()];
+}
+
+function FeedbackVotePair({
+  counts,
+  onSelect,
+  pair,
+  selectedFeedback
+}: {
+  counts: FeedbackVoteCounts;
+  onSelect: (option: FeedbackOption, oppositeOption: FeedbackOption) => void;
+  pair: FeedbackPair;
+  selectedFeedback: string[];
+}) {
+  const positiveSelected = selectedFeedback.includes(pair.positive.type);
+  const negativeSelected = selectedFeedback.includes(pair.negative.type);
+  const positiveCount = counts[pair.positive.type] ?? 0;
+  const negativeCount = counts[pair.negative.type] ?? 0;
+  const totalCount = positiveCount + negativeCount;
+
+  return (
+    <View style={styles.feedbackPair}>
+      <Text style={styles.feedbackTopic}>{pair.topic}</Text>
+      <View style={styles.feedbackVoteTrack}>
+        <Pressable
+          accessibilityRole="button"
+          onPress={() => onSelect(pair.positive, pair.negative)}
+          style={[
+            styles.feedbackVoteButton,
+            styles.feedbackVoteLeft,
+            positiveSelected && styles.feedbackVotePositiveActive
+          ]}
+        >
+          <Text
+            style={[
+              styles.feedbackVoteText,
+              positiveSelected && styles.feedbackVoteTextActive
+            ]}
+          >
+            {pair.positive.label}
+          </Text>
+          <Text
+            style={[
+              styles.feedbackVoteCount,
+              positiveSelected && styles.feedbackVoteCountActive
+            ]}
+          >
+            {positiveCount}
+          </Text>
+        </Pressable>
+        <View style={styles.feedbackDivider} />
+        <Pressable
+          accessibilityRole="button"
+          onPress={() => onSelect(pair.negative, pair.positive)}
+          style={[
+            styles.feedbackVoteButton,
+            styles.feedbackVoteRight,
+            negativeSelected && styles.feedbackVoteNegativeActive
+          ]}
+        >
+          <Text
+            style={[
+              styles.feedbackVoteText,
+              negativeSelected && styles.feedbackVoteTextActive
+            ]}
+          >
+            {pair.negative.label}
+          </Text>
+          <Text
+            style={[
+              styles.feedbackVoteCount,
+              negativeSelected && styles.feedbackVoteCountActive
+            ]}
+          >
+            {negativeCount}
+          </Text>
+        </Pressable>
+      </View>
+      <View style={styles.feedbackMeter}>
+        <View
+          style={[
+            styles.feedbackMeterPositive,
+            { flex: totalCount ? positiveCount : 1 }
+          ]}
+        />
+        <View
+          style={[
+            styles.feedbackMeterNegative,
+            { flex: totalCount ? negativeCount : 1 }
+          ]}
+        />
+      </View>
+    </View>
+  );
 }
 
 function formatBringItem(item: string) {
@@ -479,34 +641,84 @@ const styles = StyleSheet.create({
     fontWeight: "700",
     lineHeight: 22
   },
-  feedbackGrid: {
-    flexDirection: "row",
-    flexWrap: "wrap",
-    gap: 10
+  feedbackPairs: {
+    gap: 14
   },
-  feedbackButton: {
+  feedbackPair: {
+    gap: 8
+  },
+  feedbackTopic: {
+    color: colors.muted,
+    fontSize: 12,
+    fontWeight: "900",
+    textTransform: "uppercase"
+  },
+  feedbackVoteTrack: {
+    alignItems: "stretch",
     backgroundColor: colors.card,
     borderColor: colors.border,
     borderRadius: 14,
     borderWidth: 1,
-    minHeight: 44,
+    flexDirection: "row",
+    minHeight: 48,
+    overflow: "hidden"
+  },
+  feedbackVoteButton: {
     alignItems: "center",
+    flex: 1,
+    gap: 3,
     justifyContent: "center",
-    paddingHorizontal: 12,
-    width: "47%"
+    paddingHorizontal: 10,
+    paddingVertical: 10
   },
-  feedbackButtonActive: {
-    backgroundColor: colors.mint,
-    borderColor: colors.teal
+  feedbackVoteLeft: {
+    borderBottomLeftRadius: 13,
+    borderTopLeftRadius: 13
   },
-  feedbackText: {
+  feedbackVoteRight: {
+    borderBottomRightRadius: 13,
+    borderTopRightRadius: 13
+  },
+  feedbackDivider: {
+    backgroundColor: colors.border,
+    width: 1
+  },
+  feedbackVotePositiveActive: {
+    backgroundColor: colors.teal
+  },
+  feedbackVoteNegativeActive: {
+    backgroundColor: colors.coral
+  },
+  feedbackVoteText: {
     color: colors.tealDark,
     fontSize: 13,
     fontWeight: "900",
+    lineHeight: 17,
     textAlign: "center"
   },
-  feedbackTextActive: {
-    color: colors.ink
+  feedbackVoteTextActive: {
+    color: colors.card
+  },
+  feedbackVoteCount: {
+    color: colors.muted,
+    fontSize: 11,
+    fontWeight: "900"
+  },
+  feedbackVoteCountActive: {
+    color: colors.card
+  },
+  feedbackMeter: {
+    backgroundColor: colors.mintSoft,
+    borderRadius: 999,
+    flexDirection: "row",
+    height: 6,
+    overflow: "hidden"
+  },
+  feedbackMeterPositive: {
+    backgroundColor: colors.teal
+  },
+  feedbackMeterNegative: {
+    backgroundColor: colors.coral
   },
   missing: {
     alignItems: "center",

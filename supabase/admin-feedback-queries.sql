@@ -45,10 +45,14 @@ select
     when feedback.feedback_type in (
       'info_changed',
       'needs_maintenance',
+      'needs_cleaning',
       'baby_care_missing',
+      'restroom_was_hard',
+      'stroller_was_hard',
       'parking_was_hard'
     ) then 'high'
     when feedback.feedback_type in (
+      'felt_pricey',
       'long_wait',
       'too_crowded',
       'changing_table_available',
@@ -66,10 +70,14 @@ order by
     when feedback.feedback_type in (
       'info_changed',
       'needs_maintenance',
+      'needs_cleaning',
       'baby_care_missing',
+      'restroom_was_hard',
+      'stroller_was_hard',
       'parking_was_hard'
     ) then 1
     when feedback.feedback_type in (
+      'felt_pricey',
       'long_wait',
       'too_crowded',
       'changing_table_available',
@@ -130,12 +138,16 @@ select
     where feedback.feedback_type in (
       'info_changed',
       'needs_maintenance',
+      'needs_cleaning',
       'baby_care_missing',
+      'restroom_was_hard',
+      'stroller_was_hard',
       'parking_was_hard'
     )
   ) as high_signal_count,
   count(*) filter (
     where feedback.feedback_type in (
+      'felt_pricey',
       'long_wait',
       'too_crowded',
       'changing_table_available',
@@ -166,7 +178,10 @@ where feedback.status = 'new'
   and feedback.feedback_type in (
     'info_changed',
     'needs_maintenance',
+    'needs_cleaning',
     'baby_care_missing',
+    'restroom_was_hard',
+    'stroller_was_hard',
     'parking_was_hard'
   )
 order by feedback.created_at desc;

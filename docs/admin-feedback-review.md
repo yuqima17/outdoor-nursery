@@ -51,6 +51,8 @@ The original label is also stored in `metadata.feedback_label`.
 
 Use [supabase/admin-feedback-queries.sql](../supabase/admin-feedback-queries.sql) in Supabase SQL Editor.
 
+Paired vote counts require [supabase/feedback-votes.sql](../supabase/feedback-votes.sql) to be run once after the base schema.
+
 Recommended first checks:
 
 1. Latest raw feedback.
@@ -168,11 +170,15 @@ High priority:
 
 - `info_changed`
 - `needs_maintenance`
+- `needs_cleaning`
 - `baby_care_missing`
+- `restroom_was_hard`
+- `stroller_was_hard`
 - `parking_was_hard`
 
 Medium priority:
 
+- `felt_pricey`
 - `long_wait`
 - `too_crowded`
 - `changing_table_available`
@@ -182,6 +188,10 @@ Medium priority:
 Low priority:
 
 - `easy_parking`
+- `stroller_worked`
+- `restroom_was_easy`
+- `baby_care_was_easy`
+- `clean_enough`
 - `kid_loved_it`
 - `good_value`
 - `crowd_was_okay`

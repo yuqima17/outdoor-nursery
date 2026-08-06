@@ -26,8 +26,8 @@ review_candidates as (
     feedback_groups.latest_report_at,
     case
       when feedback_groups.feedback_type in ('parking_was_hard', 'easy_parking') then 'amenities.parking'
-      when feedback_groups.feedback_type = 'stroller_worked' then 'amenities.stroller_friendly'
-      when feedback_groups.feedback_type = 'restroom_was_easy' then 'amenities.restroom'
+      when feedback_groups.feedback_type in ('stroller_worked', 'stroller_was_hard') then 'amenities.stroller_friendly'
+      when feedback_groups.feedback_type in ('restroom_was_easy', 'restroom_was_hard') then 'amenities.restroom'
       when feedback_groups.feedback_type in (
         'baby_care_was_easy',
         'baby_care_missing',
@@ -36,18 +36,22 @@ review_candidates as (
         'good_nursing_spot'
       ) then 'amenities.baby_care'
       when feedback_groups.feedback_type in ('too_crowded', 'crowd_was_okay', 'long_wait') then 'parent_notes'
-      when feedback_groups.feedback_type in ('kid_loved_it', 'good_value') then 'parent_notes'
-      when feedback_groups.feedback_type in ('needs_maintenance', 'info_changed') then 'data_quality'
+      when feedback_groups.feedback_type in ('kid_loved_it', 'good_value', 'felt_pricey') then 'parent_notes'
+      when feedback_groups.feedback_type in ('needs_maintenance', 'needs_cleaning', 'info_changed') then 'data_quality'
       else 'parent_notes'
     end as field_path,
     case
       when feedback_groups.feedback_type in (
         'info_changed',
         'needs_maintenance',
+        'needs_cleaning',
         'baby_care_missing',
+        'restroom_was_hard',
+        'stroller_was_hard',
         'parking_was_hard'
       ) then 'high'::review_priority
       when feedback_groups.feedback_type in (
+        'felt_pricey',
         'long_wait',
         'too_crowded',
         'changing_table_available',
@@ -62,7 +66,10 @@ review_candidates as (
     or feedback_groups.feedback_type in (
       'info_changed',
       'needs_maintenance',
+      'needs_cleaning',
       'baby_care_missing',
+      'restroom_was_hard',
+      'stroller_was_hard',
       'parking_was_hard'
     )
 )
@@ -108,8 +115,8 @@ order by
 --     feedback_groups.feedback_ids,
 --     case
 --       when feedback_groups.feedback_type in ('parking_was_hard', 'easy_parking') then 'amenities.parking'
---       when feedback_groups.feedback_type = 'stroller_worked' then 'amenities.stroller_friendly'
---       when feedback_groups.feedback_type = 'restroom_was_easy' then 'amenities.restroom'
+--       when feedback_groups.feedback_type in ('stroller_worked', 'stroller_was_hard') then 'amenities.stroller_friendly'
+--       when feedback_groups.feedback_type in ('restroom_was_easy', 'restroom_was_hard') then 'amenities.restroom'
 --       when feedback_groups.feedback_type in (
 --         'baby_care_was_easy',
 --         'baby_care_missing',
@@ -118,18 +125,22 @@ order by
 --         'good_nursing_spot'
 --       ) then 'amenities.baby_care'
 --       when feedback_groups.feedback_type in ('too_crowded', 'crowd_was_okay', 'long_wait') then 'parent_notes'
---       when feedback_groups.feedback_type in ('kid_loved_it', 'good_value') then 'parent_notes'
---       when feedback_groups.feedback_type in ('needs_maintenance', 'info_changed') then 'data_quality'
+--       when feedback_groups.feedback_type in ('kid_loved_it', 'good_value', 'felt_pricey') then 'parent_notes'
+--       when feedback_groups.feedback_type in ('needs_maintenance', 'needs_cleaning', 'info_changed') then 'data_quality'
 --       else 'parent_notes'
 --     end as field_path,
 --     case
 --       when feedback_groups.feedback_type in (
 --         'info_changed',
 --         'needs_maintenance',
+--         'needs_cleaning',
 --         'baby_care_missing',
+--         'restroom_was_hard',
+--         'stroller_was_hard',
 --         'parking_was_hard'
 --       ) then 'high'::review_priority
 --       when feedback_groups.feedback_type in (
+--         'felt_pricey',
 --         'long_wait',
 --         'too_crowded',
 --         'changing_table_available',
@@ -144,7 +155,10 @@ order by
 --     or feedback_groups.feedback_type in (
 --       'info_changed',
 --       'needs_maintenance',
+--       'needs_cleaning',
 --       'baby_care_missing',
+--       'restroom_was_hard',
+--       'stroller_was_hard',
 --       'parking_was_hard'
 --     )
 -- )

@@ -14,8 +14,11 @@ set
     when 'Easy parking' then 'easy_parking'
     when 'Parking was hard' then 'parking_was_hard'
     when 'Stroller worked' then 'stroller_worked'
+    when 'Stroller was hard' then 'stroller_was_hard'
     when 'Restroom was easy' then 'restroom_was_easy'
+    when 'Restroom was hard' then 'restroom_was_hard'
     when 'Baby care was easy' then 'baby_care_was_easy'
+    when 'Baby care helped' then 'baby_care_was_easy'
     when 'Changing table available' then 'changing_table_available'
     when 'Family restroom available' then 'family_restroom_available'
     when 'Good nursing spot' then 'good_nursing_spot'
@@ -26,6 +29,8 @@ set
     when 'Long wait' then 'long_wait'
     when 'Kid loved it' then 'kid_loved_it'
     when 'Good value' then 'good_value'
+    when 'Felt pricey' then 'felt_pricey'
+    when 'Needs cleaning' then 'needs_cleaning'
     when 'Needs maintenance' then 'needs_maintenance'
     when 'Info changed' then 'info_changed'
     else feedback_type
@@ -34,8 +39,11 @@ where feedback_type in (
   'Easy parking',
   'Parking was hard',
   'Stroller worked',
+  'Stroller was hard',
   'Restroom was easy',
+  'Restroom was hard',
   'Baby care was easy',
+  'Baby care helped',
   'Changing table available',
   'Family restroom available',
   'Good nursing spot',
@@ -46,6 +54,8 @@ where feedback_type in (
   'Long wait',
   'Kid loved it',
   'Good value',
+  'Felt pricey',
+  'Needs cleaning',
   'Needs maintenance',
   'Info changed'
 );

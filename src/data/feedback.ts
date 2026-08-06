@@ -12,6 +12,27 @@ export interface QuickFeedbackInput {
   feedbackLabel: string;
 }
 
+export interface FeedbackVoteInput extends QuickFeedbackInput {
+  voteTopic: string;
+}
+
+export interface ClearFeedbackVoteInput {
+  placeId: string;
+  voteTopic: string;
+}
+
+export interface FeedbackVoteCount {
+  feedbackType: string;
+  voteCount: number;
+  voteTopic: string;
+}
+
+type FeedbackVoteCountRow = {
+  feedback_type: string;
+  vote_count: number;
+  vote_topic: string;
+};
+
 export async function submitQuickFeedback({
   feedbackLabel,
   feedbackType,
@@ -53,6 +74,87 @@ export async function submitQuickFeedback({
   );
 
   return { submitted: true };
+}
+
+export async function submitFeedbackVote({
+  feedbackLabel,
+  feedbackType,
+  placeId,
+  voteTopic
+}: FeedbackVoteInput): Promise<{ submitted: boolean; errorMessage?: string }> {
+  if (!supabase) {
+    return { submitted: false, errorMessage: "Supabase is not configured." };
+  }
+
+  const deviceId = await getAnonymousDeviceId();
+
+  const { error } = await supabase.rpc("submit_feedback_vote", {
+    p_app_version: APP_VERSION,
+    p_device_id: deviceId,
+    p_feedback_label: feedbackLabel,
+    p_feedback_type: feedbackType,
+    p_metadata: {
+      interaction: "paired_feedback_vote",
+      platform: "expo",
+      submitted_from: "place_detail"
+    },
+    p_place_id: placeId,
+    p_vote_topic: voteTopic
+  });
+
+  if (!error) {
+    return { submitted: true };
+  }
+
+  const fallbackResult = await submitQuickFeedback({ feedbackLabel, feedbackType, placeId });
+
+  return {
+    submitted: fallbackResult.submitted,
+    errorMessage: fallbackResult.errorMessage ?? error.message
+  };
+}
+
+export async function clearFeedbackVote({
+  placeId,
+  voteTopic
+}: ClearFeedbackVoteInput): Promise<{ cleared: boolean; errorMessage?: string }> {
+  if (!supabase) {
+    return { cleared: false, errorMessage: "Supabase is not configured." };
+  }
+
+  const deviceId = await getAnonymousDeviceId();
+
+  const { error } = await supabase.rpc("clear_feedback_vote", {
+    p_device_id: deviceId,
+    p_place_id: placeId,
+    p_vote_topic: voteTopic
+  });
+
+  if (error) {
+    return { cleared: false, errorMessage: error.message };
+  }
+
+  return { cleared: true };
+}
+
+export async function fetchFeedbackVoteCounts(placeId: string): Promise<FeedbackVoteCount[]> {
+  if (!supabase) {
+    return [];
+  }
+
+  const { data, error } = await supabase.rpc("get_feedback_vote_counts", {
+    p_place_id: placeId
+  });
+
+  if (error || !data) {
+    return [];
+  }
+
+  return (data as FeedbackVoteCountRow[]).map((row) => ({
+    feedbackType: row.feedback_type,
+    voteCount: Number(row.vote_count) || 0,
+    voteTopic: row.vote_topic
+  }));
 }
 
 async function getAnonymousDeviceId() {

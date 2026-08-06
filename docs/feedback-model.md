@@ -32,29 +32,37 @@ Positive:
 Negative:
 
 - `parking_was_hard`
+- `stroller_was_hard`
+- `restroom_was_hard`
 - `baby_care_missing`
 - `too_crowded`
 - `long_wait`
+- `felt_pricey`
+- `needs_cleaning`
 - `needs_maintenance`
 - `info_changed`
 
-MVP button labels used in the app:
+MVP quick feedback is displayed as paired votes in the app:
 
-- `Easy parking`
-- `Parking was hard`
-- `Stroller worked`
-- `Restroom was easy`
-- `Baby care was easy`
+| Topic | Positive | Negative |
+| --- | --- | --- |
+| Parking | Easy parking | Parking was hard |
+| Stroller | Stroller worked | Stroller was hard |
+| Restroom | Restroom was easy | Restroom was hard |
+| Baby care | Baby care helped | Baby care missing |
+| Crowd | Crowd was okay | Too crowded |
+| Cleanliness | Clean enough | Needs cleaning |
+| Value | Good value | Felt pricey |
+
+Other feedback labels kept for later/admin use:
+
 - `Changing table available`
 - `Family restroom available`
 - `Good nursing spot`
-- `Baby care missing`
-- `Clean enough`
-- `Crowd was okay`
-- `Too crowded`
 - `Long wait`
 - `Kid loved it`
 - `Good value`
+- `Felt pricey`
 - `Needs maintenance`
 - `Info changed`
 
@@ -76,13 +84,17 @@ MVP button labels used in the app:
 
 Current prototype behavior:
 
-- User taps one or more feedback buttons.
+- User taps one side of a paired quick feedback vote.
 - The selected button state is stored locally on the device.
-- When Supabase is configured, selecting a button also inserts a row into `feedback`.
+- When Supabase is configured, selecting a side calls `submit_feedback_vote`.
+- `feedback_votes` stores the current vote for one anonymous device, place, and topic.
+- `feedback` stores append-only history for admin review.
+- The app reads public aggregate counts through `get_feedback_vote_counts`.
 - The database stores stable snake-case feedback codes, not display labels.
 - The original button label is stored in `metadata.feedback_label`.
-- The same device only submits the same place/type pair once.
-- Deselecting a button only updates local UI state; it does not delete backend history.
+- Choosing the other side of the same pair updates that device's current vote in `feedback_votes`.
+- Tapping the selected side again clears that device's current vote for the topic through `clear_feedback_vote`.
+- Choosing the other side does not delete backend history from `feedback`.
 - No account is required.
 - No public display of feedback is required.
 - Remote insert errors are silent in the MVP so the outing screen does not feel fragile.
@@ -99,6 +111,24 @@ Current insert payload:
     "app_version": "0.1.0",
     "feedback_label": "Easy parking",
     "interaction": "quick_feedback_select",
+    "platform": "expo",
+    "submitted_from": "place_detail"
+  }
+}
+```
+
+Current vote payload:
+
+```json
+{
+  "place_id": "string",
+  "device_id": "anonymous device id",
+  "vote_topic": "Parking",
+  "feedback_type": "easy_parking",
+  "feedback_label": "Easy parking",
+  "app_version": "0.1.0",
+  "metadata": {
+    "interaction": "paired_feedback_vote",
     "platform": "expo",
     "submitted_from": "place_detail"
   }
