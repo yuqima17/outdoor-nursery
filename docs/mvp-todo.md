@@ -86,9 +86,10 @@ This file tracks the current build sequence for the Outdoor Nursery MVP.
 | Create release checklist | needs_quality_check | See `docs/release-checklist.md`. Tracks product, app config, backend, data, privacy, QA, and TestFlight readiness. |
 | Audit Expo release config | needs_quality_check | See `docs/expo-config-audit.md`. iOS bundle id, iPhone-only support, Expo project link, and EAS env vars are configured; current iOS build number is `7`. |
 | Add draft brand assets | needs_quality_check | Draft icon, splash, Home hero, and visual asset board are in `assets/`. Home now uses the hero image. |
-| Add EAS config draft | needs_quality_check | See `eas.json` and `docs/eas-build-plan.md`. Production build `0.1.0 (6)` passed internal TestFlight smoke testing; latest candidate `0.1.0 (7)` build/submission finished and is waiting for App Store Connect/TestFlight processing or availability. |
-| Draft TestFlight prep guide | needs_quality_check | See `docs/testflight-prep.md`. Internal TestFlight build `0.1.0 (6)` passed owner smoke testing; latest candidate `0.1.0 (7)` is waiting for App Store Connect/TestFlight processing or availability; external TestFlight is skipped for now. |
+| Add EAS config draft | needs_quality_check | See `eas.json` and `docs/eas-build-plan.md`. Production builds `0.1.0 (6)` and `0.1.0 (7)` passed internal TestFlight smoke testing. |
+| Draft TestFlight prep guide | needs_quality_check | See `docs/testflight-prep.md`. Internal TestFlight builds `0.1.0 (6)` and `0.1.0 (7)` passed owner smoke testing; external TestFlight is skipped for now. |
 | Prepare App Store Connect metadata | needs_quality_check | See `docs/app-store-connect-metadata.md`. App Store Connect app record exists and privacy policy URL is hosted on GitHub Pages. |
+| Create App Store submission gap checklist | done | See `docs/app-store-submission-gap-checklist.md`. Tracks public App Store blockers, user-owned Apple steps, Codex-owned prep tasks, and suggested next steps. |
 | Prepare TestFlight beta notes | needs_quality_check | See `docs/testflight-beta-notes.md`. Beta description, review notes, tester instructions, and pass criteria are drafted. |
 | Prepare public privacy policy artifact | done | See `docs/privacy-policy-public.md` and `public/privacy-policy.html`. Public URL is `https://yuqima17.github.io/outdoor-nursery/privacy-policy.html`. |
 | Execute Top 10 official/field recheck | blocked | User wants to skip this for now because field checking is not practical right now. |
@@ -118,6 +119,7 @@ This file tracks the current build sequence for the Outdoor Nursery MVP.
 - Review draft icon, splash, and Home hero on phone.
 - Review privacy policy before wider beta.
 - Internal TestFlight build `0.1.0 (6)` has passed owner smoke testing.
+- Internal TestFlight build `0.1.0 (7)` has passed owner smoke testing.
 - Review caregiver notes later before production; for now they can remain `needs_parent_verification`.
 - Review whether the Top 10 list and priorities in `docs/top-10-quality-check.md` match the intended first beta experience.
 - Review official recheck queue in `docs/official-recheck-plan.md` before executing source checks.

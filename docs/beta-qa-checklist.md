@@ -8,18 +8,18 @@ Latest internal TestFlight smoke test:
 
 ```text
 Version: 0.1.0
-Build: 6
-Date: August 5, 2026
+Build: 7
+Date: August 9, 2026
 Result: passed on user's iPhone
 ```
 
-Latest candidate:
+Previous internal TestFlight smoke test:
 
 ```text
 Version: 0.1.0
-Build: 7
-Date: August 6, 2026
-Result: EAS build and submission finished; waiting for App Store Connect/TestFlight processing or availability
+Build: 6
+Date: August 5, 2026
+Result: passed on user's iPhone
 ```
 
 External friend testing is intentionally skipped for now because no external testers are available yet.

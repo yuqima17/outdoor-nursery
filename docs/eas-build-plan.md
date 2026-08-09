@@ -28,7 +28,7 @@ Current status:
 - Build `4` adds the SDK 54-compatible `expo-font` native module after the development build reported `Cannot find native module 'ExpoFontLoader'`.
 - Build `5` confirmed the normal preview/internal path after the `expo-font` fix.
 - Production build `0.1.0 (6)` was uploaded to App Store Connect and passed internal TestFlight smoke testing on the user's iPhone.
-- Production build `0.1.0 (7)` finished successfully on EAS and EAS submission `dcf7cf44-5209-4e04-925a-4b17a27d8373` finished on August 6, 2026. The build is waiting for App Store Connect/TestFlight processing or availability.
+- Production build `0.1.0 (7)` finished successfully on EAS, EAS submission `dcf7cf44-5209-4e04-925a-4b17a27d8373` finished on August 6, 2026, and the build passed owner smoke testing through TestFlight on August 9, 2026.
 
 Current release path note:
 
@@ -180,7 +180,7 @@ Version: 0.1.0
 Build: 7
 Build ID: 03821bed-b085-4bc4-808e-9a87a70cc65b
 Submission ID: dcf7cf44-5209-4e04-925a-4b17a27d8373
-Status: build finished; EAS submission finished; waiting for App Store Connect/TestFlight processing or availability
+Status: build finished; EAS submission finished; internal TestFlight smoke test passed
 ```
 
 ## Do Not Do Yet

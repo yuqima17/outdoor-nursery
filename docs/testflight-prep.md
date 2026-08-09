@@ -184,8 +184,8 @@ Current internal TestFlight build:
 ```text
 Version: 0.1.0
 Build: 7
-Date: August 6, 2026
-Status: EAS build and submission finished; waiting for App Store Connect/TestFlight processing or availability.
+Date: August 9, 2026
+Status: Internal TestFlight smoke test passed on user's iPhone.
 ```
 
 Internal test result:
@@ -193,7 +193,7 @@ Internal test result:
 - App installed through TestFlight.
 - Build `0.1.0 (6)` opened successfully.
 - User confirmed build `0.1.0 (6)` passed internal TestFlight smoke testing.
-- Build `0.1.0 (7)` is the latest candidate and is waiting for App Store Connect/TestFlight processing or availability.
+- User confirmed build `0.1.0 (7)` passed internal TestFlight smoke testing.
 
 ## Current Blockers
 

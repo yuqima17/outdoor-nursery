@@ -80,8 +80,8 @@ Current result:
 ```text
 Version: 0.1.0
 Build: 7
-Internal TestFlight smoke test: build 6 passed on user's iPhone
-Latest candidate: build 7 submitted successfully and waiting for App Store Connect/TestFlight processing or availability
+Internal TestFlight smoke test: build 7 passed on user's iPhone
+Previous smoke test: build 6 passed on user's iPhone
 ```
 
 Use this when:

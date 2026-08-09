@@ -89,7 +89,7 @@ Current target:
 - Test Home hero image on phone.
 - Confirm app icon and splash load in Expo/EAS config.
 - Internal TestFlight build `0.1.0 (6)` installed and passed a smoke test on the user's iPhone.
-- Latest production build `0.1.0 (7)` finished on EAS and was submitted successfully; it is waiting for App Store Connect/TestFlight processing or availability.
+- Latest production build `0.1.0 (7)` installed from TestFlight and passed a smoke test on the user's iPhone.
 
 ## Beta Operations
 
@@ -118,7 +118,8 @@ Before TestFlight:
 - First EAS iOS build succeeds.
 - GitHub Pages is enabled and `public/privacy-policy.html` loads from the final public URL.
 - Internal TestFlight build `0.1.0 (6)` is visible in App Store Connect and passed smoke testing.
-- Latest candidate build `0.1.0 (7)` has been submitted to App Store Connect/TestFlight and is waiting for processing or availability.
+- Latest candidate build `0.1.0 (7)` is visible in TestFlight and passed owner smoke testing.
+- Public App Store submission gaps are tracked in [App Store Submission Gap Checklist](app-store-submission-gap-checklist.md).
 
 See:
 
