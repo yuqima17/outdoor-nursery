@@ -30,6 +30,18 @@ External TestFlight: skipped until testers are available
 Public App Store release: not started
 ```
 
+## Public Release Decisions
+
+User confirmed on August 9, 2026:
+
+- First public launch market: Bay Area only.
+- First public release countries/regions: United States only.
+- Pricing: free.
+- External TestFlight before public App Review: no, skip for now.
+- Privacy policy wording: final enough for the first public release.
+- Current data quality: acceptable for the first public release.
+- Current generated image assets: acceptable for public listing, but place cards still need default images.
+
 Latest testing:
 
 ```text
@@ -66,13 +78,14 @@ These are required or strongly recommended before pressing public App Review sub
 | Keywords | needs_quality_check | User + Codex | Need App Store search keywords, likely parent outing, playground, park, toddler, stroller, Bay Area. |
 | Support URL | needs_user_action | User + Codex | Current support path is email only. Best next step: create `public/support.html` and use that URL in App Store Connect. |
 | App Review contact | needs_user_action | User | Apple needs the account owner's current name/phone/email. Codex should not invent phone/contact details. |
-| App Privacy answers | needs_user_action | User + Codex | Current recommendation: yes, app collects anonymous feedback data; no tracking; not linked to identity. User must confirm final answers. |
+| App Privacy answers | needs_user_action | User + Codex | User confirmed privacy policy wording is final enough. Current recommendation: yes, app collects anonymous feedback data; no tracking; not linked to identity. User still needs to click the final App Store Connect answers. |
 | Age rating questionnaire | needs_user_action | User | Likely 4+, but user must answer Apple's questionnaire. |
-| Content rights | needs_user_action | User | Confirm all app images/assets are original, generated, licensed, or owned. |
-| Pricing and availability | needs_user_action | User | Current product direction is free. Decide countries/regions before public release. |
+| Content rights | needs_quality_check | User | User confirmed current generated image assets are acceptable, but place card default images are still needed before final screenshot/public polish. |
+| Pricing and availability | needs_user_action | User | User decision: free app, United States only for first release. User still needs to set this in App Store Connect. |
 | License/agreement prompts | needs_user_action | User | If App Store Connect shows a new Apple Developer Program agreement, the account holder must accept it. Paid Apps agreement is not needed for a free app with no IAP unless Apple requires another account setup step. |
-| Data quality disclaimer | needs_quality_check | User + Codex | Profile/privacy already explain prototype data, but public release should reduce placeholder/prototype wording. |
+| Data quality disclaimer | needs_quality_check | User + Codex | User confirmed current data quality is acceptable for first public release. Public release should still avoid overly certain wording where facts may change. |
 | Remove dev/prototype labels | needs_code | Codex | Public build should not show labels like `Dev`, `UI preview`, or internal diagnostics on Home. |
+| Place card default images | needs_code | Codex | User confirmed public image direction is acceptable, but place cards need default images instead of blank/placeholder image areas. |
 | App icon and splash final review | needs_quality_check | User | Current assets are okay for beta, but public App Store polish should be checked once more. |
 | Latest production QA | needs_quality_check | User | Run the full phone QA checklist on the final public candidate build. |
 
@@ -91,6 +104,8 @@ These do not block internal owner testing:
 ## External TestFlight Gap
 
 External TestFlight is optional right now because no external testers are available.
+
+Current decision: skip external TestFlight before public App Review.
 
 If external testers become available, do these first:
 
@@ -141,21 +156,20 @@ High-value tasks Codex can do without more Apple account access:
 
 User decisions before public release:
 
-- Whether the app should launch publicly as Bay Area only.
-- Whether to keep the app free.
-- Which countries/regions should receive the first release.
-- Whether the current generated image assets are acceptable for public listing.
-- Whether the privacy policy wording is final enough.
-- Whether the current data quality is acceptable for a first public release.
-- Whether to invite external testers before public App Review.
+- App should launch publicly as Bay Area only: yes, for now.
+- App should be free: yes.
+- First release countries/regions: United States.
+- Current generated image assets are acceptable for public listing: yes, but add default images for place cards.
+- Privacy policy wording is final enough: yes.
+- Current data quality is acceptable for a first public release: yes.
+- Invite external testers before public App Review: no.
 
 ## Suggested Next 5 Steps
 
 Recommended order:
 
 1. Create `public/support.html` and add it to GitHub Pages.
-2. Remove internal/dev wording from production UI.
+2. Add default place card images and remove internal/dev wording from production UI.
 3. Draft App Store listing copy and screenshot checklist.
 4. Run one final data/content pass on the first 10 places.
 5. Build and submit the next production candidate after those changes.
-

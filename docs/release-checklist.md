@@ -6,22 +6,23 @@ This checklist tracks what Outdoor Nursery needs before a real beta build or sto
 
 Current target:
 
-- Small private beta.
+- First public release preparation.
 - iOS first, iPhone-only.
 - Bay Area only.
 - Internal TestFlight build is available and passed a user phone smoke test.
-- External TestFlight is intentionally skipped until testers are available.
-- No public App Store release yet.
+- External TestFlight is intentionally skipped before public App Review.
+- Public App Store release target is United States only and free.
 
 ## Product
 
 - Confirm app name.
 - Confirm one-line app description.
-- Confirm first market wording: Bay Area.
+- Confirm first market wording: Bay Area. User confirmed Bay Area-only public launch.
 - Confirm category names: Parks, Playgrounds, Outdoor Malls.
 - Confirm Home, Place Card, Detail, Saved, and Profile wording.
 - Confirm Profile data/privacy wording is acceptable for testers.
 - Confirm text feedback is intentionally skipped for now.
+- Add default images for place cards before public screenshots.
 
 ## App Configuration
 
@@ -60,6 +61,7 @@ Current target:
 ## Privacy
 
 - Review and finalize the public-facing privacy policy.
+- User confirmed privacy policy wording is final enough for the first public release.
 - Public privacy policy copy exists in `docs/privacy-policy-public.md`.
 - Static privacy policy HTML exists in `public/privacy-policy.html`.
 - GitHub Pages deploy workflow exists in `.github/workflows/deploy-pages.yml`.
@@ -120,6 +122,7 @@ Before TestFlight:
 - Internal TestFlight build `0.1.0 (6)` is visible in App Store Connect and passed smoke testing.
 - Latest candidate build `0.1.0 (7)` is visible in TestFlight and passed owner smoke testing.
 - Public App Store submission gaps are tracked in [App Store Submission Gap Checklist](app-store-submission-gap-checklist.md).
+- User confirmed first public release decisions: Bay Area only, United States only, free, no external TestFlight before App Review, privacy policy acceptable, data quality acceptable.
 
 See:
 
@@ -136,5 +139,4 @@ See:
 - Push notifications.
 - Live location.
 - In-app maps.
-- Public App Store listing.
 - External TestFlight testers.

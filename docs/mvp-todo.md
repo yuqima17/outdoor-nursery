@@ -90,6 +90,8 @@ This file tracks the current build sequence for the Outdoor Nursery MVP.
 | Draft TestFlight prep guide | needs_quality_check | See `docs/testflight-prep.md`. Internal TestFlight builds `0.1.0 (6)` and `0.1.0 (7)` passed owner smoke testing; external TestFlight is skipped for now. |
 | Prepare App Store Connect metadata | needs_quality_check | See `docs/app-store-connect-metadata.md`. App Store Connect app record exists and privacy policy URL is hosted on GitHub Pages. |
 | Create App Store submission gap checklist | done | See `docs/app-store-submission-gap-checklist.md`. Tracks public App Store blockers, user-owned Apple steps, Codex-owned prep tasks, and suggested next steps. |
+| Confirm first public release decisions | done | User confirmed Bay Area-only launch, United States-only availability, free pricing, no external TestFlight before App Review, privacy wording final enough, and data quality acceptable for first public release. |
+| Add default place card images | needs_code | User confirmed generated assets are acceptable for public listing, but place cards need default images before final screenshots/public polish. |
 | Prepare TestFlight beta notes | needs_quality_check | See `docs/testflight-beta-notes.md`. Beta description, review notes, tester instructions, and pass criteria are drafted. |
 | Prepare public privacy policy artifact | done | See `docs/privacy-policy-public.md` and `public/privacy-policy.html`. Public URL is `https://yuqima17.github.io/outdoor-nursery/privacy-policy.html`. |
 | Execute Top 10 official/field recheck | blocked | User wants to skip this for now because field checking is not practical right now. |
@@ -120,6 +122,8 @@ This file tracks the current build sequence for the Outdoor Nursery MVP.
 - Review privacy policy before wider beta.
 - Internal TestFlight build `0.1.0 (6)` has passed owner smoke testing.
 - Internal TestFlight build `0.1.0 (7)` has passed owner smoke testing.
+- First public release decisions are confirmed: Bay Area only, United States only, free, no external TestFlight, privacy policy acceptable, and data quality acceptable.
+- Add default images to place cards before final App Store screenshots.
 - Review caregiver notes later before production; for now they can remain `needs_parent_verification`.
 - Review whether the Top 10 list and priorities in `docs/top-10-quality-check.md` match the intended first beta experience.
 - Review official recheck queue in `docs/official-recheck-plan.md` before executing source checks.
