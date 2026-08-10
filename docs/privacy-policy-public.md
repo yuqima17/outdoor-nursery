@@ -4,11 +4,11 @@ Effective date: July 30, 2026
 
 Outdoor Nursery is a small app for helping parents and caregivers find baby- and kid-friendly places to go, such as parks, playgrounds, and outdoor malls.
 
-This policy explains what the MVP collects today. It should be reviewed again before a wider beta or any public App Store release.
+This policy explains what the app collects today.
 
 ## What We Collect
 
-The current MVP may store:
+The current app may store:
 
 - Saved place IDs on your device.
 - Quick feedback selections on your device.
@@ -25,7 +25,7 @@ Quick feedback may include:
 
 ## What We Do Not Collect
 
-The current MVP does not ask for or collect:
+The current app does not ask for or collect:
 
 - Parent or caregiver name.
 - Child name.
@@ -40,7 +40,7 @@ The current MVP does not ask for or collect:
 
 ## Saved Places
 
-Saved places are stored locally on your phone in this MVP.
+Saved places are stored locally on your phone.
 
 They are not synced across devices. If you delete the app, local saved places may be removed by your device.
 
@@ -71,7 +71,7 @@ We do not use it for advertising or tracking across other apps.
 
 Outdoor Nursery stores coordinates for places and can open external directions links.
 
-The current MVP does not collect your live location or background location.
+The current app does not collect your live location or background location.
 
 If location-based features are added later, they should be reviewed separately before release.
 
@@ -79,7 +79,7 @@ If location-based features are added later, they should be reviewed separately b
 
 Outdoor Nursery is designed for parents and caregivers, not for children to submit personal information.
 
-The MVP does not knowingly collect personal information from children.
+The app does not knowingly collect personal information from children.
 
 Please do not submit child names, photos, school/daycare information, medical details, or other child-specific personal information through feedback or support channels.
 
@@ -91,13 +91,7 @@ Public app users should not be able to read raw feedback data. Feedback is priva
 
 ## Data Retention
 
-Retention rules are not final yet.
-
-Before wider beta or public release, decide:
-
-- How long anonymous feedback should be retained.
-- Whether users can request feedback deletion.
-- Whether anonymous device IDs should expire or rotate.
+Anonymous feedback may be retained while it is useful for reviewing place information and improving app quality.
 
 ## Contact
 
@@ -107,6 +101,4 @@ Use this contact for privacy questions, data questions, or feedback about the ap
 
 ## Changes
 
-This policy may change as the app moves from MVP prototype to beta.
-
-Before a public release, this policy should be reviewed again for the correct release scope.
+This policy may change as the app changes. Updates will be posted on this page.

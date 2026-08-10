@@ -22,7 +22,7 @@ Current target:
 - Confirm Home, Place Card, Detail, Saved, and Profile wording.
 - Confirm Profile data/privacy wording is acceptable for testers.
 - Confirm text feedback is intentionally skipped for now.
-- Add default images for place cards before public screenshots.
+- Add simple category thumbnails for place cards before public screenshots.
 
 ## App Configuration
 
@@ -64,8 +64,10 @@ Current target:
 - User confirmed privacy policy wording is final enough for the first public release.
 - Public privacy policy copy exists in `docs/privacy-policy-public.md`.
 - Static privacy policy HTML exists in `public/privacy-policy.html`.
+- Static support HTML exists in `public/support.html`.
 - GitHub Pages deploy workflow exists in `.github/workflows/deploy-pages.yml`.
 - Privacy policy is published at `https://yuqima17.github.io/outdoor-nursery/privacy-policy.html`.
+- Support page will publish at `https://yuqima17.github.io/outdoor-nursery/support.html`.
 - Privacy policy URL is copied into App Store Connect.
 - Explain anonymous quick feedback.
 - Explain anonymous device id.
@@ -87,6 +89,7 @@ Current target:
 - Test Save/unsave persistence.
 - Test Quick Feedback.
 - Test Profile page.
+- Test Profile support and privacy links.
 - Test Supabase fallback behavior.
 - Test Home hero image on phone.
 - Confirm app icon and splash load in Expo/EAS config.
@@ -123,6 +126,8 @@ Before TestFlight:
 - Latest candidate build `0.1.0 (7)` is visible in TestFlight and passed owner smoke testing.
 - Public App Store submission gaps are tracked in [App Store Submission Gap Checklist](app-store-submission-gap-checklist.md).
 - User confirmed first public release decisions: Bay Area only, United States only, free, no external TestFlight before App Review, privacy policy acceptable, data quality acceptable.
+- Profile public support/privacy links are implemented.
+- Place cards use simple logo-style category thumbnails.
 
 See:
 

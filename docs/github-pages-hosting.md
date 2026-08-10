@@ -10,10 +10,11 @@ The public site is built from:
 public/
 ```
 
-Current public page:
+Current public pages:
 
 ```text
 public/privacy-policy.html
+public/support.html
 ```
 
 ## Expected Privacy Policy URL
@@ -32,6 +33,13 @@ https://GITHUB_USERNAME.github.io/nursery-app/privacy-policy.html
 
 Use the actual URL shown by GitHub Pages after deployment.
 
+Expected Outdoor Nursery URLs:
+
+```text
+https://yuqima17.github.io/outdoor-nursery/privacy-policy.html
+https://yuqima17.github.io/outdoor-nursery/support.html
+```
+
 ## One-Time GitHub Setup
 
 These steps require the GitHub account owner.
@@ -44,6 +52,7 @@ These steps require the GitHub account owner.
 6. Go to `Actions` and run or wait for `Deploy Public Pages`.
 7. Open the deployed URL and confirm the privacy policy loads.
 8. Put the final privacy policy URL into App Store Connect.
+9. Put the final support URL into App Store Connect.
 
 ## Automation
 

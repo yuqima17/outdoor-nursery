@@ -25,6 +25,7 @@ Latest build: 7
 Bundle ID: com.yuqima.outdoornursery
 App Store Connect app ID: 6797605509
 Privacy policy URL: https://yuqima17.github.io/outdoor-nursery/privacy-policy.html
+Support URL: https://yuqima17.github.io/outdoor-nursery/support.html
 Support email: outdoornursery@gmail.com
 External TestFlight: skipped until testers are available
 Public App Store release: not started
@@ -40,7 +41,8 @@ User confirmed on August 9, 2026:
 - External TestFlight before public App Review: no, skip for now.
 - Privacy policy wording: final enough for the first public release.
 - Current data quality: acceptable for the first public release.
-- Current generated image assets: acceptable for public listing, but place cards still need default images.
+- Current generated image assets: acceptable for public listing.
+- Place card thumbnails should use simple logo-style category tiles instead of photo-like images.
 
 Latest testing:
 
@@ -61,6 +63,7 @@ Build 7: user confirmed phone smoke test passed.
 - EAS production build `0.1.0 (7)` completed and submitted successfully.
 - TestFlight internal testing works.
 - Privacy policy is hosted on GitHub Pages.
+- Support page is hosted through GitHub Pages.
 - App metadata draft exists in [App Store Connect Metadata](app-store-connect-metadata.md).
 - TestFlight beta notes exist in [TestFlight Beta Notes](testflight-beta-notes.md).
 - No account/demo login is required.
@@ -76,16 +79,16 @@ These are required or strongly recommended before pressing public App Review sub
 | Public App Store screenshots | blocked | User + Codex | Required for a public listing. Codex can prepare a screenshot plan/copy; user should approve final phone screenshots. |
 | App Store description | needs_quality_check | User + Codex | Draft short metadata exists; public listing copy should be more polished than beta notes. |
 | Keywords | needs_quality_check | User + Codex | Need App Store search keywords, likely parent outing, playground, park, toddler, stroller, Bay Area. |
-| Support URL | needs_user_action | User + Codex | Current support path is email only. Best next step: create `public/support.html` and use that URL in App Store Connect. |
+| Support URL | needs_user_action | User | Codex created `public/support.html`. Use `https://yuqima17.github.io/outdoor-nursery/support.html` in App Store Connect after GitHub Pages deploys. |
 | App Review contact | needs_user_action | User | Apple needs the account owner's current name/phone/email. Codex should not invent phone/contact details. |
 | App Privacy answers | needs_user_action | User + Codex | User confirmed privacy policy wording is final enough. Current recommendation: yes, app collects anonymous feedback data; no tracking; not linked to identity. User still needs to click the final App Store Connect answers. |
 | Age rating questionnaire | needs_user_action | User | Likely 4+, but user must answer Apple's questionnaire. |
-| Content rights | needs_quality_check | User | User confirmed current generated image assets are acceptable, but place card default images are still needed before final screenshot/public polish. |
+| Content rights | needs_quality_check | User | User confirmed current generated image assets are acceptable. Place cards now use simple category logo tiles instead of photo-like location thumbnails. |
 | Pricing and availability | needs_user_action | User | User decision: free app, United States only for first release. User still needs to set this in App Store Connect. |
 | License/agreement prompts | needs_user_action | User | If App Store Connect shows a new Apple Developer Program agreement, the account holder must accept it. Paid Apps agreement is not needed for a free app with no IAP unless Apple requires another account setup step. |
 | Data quality disclaimer | needs_quality_check | User + Codex | User confirmed current data quality is acceptable for first public release. Public release should still avoid overly certain wording where facts may change. |
-| Remove dev/prototype labels | needs_code | Codex | Public build should not show labels like `Dev`, `UI preview`, or internal diagnostics on Home. |
-| Place card default images | needs_code | Codex | User confirmed public image direction is acceptable, but place cards need default images instead of blank/placeholder image areas. |
+| Remove dev/prototype labels | needs_quality_check | User + Codex | Public-facing Home/Profile/error/privacy copy no longer uses obvious internal beta/prototype wording. Dev-only diagnostics still appear only in development builds. |
+| Place card default thumbnails | needs_quality_check | User + Codex | Place cards now use simple logo-style category tiles for parks, playgrounds, and outdoor malls. |
 | App icon and splash final review | needs_quality_check | User | Current assets are okay for beta, but public App Store polish should be checked once more. |
 | Latest production QA | needs_quality_check | User | Run the full phone QA checklist on the final public candidate build. |
 
@@ -144,9 +147,9 @@ Before public release, confirm whether Apple's questionnaire labels the anonymou
 
 High-value tasks Codex can do without more Apple account access:
 
-1. Create a hosted support page at `public/support.html`.
+1. Quality-check hosted support page at `public/support.html`.
 2. Add a Support/Privacy section in Profile that links to the public support and privacy URLs.
-3. Remove or hide development labels from production builds.
+3. Remove or hide any remaining development labels from production builds.
 4. Draft final App Store listing copy: subtitle, promotional text, description, keywords, support copy.
 5. Create an App Store screenshot plan with required screens and captions.
 6. Add a public-release QA checklist separate from beta QA.
@@ -168,8 +171,8 @@ User decisions before public release:
 
 Recommended order:
 
-1. Create `public/support.html` and add it to GitHub Pages.
-2. Add default place card images and remove internal/dev wording from production UI.
+1. Confirm the support page loads from GitHub Pages and add it to App Store Connect.
+2. Quality-check logo-style place card thumbnails and public-facing wording on phone.
 3. Draft App Store listing copy and screenshot checklist.
 4. Run one final data/content pass on the first 10 places.
 5. Build and submit the next production candidate after those changes.

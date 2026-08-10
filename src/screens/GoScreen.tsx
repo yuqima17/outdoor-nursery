@@ -121,7 +121,7 @@ export function GoScreen() {
 
         {errorMessage && dataSource === "local" ? (
           <StatusBanner
-            body="Live place data did not load, so the app is showing the saved MVP dataset. Pull down to retry."
+            body="Live place data did not load, so the app is showing saved place data. Pull down to retry."
             icon="cloud-offline"
             title="Using saved place data"
           />

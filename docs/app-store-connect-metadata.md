@@ -32,7 +32,7 @@ Use these values after the app record exists.
 | Content rights | Needs user confirmation | Current app uses original/generated assets and public place facts. Confirm before public release. |
 | Age rating target | 4+ | App is for adults/caregivers, has no accounts, no public user content, no ads, and no live location. |
 | Support email | `outdoornursery@gmail.com` | Use for beta feedback and privacy questions. |
-| Support URL | Pending | Can use the same hosted page or site as the privacy policy later. |
+| Support URL | `https://yuqima17.github.io/outdoor-nursery/support.html` | Hosted with GitHub Pages. |
 | Privacy policy URL | `https://yuqima17.github.io/outdoor-nursery/privacy-policy.html` | Hosted with GitHub Pages. |
 
 ## App Privacy Draft
@@ -96,11 +96,11 @@ Not required. The app does not have login or account creation in this beta.
 Review notes:
 
 ```text
-Outdoor Nursery is an early private beta for finding baby- and kid-friendly places to go in the Bay Area, including parks, playgrounds, and outdoor malls.
+Outdoor Nursery helps parents and caregivers find baby- and kid-friendly places to go in the Bay Area, including parks, playgrounds, and outdoor malls.
 
 No login is required. Please open the app, browse Home, open a place detail page, save/unsave a place, open directions, and try anonymous quick feedback buttons.
 
-The app does not collect child personal information, contacts, photos, payment information, or live GPS location. Place data is prototype data and should be confirmed before real trips.
+The app does not collect child personal information, contacts, photos, payment information, or live GPS location. Place details can change and should be confirmed before real trips, especially fees, hours, reservations, closures, and facilities.
 ```
 
 ## User Must Still Do

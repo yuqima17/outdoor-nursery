@@ -30,7 +30,7 @@ export class AppErrorBoundary extends Component<AppErrorBoundaryProps, AppErrorB
         <View style={styles.container}>
           <Text style={styles.title}>Outdoor Nursery hit a startup problem</Text>
           <Text style={styles.body}>
-            Please send this message to the builder so we can fix the beta build.
+            Please send this message to outdoornursery@gmail.com so we can help.
           </Text>
           <Text selectable style={styles.errorText}>
             {this.state.errorMessage}

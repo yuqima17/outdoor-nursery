@@ -1,37 +1,35 @@
 import { Ionicons } from "@expo/vector-icons";
 import type { ComponentProps } from "react";
-import { ScrollView, StyleSheet, Text, View } from "react-native";
+import { Linking, Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 import { colors } from "../theme";
 
 type IconName = ComponentProps<typeof Ionicons>["name"];
 
+const supportUrl = "https://yuqima17.github.io/outdoor-nursery/support.html";
+const privacyUrl = "https://yuqima17.github.io/outdoor-nursery/privacy-policy.html";
+
 const rows: Array<{ icon: IconName; title: string; body: string }> = [
   {
     icon: "sparkles-outline",
-    title: "What this beta is for",
+    title: "What Outdoor Nursery is for",
     body: "Outdoor Nursery helps parents quickly compare Bay Area parks, playgrounds, and outdoor malls for low-stress outings with young kids."
   },
   {
     icon: "reader-outline",
-    title: "Data status",
-    body: "Place details are prototype data with official-source checks and parent-review fields. Treat details like fees, hours, and facilities as things to confirm before a real trip."
+    title: "Place details",
+    body: "Place details can change. Please confirm hours, fees, closures, and facilities with the official place source before a real trip."
   },
   {
     icon: "chatbubble-ellipses-outline",
     title: "Feedback",
-    body: "Quick feedback is anonymous in this MVP and helps decide which places need review. Text notes and accounts are intentionally not included yet."
+    body: "Quick feedback is anonymous and helps identify which place details may need manual review."
   },
   {
     icon: "lock-closed-outline",
     title: "Privacy",
-    body: "The MVP does not ask for child information, contacts, photos, accounts, or live location. Saved places stay on this phone, and quick feedback is anonymous."
-  },
-  {
-    icon: "document-text-outline",
-    title: "Privacy policy",
-    body: "A plain-language privacy policy draft is ready for review before wider beta or TestFlight."
+    body: "The app does not ask for child information, contacts, photos, accounts, payment information, or live location. Saved places stay on this phone."
   }
 ];
 
@@ -45,11 +43,11 @@ export function ProfileScreen() {
           </View>
           <Text style={styles.title}>Outdoor Nursery</Text>
           <Text style={styles.subtitle}>
-            A small parent-facing beta for finding baby and kid-friendly places to go.
+            Baby and kid-friendly Bay Area outing ideas, with practical notes before you go.
           </Text>
           <View style={styles.statusPill}>
-            <Ionicons color={colors.tealDark} name="flask-outline" size={15} />
-            <Text style={styles.statusPillText}>MVP beta</Text>
+            <Ionicons color={colors.tealDark} name="map-outline" size={15} />
+            <Text style={styles.statusPillText}>Bay Area guide</Text>
           </View>
         </View>
 
@@ -64,6 +62,38 @@ export function ProfileScreen() {
             </View>
           </View>
         ))}
+
+        <View style={styles.linkCard}>
+          <Text style={styles.linkTitle}>Help and policies</Text>
+          <Pressable
+            accessibilityRole="link"
+            onPress={() => Linking.openURL(supportUrl)}
+            style={({ pressed }) => [styles.linkRow, pressed && styles.pressed]}
+          >
+            <View style={styles.linkIcon}>
+              <Ionicons color={colors.teal} name="help-buoy-outline" size={22} />
+            </View>
+            <View style={styles.linkText}>
+              <Text style={styles.linkLabel}>Support</Text>
+              <Text style={styles.linkBody}>Report a problem or ask a question.</Text>
+            </View>
+            <Ionicons color={colors.muted} name="open-outline" size={19} />
+          </Pressable>
+          <Pressable
+            accessibilityRole="link"
+            onPress={() => Linking.openURL(privacyUrl)}
+            style={({ pressed }) => [styles.linkRow, pressed && styles.pressed]}
+          >
+            <View style={styles.linkIcon}>
+              <Ionicons color={colors.teal} name="document-text-outline" size={22} />
+            </View>
+            <View style={styles.linkText}>
+              <Text style={styles.linkLabel}>Privacy policy</Text>
+              <Text style={styles.linkBody}>Read how app data is handled.</Text>
+            </View>
+            <Ionicons color={colors.muted} name="open-outline" size={19} />
+          </Pressable>
+        </View>
       </ScrollView>
     </SafeAreaView>
   );
@@ -123,6 +153,9 @@ const styles = StyleSheet.create({
     fontSize: 12,
     fontWeight: "900"
   },
+  pressed: {
+    opacity: 0.84
+  },
   row: {
     alignItems: "center",
     backgroundColor: colors.card,
@@ -154,5 +187,47 @@ const styles = StyleSheet.create({
     fontWeight: "700",
     lineHeight: 18,
     marginTop: 4
+  },
+  linkCard: {
+    backgroundColor: colors.card,
+    borderRadius: 18,
+    padding: 16
+  },
+  linkTitle: {
+    color: colors.ink,
+    fontSize: 18,
+    fontWeight: "900",
+    marginBottom: 8
+  },
+  linkRow: {
+    alignItems: "center",
+    borderTopColor: colors.border,
+    borderTopWidth: 1,
+    flexDirection: "row",
+    gap: 12,
+    paddingVertical: 14
+  },
+  linkIcon: {
+    alignItems: "center",
+    backgroundColor: colors.mintSoft,
+    borderRadius: 15,
+    height: 44,
+    justifyContent: "center",
+    width: 44
+  },
+  linkText: {
+    flex: 1
+  },
+  linkLabel: {
+    color: colors.ink,
+    fontSize: 15,
+    fontWeight: "900"
+  },
+  linkBody: {
+    color: colors.muted,
+    fontSize: 12,
+    fontWeight: "700",
+    lineHeight: 17,
+    marginTop: 2
   }
 });

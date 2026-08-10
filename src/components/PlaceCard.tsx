@@ -32,8 +32,12 @@ export function PlaceCard({
   return (
     <Pressable onPress={onOpen} style={({ pressed }) => [styles.card, pressed && styles.pressed]}>
       <View style={styles.header}>
-        <View style={styles.imagePlaceholder}>
-          <Ionicons color={colors.teal} name={iconForCategory(place.category)} size={34} />
+        <View style={[styles.imageFrame, imageFrameStyleForCategory(place.category)]}>
+          <View style={styles.imageSun} />
+          <View style={styles.imageGround} />
+          <View style={styles.logoMark}>
+            <Ionicons color={colors.tealDark} name={iconForCategory(place.category)} size={31} />
+          </View>
         </View>
         <View style={styles.titleBlock}>
           <Text numberOfLines={2} style={styles.title}>
@@ -115,6 +119,18 @@ function iconForCategory(category: Place["category"]) {
   return "leaf";
 }
 
+function imageFrameStyleForCategory(category: Place["category"]) {
+  if (category === "playground") {
+    return styles.playgroundImageFrame;
+  }
+
+  if (category === "outdoor_mall") {
+    return styles.outdoorMallImageFrame;
+  }
+
+  return styles.parkImageFrame;
+}
+
 const styles = StyleSheet.create({
   card: {
     backgroundColor: colors.card,
@@ -135,15 +151,52 @@ const styles = StyleSheet.create({
   header: {
     flexDirection: "row",
     gap: 12,
-    alignItems: "center"
+    alignItems: "flex-start"
   },
-  imagePlaceholder: {
+  imageFrame: {
     width: 72,
     height: 72,
     borderRadius: 13,
     alignItems: "center",
+    backgroundColor: colors.mintSoft,
+    borderColor: colors.border,
+    borderWidth: 1,
     justifyContent: "center",
-    backgroundColor: colors.mint
+    overflow: "hidden"
+  },
+  parkImageFrame: {
+    backgroundColor: "#E7F4DF"
+  },
+  playgroundImageFrame: {
+    backgroundColor: "#FFF1CC"
+  },
+  outdoorMallImageFrame: {
+    backgroundColor: "#EAF7FA"
+  },
+  imageSun: {
+    backgroundColor: "rgba(242, 140, 107, 0.32)",
+    borderRadius: 999,
+    height: 18,
+    position: "absolute",
+    right: 10,
+    top: 9,
+    width: 18
+  },
+  imageGround: {
+    backgroundColor: "rgba(47, 111, 115, 0.14)",
+    borderRadius: 999,
+    bottom: -18,
+    height: 34,
+    position: "absolute",
+    width: 88
+  },
+  logoMark: {
+    alignItems: "center",
+    backgroundColor: "rgba(255, 255, 255, 0.72)",
+    borderRadius: 18,
+    height: 48,
+    justifyContent: "center",
+    width: 48
   },
   titleBlock: {
     flex: 1
