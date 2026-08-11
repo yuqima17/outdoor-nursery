@@ -6,6 +6,8 @@
   "scripts": {
     "start": "expo start",
     "start:clear": "expo start --clear",
+    "start:go": "expo start --go --clear",
+    "start:go:tunnel": "expo start --go --tunnel --clear",
     "ios": "expo start --ios",
     "android": "expo start --android",
     "web": "expo start --web",
