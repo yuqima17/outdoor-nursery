@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { Linking, Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
+import { CategoryLogoTile } from "../components/CategoryLogoTile";
 import { Section } from "../components/Section";
 import { clearFeedbackVote, fetchFeedbackVoteCounts, submitFeedbackVote } from "../data/feedback";
 import {
@@ -81,9 +82,7 @@ export function PlaceDetailScreen({ route }: PlaceDetailProps) {
     <SafeAreaView edges={["bottom"]} style={styles.safeArea}>
       <ScrollView contentContainerStyle={styles.content} showsVerticalScrollIndicator={false}>
         <View style={styles.hero}>
-          <View style={styles.heroIcon}>
-            <Ionicons color={colors.teal} name={iconForCategory(place.category)} size={46} />
-          </View>
+          <CategoryLogoTile category={place.category} size="detail" />
           <Text style={styles.title}>{place.name}</Text>
           <Text style={styles.subtitle}>
             {formatCategory(place.category)} · {place.area}
@@ -427,18 +426,6 @@ function BulletList({ items, title }: { items: string[]; title: string }) {
   );
 }
 
-function iconForCategory(category: Place["category"]) {
-  if (category === "playground") {
-    return "happy";
-  }
-
-  if (category === "outdoor_mall") {
-    return "storefront";
-  }
-
-  return "leaf";
-}
-
 const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
@@ -453,14 +440,6 @@ const styles = StyleSheet.create({
     backgroundColor: colors.card,
     borderRadius: 22,
     padding: 20
-  },
-  heroIcon: {
-    alignItems: "center",
-    backgroundColor: colors.mintSoft,
-    borderRadius: 20,
-    height: 84,
-    justifyContent: "center",
-    width: 84
   },
   title: {
     color: colors.ink,
