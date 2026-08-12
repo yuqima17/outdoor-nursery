@@ -91,6 +91,8 @@ This file tracks the current build sequence for the Outdoor Nursery MVP.
 | Prepare App Store Connect metadata | needs_quality_check | See `docs/app-store-connect-metadata.md`. App Store Connect app record exists and privacy policy URL is hosted on GitHub Pages. |
 | Create App Store submission gap checklist | done | See `docs/app-store-submission-gap-checklist.md`. Tracks public App Store blockers, user-owned Apple steps, Codex-owned prep tasks, and suggested next steps. |
 | Confirm first public release decisions | done | User confirmed Bay Area-only launch, United States-only availability, free pricing, no external TestFlight before App Review, privacy wording final enough, and data quality acceptable for first public release. |
+| Draft public App Store listing copy | needs_quality_check | See `docs/app-store-listing-copy.md`. Subtitle, promotional text, description, keywords, review notes, and screenshot captions are drafted for user review. |
+| Create public screenshot checklist | needs_quality_check | See `docs/app-store-screenshot-checklist.md`. User still needs to capture final TestFlight/public-candidate screenshots for App Store Connect. |
 | Add place card category thumbnails | needs_quality_check | Home, Saved, and Detail now share simple single-layer logo-style category tiles for parks, playgrounds, and outdoor malls. |
 | Create public support page | needs_quality_check | See `public/support.html`. Expected URL: `https://yuqima17.github.io/outdoor-nursery/support.html`. |
 | Remove public internal wording | needs_quality_check | Public-facing Home/Profile/error/privacy copy no longer uses obvious internal beta/prototype wording. Dev-only diagnostics still appear only in development builds. |
@@ -126,6 +128,8 @@ This file tracks the current build sequence for the Outdoor Nursery MVP.
 - Internal TestFlight build `0.1.0 (7)` has passed owner smoke testing.
 - First public release decisions are confirmed: Bay Area only, United States only, free, no external TestFlight, privacy policy acceptable, and data quality acceptable.
 - Review logo-style category thumbnails on Home, Saved, and Detail before final App Store screenshots.
+- Review `docs/app-store-listing-copy.md` before pasting public listing text into App Store Connect.
+- Capture final screenshots with `docs/app-store-screenshot-checklist.md`.
 - Review the public support page after GitHub Pages deploys.
 - Add the support URL to App Store Connect.
 - Review caregiver notes later before production; for now they can remain `needs_parent_verification`.

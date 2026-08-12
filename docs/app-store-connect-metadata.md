@@ -7,6 +7,10 @@ References:
 - Apple Add a New App: https://developer.apple.com/help/app-store-connect/create-an-app-record/add-a-new-app/
 - Apple TestFlight Overview: https://developer.apple.com/help/app-store-connect/test-a-beta-version/testflight-overview/
 - Apple Provide Test Information: https://developer.apple.com/help/app-store-connect/test-a-beta-version/provide-test-information
+- Apple App Information Reference: https://developer.apple.com/help/app-store-connect/reference/app-information/app-information/
+- Apple Platform Version Information Reference: https://developer.apple.com/help/app-store-connect/reference/app-information/platform-version-information
+- App Store listing copy draft: [App Store Listing Copy](app-store-listing-copy.md)
+- App Store screenshot plan: [App Store Screenshot Checklist](app-store-screenshot-checklist.md)
 
 ## App Record
 
@@ -34,6 +38,23 @@ Use these values after the app record exists.
 | Support email | `outdoornursery@gmail.com` | Use for beta feedback and privacy questions. |
 | Support URL | `https://yuqima17.github.io/outdoor-nursery/support.html` | Hosted with GitHub Pages. |
 | Privacy policy URL | `https://yuqima17.github.io/outdoor-nursery/privacy-policy.html` | Hosted with GitHub Pages. |
+
+## Public App Store Listing Draft
+
+Use the full, maintained copy in [App Store Listing Copy](app-store-listing-copy.md).
+
+| Field | Recommended value |
+| --- | --- |
+| Subtitle | `Baby-friendly Bay Area` |
+| Promotional Text | `Find low-stress Bay Area outings with practical parent notes for parks, playgrounds, and outdoor malls.` |
+| Keywords | `baby,toddler,kids,family,park,playground,stroller,outings,Bay Area,parents` |
+| What is new in this version | `First public release.` |
+
+Short description for quick reference:
+
+```text
+Find practical Bay Area outings for babies, toddlers, and young kids, with parent-first notes on parks, playgrounds, and outdoor malls.
+```
 
 ## App Privacy Draft
 

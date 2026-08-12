@@ -23,6 +23,7 @@ Current target:
 - Confirm Profile data/privacy wording is acceptable for testers.
 - Confirm text feedback is intentionally skipped for now.
 - Add simple category thumbnails for place cards before public screenshots.
+- Review final App Store listing copy in `docs/app-store-listing-copy.md`.
 
 ## App Configuration
 
@@ -93,6 +94,7 @@ Current target:
 - Test Supabase fallback behavior.
 - Test Home hero image on phone.
 - Confirm app icon and splash load in Expo/EAS config.
+- Prepare public App Store screenshots using `docs/app-store-screenshot-checklist.md`.
 - Internal TestFlight build `0.1.0 (6)` installed and passed a smoke test on the user's iPhone.
 - Latest production build `0.1.0 (7)` installed from TestFlight and passed a smoke test on the user's iPhone.
 
@@ -118,6 +120,8 @@ Before TestFlight:
 - Beta review notes are written in `docs/testflight-beta-notes.md`.
 - Tester instructions are written in `docs/testflight-beta-notes.md`.
 - App Store Connect copy/paste metadata is written in `docs/app-store-connect-metadata.md`.
+- Public App Store listing copy is drafted in `docs/app-store-listing-copy.md`.
+- Public App Store screenshot checklist is drafted in `docs/app-store-screenshot-checklist.md`.
 - EAS config exists.
 - EAS env vars are configured.
 - First EAS iOS build succeeds.
@@ -134,6 +138,8 @@ See:
 - [EAS Build Plan](eas-build-plan.md)
 - [TestFlight Prep](testflight-prep.md)
 - [GitHub Pages Hosting](github-pages-hosting.md)
+- [App Store Listing Copy](app-store-listing-copy.md)
+- [App Store Screenshot Checklist](app-store-screenshot-checklist.md)
 
 ## Not Required Yet
 

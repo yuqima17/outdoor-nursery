@@ -1,6 +1,6 @@
 # App Store Submission Gap Checklist
 
-Last updated: August 9, 2026
+Last updated: August 12, 2026
 
 This checklist tracks the gap between the current internal TestFlight beta and a public App Store submission for Outdoor Nursery.
 
@@ -65,6 +65,8 @@ Build 7: user confirmed phone smoke test passed.
 - Privacy policy is hosted on GitHub Pages.
 - Support page is hosted through GitHub Pages.
 - App metadata draft exists in [App Store Connect Metadata](app-store-connect-metadata.md).
+- Public listing copy exists in [App Store Listing Copy](app-store-listing-copy.md).
+- Public screenshot checklist exists in [App Store Screenshot Checklist](app-store-screenshot-checklist.md).
 - TestFlight beta notes exist in [TestFlight Beta Notes](testflight-beta-notes.md).
 - No account/demo login is required.
 - No live location, contacts, photos, payment, ads, or push notifications are used in the MVP.
@@ -76,9 +78,9 @@ These are required or strongly recommended before pressing public App Review sub
 | Area | Status | Owner | Notes |
 | --- | --- | --- | --- |
 | Latest build selected for release | needs_user_action | User | In App Store Connect, select the newest processed build under the iOS app version before submitting for App Review. |
-| Public App Store screenshots | blocked | User + Codex | Required for a public listing. Codex can prepare a screenshot plan/copy; user should approve final phone screenshots. |
-| App Store description | needs_quality_check | User + Codex | Draft short metadata exists; public listing copy should be more polished than beta notes. |
-| Keywords | needs_quality_check | User + Codex | Need App Store search keywords, likely parent outing, playground, park, toddler, stroller, Bay Area. |
+| Public App Store screenshots | needs_user_action | User + Codex | Required for a public listing. Screenshot plan is drafted in [App Store Screenshot Checklist](app-store-screenshot-checklist.md); user still needs final screenshots from the TestFlight/public candidate build. |
+| App Store description | needs_quality_check | User + Codex | Public listing copy is drafted in [App Store Listing Copy](app-store-listing-copy.md). User should review tone and accuracy before submission. |
+| Keywords | needs_quality_check | User + Codex | Public keywords are drafted in [App Store Listing Copy](app-store-listing-copy.md). User should review before submission. |
 | Support URL | needs_user_action | User | Codex created `public/support.html`. Use `https://yuqima17.github.io/outdoor-nursery/support.html` in App Store Connect after GitHub Pages deploys. |
 | App Review contact | needs_user_action | User | Apple needs the account owner's current name/phone/email. Codex should not invent phone/contact details. |
 | App Privacy answers | needs_user_action | User + Codex | User confirmed privacy policy wording is final enough. Current recommendation: yes, app collects anonymous feedback data; no tracking; not linked to identity. User still needs to click the final App Store Connect answers. |
@@ -150,8 +152,8 @@ High-value tasks Codex can do without more Apple account access:
 1. Quality-check hosted support page at `public/support.html`.
 2. Add a Support/Privacy section in Profile that links to the public support and privacy URLs.
 3. Remove or hide any remaining development labels from production builds.
-4. Draft final App Store listing copy: subtitle, promotional text, description, keywords, support copy.
-5. Create an App Store screenshot plan with required screens and captions.
+4. Turn final phone screenshots into App Store-ready image files if App Store Connect rejects any sizes.
+5. Refine App Store listing copy after user review.
 6. Add a public-release QA checklist separate from beta QA.
 7. Prepare build 8 after final UI/content changes.
 
@@ -173,6 +175,6 @@ Recommended order:
 
 1. Confirm the support page loads from GitHub Pages and add it to App Store Connect.
 2. Quality-check logo-style place card thumbnails and public-facing wording on phone.
-3. Draft App Store listing copy and screenshot checklist.
-4. Run one final data/content pass on the first 10 places.
-5. Build and submit the next production candidate after those changes.
+3. Review [App Store Listing Copy](app-store-listing-copy.md) and choose final subtitle/promotional text/description/keywords.
+4. Capture final screenshots using [App Store Screenshot Checklist](app-store-screenshot-checklist.md).
+5. Run one final data/content pass, then build and submit the next production candidate if anything changes.
