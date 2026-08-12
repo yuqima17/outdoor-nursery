@@ -9,7 +9,7 @@ Release position:
 - iOS only.
 - iPhone only.
 - United States only.
-- Bay Area only for the first public release.
+- First public data set is intentionally small, but public listing copy should not lock the product to one city or metro area.
 - Free.
 - No account required.
 - No ads.
@@ -35,25 +35,25 @@ Outdoor Nursery
 Subtitle:
 
 ```text
-Baby-friendly Bay Area
+Baby-friendly outings
 ```
 
 Promotional text:
 
 ```text
-Find low-stress Bay Area outings with practical parent notes for parks, playgrounds, and outdoor malls.
+Find low-stress outings with practical parent notes for parks, playgrounds, and outdoor malls.
 ```
 
 Keywords:
 
 ```text
-baby,toddler,kids,family,park,playground,stroller,outings,Bay Area,parents
+baby,toddler,kids,family,park,playground,stroller,outings,parents,restroom
 ```
 
 Description:
 
 ```text
-Outdoor Nursery helps parents and caregivers find practical places to go with babies and young kids in the Bay Area.
+Outdoor Nursery helps parents and caregivers find practical places to go with babies and young kids.
 
 Browse parks, playgrounds, and outdoor malls with quick notes for the details that matter before leaving home:
 
@@ -68,7 +68,7 @@ Save places on your phone, open directions, and use quick anonymous feedback to 
 
 Outdoor Nursery is built for planning, not emergency or official travel guidance. Place details can change. Please confirm hours, fees, closures, reservations, and facilities with the official place source before a real trip.
 
-First release: Bay Area, California.
+The first release starts with a small, curated set of family outing ideas and will grow over time.
 ```
 
 What is new in this version:
@@ -90,7 +90,7 @@ The app does not collect child personal information, contacts, photos, payment i
 Subtitle alternatives:
 
 ```text
-Bay Area family outings
+Baby-friendly places
 ```
 
 ```text
@@ -120,7 +120,7 @@ Use these fields in App Store Connect:
 | Field | Value |
 | --- | --- |
 | Name | `Outdoor Nursery` |
-| Subtitle | `Baby-friendly Bay Area` |
+| Subtitle | `Baby-friendly outings` |
 | Promotional Text | Use recommended promotional text above. |
 | Description | Use recommended description above. |
 | Keywords | Use recommended keywords above. |

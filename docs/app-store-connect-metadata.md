@@ -45,15 +45,15 @@ Use the full, maintained copy in [App Store Listing Copy](app-store-listing-copy
 
 | Field | Recommended value |
 | --- | --- |
-| Subtitle | `Baby-friendly Bay Area` |
-| Promotional Text | `Find low-stress Bay Area outings with practical parent notes for parks, playgrounds, and outdoor malls.` |
-| Keywords | `baby,toddler,kids,family,park,playground,stroller,outings,Bay Area,parents` |
+| Subtitle | `Baby-friendly outings` |
+| Promotional Text | `Find low-stress outings with practical parent notes for parks, playgrounds, and outdoor malls.` |
+| Keywords | `baby,toddler,kids,family,park,playground,stroller,outings,parents,restroom` |
 | What is new in this version | `First public release.` |
 
 Short description for quick reference:
 
 ```text
-Find practical Bay Area outings for babies, toddlers, and young kids, with parent-first notes on parks, playgrounds, and outdoor malls.
+Find practical outings for babies, toddlers, and young kids, with parent-first notes on parks, playgrounds, and outdoor malls.
 ```
 
 ## App Privacy Draft
@@ -117,7 +117,7 @@ Not required. The app does not have login or account creation in this beta.
 Review notes:
 
 ```text
-Outdoor Nursery helps parents and caregivers find baby- and kid-friendly places to go in the Bay Area, including parks, playgrounds, and outdoor malls.
+Outdoor Nursery helps parents and caregivers find baby- and kid-friendly places to go, including parks, playgrounds, and outdoor malls.
 
 No login is required. Please open the app, browse Home, open a place detail page, save/unsave a place, open directions, and try anonymous quick feedback buttons.
 

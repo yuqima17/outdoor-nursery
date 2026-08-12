@@ -39,7 +39,7 @@ Minimum useful public set: 5 screenshots.
 
 1. Home screen.
    - Show the hero, search, category filters, and the start of the place list.
-   - Purpose: immediately explains that this is a Bay Area outing finder.
+   - Purpose: immediately explains that this is a practical family outing finder.
 
 2. Place list with cards.
    - Show several place cards with the simple category logo thumbnails.
