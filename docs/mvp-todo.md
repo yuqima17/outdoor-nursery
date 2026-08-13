@@ -84,13 +84,13 @@ This file tracks the current build sequence for the Outdoor Nursery MVP.
 | Draft beta tester invite | done | See `docs/beta-tester-invite.md`. Includes short and longer English messages for friend testing. |
 | Define beta distribution plan | needs_quality_check | See `docs/beta-distribution-plan.md`. Current path is internal TestFlight first; external TestFlight is skipped until testers are available. |
 | Create release checklist | needs_quality_check | See `docs/release-checklist.md`. Tracks product, app config, backend, data, privacy, QA, and TestFlight readiness. |
-| Audit Expo release config | needs_quality_check | See `docs/expo-config-audit.md`. iOS bundle id, iPhone-only support, Expo project link, and EAS env vars are configured; current iOS build number is `7`. |
+| Audit Expo release config | needs_quality_check | See `docs/expo-config-audit.md`. iOS bundle id, iPhone-only support, Expo project link, and EAS env vars are configured; current iOS build number is `8`. |
 | Add draft brand assets | needs_quality_check | Draft icon, splash, Home hero, and visual asset board are in `assets/`. Home now uses the hero image. |
-| Add EAS config draft | needs_quality_check | See `eas.json` and `docs/eas-build-plan.md`. Production builds `0.1.0 (6)` and `0.1.0 (7)` passed internal TestFlight smoke testing. |
-| Draft TestFlight prep guide | needs_quality_check | See `docs/testflight-prep.md`. Internal TestFlight builds `0.1.0 (6)` and `0.1.0 (7)` passed owner smoke testing; external TestFlight is skipped for now. |
+| Add EAS config draft | needs_quality_check | See `eas.json` and `docs/eas-build-plan.md`. Production builds `0.1.0 (6)` and `0.1.0 (7)` passed internal TestFlight smoke testing; build `0.1.0 (8)` is queued for App Store Connect upload. |
+| Draft TestFlight prep guide | needs_quality_check | See `docs/testflight-prep.md`. Internal TestFlight builds `0.1.0 (6)` and `0.1.0 (7)` passed owner smoke testing; build `0.1.0 (8)` still needs owner QA after processing; external TestFlight is skipped for now. |
 | Prepare App Store Connect metadata | needs_quality_check | See `docs/app-store-connect-metadata.md`. App Store Connect app record exists and privacy policy URL is hosted on GitHub Pages. |
 | Create App Store submission gap checklist | done | See `docs/app-store-submission-gap-checklist.md`. Tracks public App Store blockers, user-owned Apple steps, Codex-owned prep tasks, and suggested next steps. |
-| Confirm first public release decisions | done | User confirmed Bay Area-only launch, United States-only availability, free pricing, no external TestFlight before App Review, privacy wording final enough, and data quality acceptable for first public release. |
+| Confirm first public release decisions | done | User confirmed current first dataset, United States-only availability, free pricing, no external TestFlight before App Review, privacy wording final enough, and data quality acceptable for first public release. |
 | Draft public App Store listing copy | needs_quality_check | See `docs/app-store-listing-copy.md`. Subtitle, promotional text, description, keywords, review notes, and screenshot captions are drafted for user review. |
 | Create public listing preview | needs_quality_check | See `public/app-store-listing-preview.html`. Browser preview shows App Store-style layout with listing copy and screenshot placeholders. |
 | Create public screenshot checklist | needs_quality_check | See `docs/app-store-screenshot-checklist.md` and `docs/app-store-screenshot-shot-list.md`. User still needs to capture final TestFlight/public-candidate screenshots for App Store Connect. |
@@ -127,7 +127,8 @@ This file tracks the current build sequence for the Outdoor Nursery MVP.
 - Review privacy policy before wider beta.
 - Internal TestFlight build `0.1.0 (6)` has passed owner smoke testing.
 - Internal TestFlight build `0.1.0 (7)` has passed owner smoke testing.
-- First public release decisions are confirmed: Bay Area only, United States only, free, no external TestFlight, privacy policy acceptable, and data quality acceptable.
+- Build `0.1.0 (8)` is queued for App Store Connect upload and needs owner TestFlight QA after processing.
+- First public release decisions are confirmed: current first dataset, United States only, free, no external TestFlight, privacy policy acceptable, and data quality acceptable.
 - Review logo-style category thumbnails on Home, Saved, and Detail before final App Store screenshots.
 - Review `docs/app-store-listing-copy.md` before pasting public listing text into App Store Connect.
 - Review `public/app-store-listing-preview.html` in a browser.

@@ -87,9 +87,9 @@ TestFlight validation:
 
 ```text
 Version: 0.1.0
-iOS build number: 7
+iOS build number: 8
 Distribution: Internal TestFlight
-Result: build 6 passed owner smoke test on August 5, 2026; build 7 passed owner smoke test on August 9, 2026
+Result: build 6 passed owner smoke test on August 5, 2026; build 7 passed owner smoke test on August 9, 2026; build 8 finished on EAS and is queued for App Store Connect upload
 External testing: skipped until testers are available
 ```
 

@@ -35,7 +35,7 @@ See [Brand Assets](brand-assets.md) for direction and status.
 | `expo.splash` | `./assets/splash.png` | draft | Good for prototype; confirm native splash behavior before EAS/TestFlight. |
 | `assetBundlePatterns` | `["**/*"]` | okay for MVP | Can tighten later if needed. |
 | `ios.bundleIdentifier` | `com.yuqima.outdoornursery` | configured | Stable identifier for the first iOS beta. |
-| `ios.buildNumber` | `7` | configured | Current App Store Connect/TestFlight build number. |
+| `ios.buildNumber` | `8` | configured | Current App Store Connect/TestFlight build number. |
 | `ios.supportsTablet` | `false` | configured | First beta is iPhone-only. |
 | `ios.infoPlist.ITSAppUsesNonExemptEncryption` | `false` | configured | Records standard/exempt encryption usage for Apple export compliance prompt. |
 | `expo.owner` | `yuqiexpos-team` | configured | Project is linked under the Expo team account. |

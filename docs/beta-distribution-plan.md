@@ -79,8 +79,9 @@ Current result:
 
 ```text
 Version: 0.1.0
-Build: 7
-Internal TestFlight smoke test: build 7 passed on user's iPhone
+Build: 8
+Latest candidate status: build 8 finished on EAS and is queued for App Store Connect upload
+Latest completed smoke test: build 7 passed on user's iPhone
 Previous smoke test: build 6 passed on user's iPhone
 ```
 

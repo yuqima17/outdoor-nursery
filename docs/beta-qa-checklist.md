@@ -13,6 +13,16 @@ Date: August 9, 2026
 Result: passed on user's iPhone
 ```
 
+Next TestFlight candidate:
+
+```text
+Version: 0.1.0
+Build: 8
+Date: August 13, 2026
+Status: EAS build finished; App Store Connect upload queued
+Result: not tested yet
+```
+
 Previous internal TestFlight smoke test:
 
 ```text

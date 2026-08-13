@@ -19,7 +19,7 @@ Current status:
 - Apple Developer Program membership is active.
 - First beta target is iOS only.
 - iOS bundle identifier is `com.yuqima.outdoornursery`.
-- Current iOS build number is `7`.
+- Current iOS build number is `8`.
 - Local app is linked to Expo project `338f84dc-eb17-40c2-99d1-61205a5257a1` under owner `yuqiexpos-team`.
 - EAS project environment variables are configured for `development`, `preview`, and `production`.
 - First EAS iOS preview build installed but opened to a blank screen.
@@ -29,6 +29,7 @@ Current status:
 - Build `5` confirmed the normal preview/internal path after the `expo-font` fix.
 - Production build `0.1.0 (6)` was uploaded to App Store Connect and passed internal TestFlight smoke testing on the user's iPhone.
 - Production build `0.1.0 (7)` finished successfully on EAS, EAS submission `dcf7cf44-5209-4e04-925a-4b17a27d8373` finished on August 6, 2026, and the build passed owner smoke testing through TestFlight on August 9, 2026.
+- Production build `0.1.0 (8)` finished successfully on EAS on August 13, 2026. EAS submission `c452c022-6345-45d7-b6ce-564309727f69` is queued for upload to App Store Connect.
 
 Current release path note:
 
@@ -181,6 +182,16 @@ Build: 7
 Build ID: 03821bed-b085-4bc4-808e-9a87a70cc65b
 Submission ID: dcf7cf44-5209-4e04-925a-4b17a27d8373
 Status: build finished; EAS submission finished; internal TestFlight smoke test passed
+```
+
+Next TestFlight candidate:
+
+```text
+Version: 0.1.0
+Build: 8
+Build ID: 6d5ccccb-a3be-4c88-93ff-55e552ae2172
+Submission ID: c452c022-6345-45d7-b6ce-564309727f69
+Status: build finished; EAS submission queued for App Store Connect upload
 ```
 
 ## Do Not Do Yet

@@ -1,6 +1,6 @@
 # App Store Submission Gap Checklist
 
-Last updated: August 12, 2026
+Last updated: August 13, 2026
 
 This checklist tracks the gap between the current internal TestFlight beta and a public App Store submission for Outdoor Nursery.
 
@@ -21,7 +21,7 @@ App: Outdoor Nursery
 Platform: iOS only
 Device target: iPhone only
 Version: 0.1.0
-Latest build: 7
+Latest build: 8
 Bundle ID: com.yuqima.outdoornursery
 App Store Connect app ID: 6797605509
 Privacy policy URL: https://yuqima17.github.io/outdoor-nursery/privacy-policy.html
@@ -35,7 +35,7 @@ Public App Store release: not started
 
 User confirmed on August 9, 2026:
 
-- First public launch market: Bay Area only.
+- First public launch market: current 30-place launch dataset.
 - First public release countries/regions: United States only.
 - Pricing: free.
 - External TestFlight before public App Review: no, skip for now.
@@ -49,6 +49,7 @@ Latest testing:
 ```text
 Build 6: internal TestFlight smoke test passed on user's iPhone.
 Build 7: user confirmed phone smoke test passed.
+Build 8: EAS production build finished; EAS submission is queued for App Store Connect upload.
 ```
 
 ## Already Done
@@ -60,7 +61,8 @@ Build 7: user confirmed phone smoke test passed.
 - EAS project is linked.
 - Production EAS build profile exists.
 - EAS submit profile includes `ascAppId`.
-- EAS production build `0.1.0 (7)` completed and submitted successfully.
+- EAS production build `0.1.0 (7)` completed, submitted successfully, and passed owner TestFlight smoke testing.
+- EAS production build `0.1.0 (8)` completed successfully and is queued for App Store Connect upload.
 - TestFlight internal testing works.
 - Privacy policy is hosted on GitHub Pages.
 - Support page is hosted through GitHub Pages.
@@ -157,13 +159,13 @@ High-value tasks Codex can do without more Apple account access:
 4. Turn final phone screenshots into App Store-ready image files if App Store Connect rejects any sizes.
 5. Refine App Store listing copy after user review.
 6. Add a public-release QA checklist separate from beta QA.
-7. Prepare build 8 after final UI/content changes.
+7. Monitor build 8 upload/processing, then run owner TestFlight QA once it appears.
 
 ## What User Must Decide
 
 User decisions before public release:
 
-- App should launch publicly as Bay Area only: yes, for now.
+- App should launch publicly with the current first dataset: yes, for now.
 - App should be free: yes.
 - First release countries/regions: United States.
 - Current generated image assets are acceptable for public listing: yes, but add default images for place cards.
@@ -179,4 +181,4 @@ Recommended order:
 2. Quality-check logo-style place card thumbnails and public-facing wording on phone.
 3. Review [App Store Listing Copy](app-store-listing-copy.md) and choose final subtitle/promotional text/description/keywords.
 4. Capture final screenshots using [App Store Screenshot Checklist](app-store-screenshot-checklist.md) and [App Store Screenshot Shot List](app-store-screenshot-shot-list.md).
-5. Run one final data/content pass, then build and submit the next production candidate if anything changes.
+5. Run owner TestFlight QA on build 8 once Apple finishes processing it.

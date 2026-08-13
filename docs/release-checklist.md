@@ -8,7 +8,7 @@ Current target:
 
 - First public release preparation.
 - iOS first, iPhone-only.
-- Bay Area only.
+- Current 30-place launch dataset.
 - Internal TestFlight build is available and passed a user phone smoke test.
 - External TestFlight is intentionally skipped before public App Review.
 - Public App Store release target is United States only and free.
@@ -17,7 +17,7 @@ Current target:
 
 - Confirm app name.
 - Confirm one-line app description.
-- Confirm first market wording: Bay Area. User confirmed Bay Area-only public launch.
+- Confirm first market wording. Public listing copy no longer leads with Bay Area, while the first dataset remains the current launch set.
 - Confirm category names: Parks, Playgrounds, Outdoor Malls.
 - Confirm Home, Place Card, Detail, Saved, and Profile wording.
 - Confirm Profile data/privacy wording is acceptable for testers.
@@ -32,7 +32,7 @@ Current target:
 - Confirm `eas.json` build profiles.
 - Review/refine draft app icon.
 - Review/refine draft splash screen asset.
-- Confirm version and build number strategy. Current iOS build number is `7`.
+- Confirm version and build number strategy. Current iOS build number is `8`.
 - Confirm portrait-only orientation is intentional.
 - Tablet support disabled for first iPhone-only beta.
 - Confirm permissions are minimal.
@@ -97,6 +97,7 @@ Current target:
 - Prepare public App Store screenshots using `docs/app-store-screenshot-checklist.md`.
 - Internal TestFlight build `0.1.0 (6)` installed and passed a smoke test on the user's iPhone.
 - Latest production build `0.1.0 (7)` installed from TestFlight and passed a smoke test on the user's iPhone.
+- Next production build `0.1.0 (8)` finished on EAS and is queued for App Store Connect upload.
 
 ## Beta Operations
 
@@ -128,9 +129,10 @@ Before TestFlight:
 - First EAS iOS build succeeds.
 - GitHub Pages is enabled and `public/privacy-policy.html` loads from the final public URL.
 - Internal TestFlight build `0.1.0 (6)` is visible in App Store Connect and passed smoke testing.
-- Latest candidate build `0.1.0 (7)` is visible in TestFlight and passed owner smoke testing.
+- Latest smoke-tested candidate build `0.1.0 (7)` is visible in TestFlight and passed owner smoke testing.
+- Next candidate build `0.1.0 (8)` is queued for App Store Connect upload.
 - Public App Store submission gaps are tracked in [App Store Submission Gap Checklist](app-store-submission-gap-checklist.md).
-- User confirmed first public release decisions: Bay Area only, United States only, free, no external TestFlight before App Review, privacy policy acceptable, data quality acceptable.
+- User confirmed first public release decisions: United States only, free, no external TestFlight before App Review, privacy policy acceptable, data quality acceptable.
 - Profile public support/privacy links are implemented.
 - Place cards use simple logo-style category thumbnails.
 
