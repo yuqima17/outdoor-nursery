@@ -67,6 +67,8 @@ Build 7: user confirmed phone smoke test passed.
 - App metadata draft exists in [App Store Connect Metadata](app-store-connect-metadata.md).
 - Public listing copy exists in [App Store Listing Copy](app-store-listing-copy.md).
 - Public screenshot checklist exists in [App Store Screenshot Checklist](app-store-screenshot-checklist.md).
+- Public screenshot shot list exists in [App Store Screenshot Shot List](app-store-screenshot-shot-list.md).
+- Public listing browser preview exists in `public/app-store-listing-preview.html`.
 - TestFlight beta notes exist in [TestFlight Beta Notes](testflight-beta-notes.md).
 - No account/demo login is required.
 - No live location, contacts, photos, payment, ads, or push notifications are used in the MVP.
@@ -78,7 +80,7 @@ These are required or strongly recommended before pressing public App Review sub
 | Area | Status | Owner | Notes |
 | --- | --- | --- | --- |
 | Latest build selected for release | needs_user_action | User | In App Store Connect, select the newest processed build under the iOS app version before submitting for App Review. |
-| Public App Store screenshots | needs_user_action | User + Codex | Required for a public listing. Screenshot plan is drafted in [App Store Screenshot Checklist](app-store-screenshot-checklist.md); user still needs final screenshots from the TestFlight/public candidate build. |
+| Public App Store screenshots | needs_user_action | User + Codex | Required for a public listing. Screenshot plan is drafted in [App Store Screenshot Checklist](app-store-screenshot-checklist.md) and [App Store Screenshot Shot List](app-store-screenshot-shot-list.md); user still needs final screenshots from the TestFlight/public candidate build. |
 | App Store description | needs_quality_check | User + Codex | Public listing copy is drafted in [App Store Listing Copy](app-store-listing-copy.md). User should review tone and accuracy before submission. |
 | Keywords | needs_quality_check | User + Codex | Public keywords are drafted in [App Store Listing Copy](app-store-listing-copy.md). User should review before submission. |
 | Support URL | needs_user_action | User | Codex created `public/support.html`. Use `https://yuqima17.github.io/outdoor-nursery/support.html` in App Store Connect after GitHub Pages deploys. |
@@ -176,5 +178,5 @@ Recommended order:
 1. Confirm the support page loads from GitHub Pages and add it to App Store Connect.
 2. Quality-check logo-style place card thumbnails and public-facing wording on phone.
 3. Review [App Store Listing Copy](app-store-listing-copy.md) and choose final subtitle/promotional text/description/keywords.
-4. Capture final screenshots using [App Store Screenshot Checklist](app-store-screenshot-checklist.md).
+4. Capture final screenshots using [App Store Screenshot Checklist](app-store-screenshot-checklist.md) and [App Store Screenshot Shot List](app-store-screenshot-shot-list.md).
 5. Run one final data/content pass, then build and submit the next production candidate if anything changes.

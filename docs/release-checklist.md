@@ -122,6 +122,7 @@ Before TestFlight:
 - App Store Connect copy/paste metadata is written in `docs/app-store-connect-metadata.md`.
 - Public App Store listing copy is drafted in `docs/app-store-listing-copy.md`.
 - Public App Store screenshot checklist is drafted in `docs/app-store-screenshot-checklist.md`.
+- Public App Store screenshot shot list is drafted in `docs/app-store-screenshot-shot-list.md`.
 - EAS config exists.
 - EAS env vars are configured.
 - First EAS iOS build succeeds.
@@ -140,6 +141,7 @@ See:
 - [GitHub Pages Hosting](github-pages-hosting.md)
 - [App Store Listing Copy](app-store-listing-copy.md)
 - [App Store Screenshot Checklist](app-store-screenshot-checklist.md)
+- [App Store Screenshot Shot List](app-store-screenshot-shot-list.md)
 
 ## Not Required Yet
 

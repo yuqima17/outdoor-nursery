@@ -1,8 +1,10 @@
 # App Store Listing Copy
 
-Last updated: August 12, 2026
+Last updated: August 13, 2026
 
 This document is the copy/paste source for the first public App Store listing for Outdoor Nursery.
+
+Browser preview: [App Store Listing Preview](../public/app-store-listing-preview.html).
 
 Release position:
 

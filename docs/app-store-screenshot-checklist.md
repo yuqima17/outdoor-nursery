@@ -1,8 +1,10 @@
 # App Store Screenshot Checklist
 
-Last updated: August 12, 2026
+Last updated: August 13, 2026
 
 This checklist is for preparing public App Store screenshots for Outdoor Nursery. Use the final TestFlight or production candidate build, not Expo Go and not a development client.
+
+See the exact capture sequence in [App Store Screenshot Shot List](app-store-screenshot-shot-list.md).
 
 ## Apple Requirements
 

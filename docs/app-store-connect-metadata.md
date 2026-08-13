@@ -11,6 +11,7 @@ References:
 - Apple Platform Version Information Reference: https://developer.apple.com/help/app-store-connect/reference/app-information/platform-version-information
 - App Store listing copy draft: [App Store Listing Copy](app-store-listing-copy.md)
 - App Store screenshot plan: [App Store Screenshot Checklist](app-store-screenshot-checklist.md)
+- App Store listing browser preview: [App Store Listing Preview](../public/app-store-listing-preview.html)
 
 ## App Record
 
