@@ -97,6 +97,8 @@ This file tracks the current build sequence for the Outdoor Nursery MVP.
 | Add place card category thumbnails | needs_quality_check | Home, Saved, and Detail now share simple single-layer logo-style category tiles for parks, playgrounds, and outdoor malls. |
 | Create public support page | needs_quality_check | See `public/support.html`. Expected URL: `https://yuqima17.github.io/outdoor-nursery/support.html`. |
 | Remove public internal wording | needs_quality_check | Public-facing Home/Profile/error/privacy copy no longer uses obvious internal beta/prototype wording. Dev-only diagnostics still appear only in development builds. |
+| Add locality/data-quality backend fields | needs_quality_check | See `supabase/migrations/2026-08-18-place-locality-and-quality.sql` and `docs/place-data-expansion-plan.md`. Supports future city/region filters and better admin review. |
+| Define events MVP and scheduled import plan | needs_quality_check | See `docs/events-mvp-plan.md`. Events should start as official-source imports into review/staging, not direct automated publishing. |
 | Prepare TestFlight beta notes | needs_quality_check | See `docs/testflight-beta-notes.md`. Beta description, review notes, tester instructions, and pass criteria are drafted. |
 | Prepare public privacy policy artifact | done | See `docs/privacy-policy-public.md` and `public/privacy-policy.html`. Public URL is `https://yuqima17.github.io/outdoor-nursery/privacy-policy.html`. |
 | Execute Top 10 official/field recheck | blocked | User wants to skip this for now because field checking is not practical right now. |

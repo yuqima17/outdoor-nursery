@@ -63,6 +63,10 @@ create table if not exists places (
   name text not null,
   category place_category not null,
   summary text not null,
+  country_code text not null default 'US',
+  metro_area text,
+  region text,
+  neighborhood text,
   city text not null,
   state text not null,
   area text not null,
@@ -71,6 +75,10 @@ create table if not exists places (
   longitude double precision not null,
   tags text[] not null default '{}',
   place_json jsonb not null,
+  source_quality text not null default 'needs_recheck',
+  last_checked_at date,
+  needs_recheck boolean not null default true,
+  place_status text not null default 'active',
   published_status published_status not null default 'draft',
   created_at timestamptz not null default now(),
   updated_at timestamptz not null default now()
@@ -163,6 +171,12 @@ for each row execute function set_updated_at();
 
 create index if not exists places_category_idx on places(category);
 create index if not exists places_published_status_idx on places(published_status);
+create index if not exists places_country_code_idx on places(country_code);
+create index if not exists places_metro_area_idx on places(metro_area);
+create index if not exists places_region_idx on places(region);
+create index if not exists places_city_idx on places(city);
+create index if not exists places_place_status_idx on places(place_status);
+create index if not exists places_needs_recheck_idx on places(needs_recheck);
 create index if not exists places_tags_idx on places using gin(tags);
 create index if not exists place_sources_place_id_idx on place_sources(place_id);
 create index if not exists place_facts_place_id_idx on place_facts(place_id);
@@ -222,4 +236,3 @@ with check (
 
 -- Review queue is intentionally not public.
 -- Admin policies should be added later when auth/admin roles are introduced.
-

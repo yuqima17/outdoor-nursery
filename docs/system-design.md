@@ -71,6 +71,19 @@ Potential sources:
 - Official venue websites
 - Weather.gov
 
+First production-grade ingestion should create review candidates, not published facts.
+
+Near-term ingestion targets:
+
+- New place candidates for the existing launch market.
+- Locality metadata for city and region filtering.
+- Event candidates from official public calendars.
+
+See also:
+
+- [Place Data Expansion Plan](place-data-expansion-plan.md)
+- [Events MVP Plan](events-mvp-plan.md)
+
 ## Database Entities
 
 Core:
@@ -86,6 +99,10 @@ Later:
 - `saved_places`
 - `admin_reviews`
 - `source_import_jobs`
+- `events`
+- `event_sources`
+- `event_import_runs`
+- `event_review_queue`
 - `weather_snapshots`
 
 ## Important Product Rule

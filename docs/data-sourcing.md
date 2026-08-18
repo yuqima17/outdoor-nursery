@@ -62,6 +62,27 @@ Start with:
 
 The frontend prototype should use this local dataset first. API integrations can come later.
 
+## Expansion Approach
+
+When adding more places or cities, expand in small reviewed batches.
+
+Recommended order:
+
+1. Add more places in the same metro area.
+2. Add enough records per region/city to make filters useful.
+3. Add a city or region selector.
+4. Add a second metro area only after the data-entry workflow is repeatable.
+
+Track every place with:
+
+- `metro_area`
+- `region`
+- `city`
+- `source_quality`
+- `last_checked_at`
+- `needs_recheck`
+- `place_status`
+
 ## Source Priority
 
 For MVP records, use this priority:
@@ -80,6 +101,27 @@ For MVP records, use this priority:
 - Be careful with Google Places and Yelp data retention rules.
 - Store stable external identifiers when allowed, such as Google `place_id` or OSM IDs.
 - Keep caregiver notes as first-party content created by the app team or submitted by users.
+- For events, prefer official public calendars and write original summaries instead of copying long event descriptions.
+
+## Events Sourcing
+
+Events should be treated as temporary content with stricter review.
+
+Good first sources:
+
+- Official city and county event calendars
+- Park district event pages
+- Library calendars
+- Outdoor mall and family venue event pages
+- RSS or ICS feeds from official sources
+
+Avoid:
+
+- Private social media posts
+- Long copied descriptions from third-party listings
+- Fully automated publishing without review
+
+See [Events MVP Plan](events-mvp-plan.md).
 
 ## Seed Data Workflow
 

@@ -6,9 +6,66 @@ const samplePath = path.join(rootDir, "data", "sample-places.json");
 const outputPath = path.join(rootDir, "supabase", "seed.sql");
 
 const sample = JSON.parse(fs.readFileSync(samplePath, "utf8"));
-const places = sample.places;
+const market = sample.metadata?.market ?? {};
+
+function sourceQualityForPlace(place) {
+  if (place.data_quality?.source_quality) {
+    return place.data_quality.source_quality;
+  }
+
+  if (place.data_quality?.base_details === "official_source") {
+    return "official_seed";
+  }
+
+  if (place.data_quality?.base_details === "third_party_source") {
+    return "third_party_seed";
+  }
+
+  if (place.data_quality?.base_details === "manual") {
+    return "manual_seed";
+  }
+
+  return "needs_recheck";
+}
+
+function normalizePlace(place) {
+  const countryCode = place.country_code || market.country || "US";
+  const metroArea = place.metro_area || market.region || place.area;
+  const region = place.region || place.area;
+  const neighborhood = place.neighborhood ?? null;
+  const lastCheckedAt =
+    place.data_quality?.last_checked_at || place.source?.last_verified_at || null;
+  const sourceQuality = sourceQualityForPlace(place);
+
+  return {
+    ...place,
+    country_code: countryCode,
+    metro_area: metroArea,
+    region,
+    neighborhood,
+    location: {
+      country_code: countryCode,
+      state: place.state,
+      metro_area: metroArea,
+      region,
+      area: place.area,
+      city: place.city,
+      neighborhood,
+    },
+    data_quality: {
+      ...place.data_quality,
+      source_quality: sourceQuality,
+      last_checked_at: lastCheckedAt,
+      needs_recheck: place.data_quality?.needs_recheck ?? true,
+      place_status: place.data_quality?.place_status || "active",
+    },
+  };
+}
+
+const places = sample.places.map(normalizePlace);
 
 const factPaths = [
+  "location",
   "age_fit",
   "age_guidance",
   "cost",
@@ -42,6 +99,10 @@ function sqlJson(value) {
 
 function sqlDate(value) {
   return value ? `${sqlString(value)}::date` : "null";
+}
+
+function sqlBoolean(value) {
+  return value ? "true" : "false";
 }
 
 function sqlTextArray(values) {
@@ -220,6 +281,10 @@ function buildSeedSql() {
     "  name,",
     "  category,",
     "  summary,",
+    "  country_code,",
+    "  metro_area,",
+    "  region,",
+    "  neighborhood,",
     "  city,",
     "  state,",
     "  area,",
@@ -228,6 +293,10 @@ function buildSeedSql() {
     "  longitude,",
     "  tags,",
     "  place_json,",
+    "  source_quality,",
+    "  last_checked_at,",
+    "  needs_recheck,",
+    "  place_status,",
     "  published_status",
     ") values",
   ];
@@ -242,6 +311,10 @@ function buildSeedSql() {
             sqlString(place.name),
             `${sqlString(place.category)}::place_category`,
             sqlString(place.summary),
+            sqlString(place.country_code),
+            sqlString(place.metro_area),
+            sqlString(place.region),
+            sqlString(place.neighborhood),
             sqlString(place.city),
             sqlString(place.state),
             sqlString(place.area),
@@ -250,6 +323,10 @@ function buildSeedSql() {
             place.longitude,
             sqlTextArray(place.tags),
             sqlJson(place),
+            sqlString(place.data_quality.source_quality),
+            sqlDate(place.data_quality.last_checked_at),
+            sqlBoolean(place.data_quality.needs_recheck),
+            sqlString(place.data_quality.place_status),
             "'published'::published_status",
           ].join(", "),
           ")",
@@ -263,6 +340,10 @@ function buildSeedSql() {
     "  name = excluded.name,",
     "  category = excluded.category,",
     "  summary = excluded.summary,",
+    "  country_code = excluded.country_code,",
+    "  metro_area = excluded.metro_area,",
+    "  region = excluded.region,",
+    "  neighborhood = excluded.neighborhood,",
     "  city = excluded.city,",
     "  state = excluded.state,",
     "  area = excluded.area,",
@@ -271,6 +352,10 @@ function buildSeedSql() {
     "  longitude = excluded.longitude,",
     "  tags = excluded.tags,",
     "  place_json = excluded.place_json,",
+    "  source_quality = excluded.source_quality,",
+    "  last_checked_at = excluded.last_checked_at,",
+    "  needs_recheck = excluded.needs_recheck,",
+    "  place_status = excluded.place_status,",
     "  published_status = excluded.published_status;",
     ""
   );

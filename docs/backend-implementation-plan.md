@@ -24,7 +24,9 @@ Completed:
 
 Not started:
 
-- Feedback writes.
+- Automated place/event import jobs.
+- City selector UI.
+- Custom admin UI.
 
 ## Phase 1: Create Supabase Project
 
@@ -181,6 +183,8 @@ feedback
 
 Owner: later
 
+Status: SQL helpers exist; custom admin UI is deferred.
+
 Do not build an admin UI yet.
 
 First version can be:
@@ -189,7 +193,49 @@ First version can be:
 - Manual review.
 - Later internal admin screen.
 
-## Phase 8: Beta Hardening
+Current SQL helpers:
+
+- [supabase/admin-feedback-queries.sql](../supabase/admin-feedback-queries.sql)
+- [supabase/admin-create-review-items-from-feedback.sql](../supabase/admin-create-review-items-from-feedback.sql)
+- [supabase/admin-review-queue-actions.sql](../supabase/admin-review-queue-actions.sql)
+- [supabase/admin-place-update-templates.sql](../supabase/admin-place-update-templates.sql)
+
+## Phase 8: City And Data Expansion
+
+Owner: Codex with user data QA
+
+Status: schema foundation implemented locally, needs Supabase migration
+
+Implementation:
+
+- Add locality fields to `places`: `country_code`, `metro_area`, `region`, and `neighborhood`.
+- Add data-quality fields to `places`: `source_quality`, `last_checked_at`, `needs_recheck`, and `place_status`.
+- Add nested `location` facts for admin review.
+- Keep current app behavior unchanged until the UI needs city/region filters.
+
+Migration:
+
+- [supabase/migrations/2026-08-18-place-locality-and-quality.sql](../supabase/migrations/2026-08-18-place-locality-and-quality.sql)
+
+See also:
+
+- [Place Data Expansion Plan](place-data-expansion-plan.md)
+
+## Phase 9: Events And Scheduled Imports
+
+Owner: later
+
+Status: planned
+
+Start with official event sources and admin review.
+
+Do not publish event imports directly to users. Import into staging/review first.
+
+See:
+
+- [Events MVP Plan](events-mvp-plan.md)
+
+## Phase 10: Beta Hardening
 
 Before beta:
 
@@ -202,21 +248,20 @@ Before beta:
 
 ## Current Next Action
 
-User action:
+Codex action:
 
 ```text
-Send Codex the Supabase Project URL and anon public key, or create a local .env file from .env.example.
+Prepare the locality/data-quality migration and docs.
 ```
 
 Expected result:
 
 ```text
-The phone app reads the 30 places from Supabase instead of bundled JSON.
+The backend can support more cities and future event ingestion without changing user-facing app behavior yet.
 ```
 
-Do not share:
+User action later:
 
 ```text
-service_role key
-database password
+Run the new migration in Supabase SQL Editor, then rerun the regenerated seed SQL when ready.
 ```

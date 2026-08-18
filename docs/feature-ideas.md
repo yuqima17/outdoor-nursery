@@ -15,6 +15,7 @@ This file captures product ideas beyond the first MVP. The MVP scope is defined 
 ## Discovery
 
 - Search by location, place type, distance, and child age.
+- Switch between supported metro areas or cities once coverage expands beyond the first launch market.
 - Filter by stroller access, bathrooms, shade, parking, food, and route length.
 - Show a caregiver-friendly summary for each place.
 - Highlight places that work well for babies, toddlers, or mixed-age families.
@@ -33,6 +34,7 @@ This file captures product ideas beyond the first MVP. The MVP scope is defined 
 
 - Save favorite places.
 - Build a short outing plan.
+- Browse upcoming family-friendly events for the next 7 to 21 days.
 - Check weather suitability.
 - Estimate visit length.
 - Suggest what to bring based on place conditions.
@@ -48,6 +50,7 @@ This file captures product ideas beyond the first MVP. The MVP scope is defined 
 
 - Personalized recommendations based on child age and caregiver preferences.
 - Seasonal guides.
+- Scheduled event ingestion from official city, park, library, mall, and venue calendars.
 - Nap-window friendly outing suggestions.
 - Accessible family route maps.
 - Integration with official park, trail, and local venue data.

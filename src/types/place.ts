@@ -12,12 +12,35 @@ export type IndoorBackupValue = "yes" | "no" | "nearby" | "unknown";
 export type BabyCareStatus = "available" | "limited" | "not_reported" | "not_available";
 export type BabyCareFeatureValue = "yes" | "no" | "not_reported";
 export type QuietAreaValue = "yes" | "limited" | "no" | "not_reported";
+export type PlaceStatus = "active" | "temporarily_closed" | "closed" | "draft";
+export type SourceQuality =
+  | "official_seed"
+  | "third_party_seed"
+  | "manual_seed"
+  | "parent_verified"
+  | "needs_recheck"
+  | "unknown";
+
+export interface PlaceLocation {
+  country_code: string;
+  state: string;
+  metro_area: string;
+  region: string;
+  area: string;
+  city: string;
+  neighborhood: string | null;
+}
 
 export interface Place {
   id: string;
   name: string;
   category: Category;
   summary: string;
+  country_code?: string;
+  metro_area?: string;
+  region?: string;
+  neighborhood?: string | null;
+  location?: PlaceLocation;
   city: string;
   state: string;
   area: string;
@@ -93,5 +116,9 @@ export interface Place {
   data_quality: {
     base_details: string;
     caregiver_notes: string;
+    source_quality?: SourceQuality;
+    last_checked_at?: string;
+    needs_recheck?: boolean;
+    place_status?: PlaceStatus;
   };
 }

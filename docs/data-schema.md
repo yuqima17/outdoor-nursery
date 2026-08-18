@@ -35,9 +35,22 @@ The file uses this wrapper:
   "name": "string",
   "category": "park | playground | outdoor_mall",
   "summary": "string",
+  "country_code": "string",
+  "metro_area": "string",
+  "region": "string",
+  "neighborhood": "string | null",
   "city": "string",
   "state": "string",
   "area": "string",
+  "location": {
+    "country_code": "string",
+    "state": "string",
+    "metro_area": "string",
+    "region": "string",
+    "area": "string",
+    "city": "string",
+    "neighborhood": "string | null"
+  },
   "address": "string",
   "latitude": "number",
   "longitude": "number",
@@ -109,7 +122,11 @@ The file uses this wrapper:
   },
   "data_quality": {
     "base_details": "official_source | third_party_source | manual | unknown",
-    "caregiver_notes": "verified_visit | trusted_parent_report | needs_parent_verification"
+    "caregiver_notes": "verified_visit | trusted_parent_report | needs_parent_verification",
+    "source_quality": "official_seed | third_party_seed | manual_seed | parent_verified | needs_recheck | unknown",
+    "last_checked_at": "YYYY-MM-DD",
+    "needs_recheck": "boolean",
+    "place_status": "active | temporarily_closed | closed | draft"
   }
 }
 ```
@@ -122,9 +139,13 @@ Every MVP place should have:
 - `name`
 - `category`
 - `summary`
+- `country_code`
+- `metro_area`
+- `region`
 - `city`
 - `state`
 - `area`
+- `location`
 - `address`
 - `latitude`
 - `longitude`
@@ -148,6 +169,44 @@ Every MVP place should have:
 - `tags`
 - `source.last_verified_at`
 - `data_quality`
+- `data_quality.source_quality`
+- `data_quality.last_checked_at`
+- `data_quality.needs_recheck`
+- `data_quality.place_status`
+
+## Locality Fields
+
+The app should support one launch market first, but the data model should not assume the Bay Area forever.
+
+Use the locality fields this way:
+
+- `country_code`: country code, such as `US`.
+- `metro_area`: broad market used for launch planning and future city selection, such as `San Francisco Bay Area`.
+- `region`: user-facing sub-region inside the metro area, such as `Peninsula`, `East Bay`, `South Bay`, or `San Francisco`.
+- `city`: city or municipality.
+- `neighborhood`: optional finer-grained label when useful.
+- `area`: legacy/current display field. For now it can mirror `region`.
+- `location`: nested copy of these fields inside `place_json` and `place_facts` so admin queries can review locality as one fact.
+
+Recommended first city-selector behavior:
+
+- Start with `All`.
+- Then show available `region` values for the current `metro_area`.
+- Later add city chips once there are enough places per city.
+- Do not expose empty cities or cities with only one weak/unverified place unless the UX explains that coverage is early.
+
+## Data Quality Fields
+
+The MVP should be honest about data confidence. These fields help admin review without showing scary internal wording to users.
+
+- `source_quality`: short trust/source bucket for the base place record.
+- `last_checked_at`: date when the place record was last reviewed by the app team.
+- `needs_recheck`: `true` when the place should stay on the admin review list.
+- `place_status`: whether the place is active, temporarily closed, closed, or still a draft.
+
+Recommended rule:
+
+Do not let automated jobs or raw user votes directly overwrite public place facts. They should create review candidates first.
 
 ## Age Fit Values
 
@@ -257,9 +316,22 @@ This is a schema example, not verified production data.
   "name": "Example Meadow Park",
   "category": "park",
   "summary": "A calm neighborhood park with an easy walking loop, partial shade, and a small toddler-friendly play area.",
+  "country_code": "US",
+  "metro_area": "Example Metro",
+  "region": "Example Region",
+  "neighborhood": null,
   "city": "Example City",
   "state": "CA",
   "area": "Downtown",
+  "location": {
+    "country_code": "US",
+    "state": "CA",
+    "metro_area": "Example Metro",
+    "region": "Example Region",
+    "area": "Downtown",
+    "city": "Example City",
+    "neighborhood": null
+  },
   "address": "100 Example Ave, Example City, CA",
   "latitude": 37.0001,
   "longitude": -122.0001,
@@ -328,6 +400,14 @@ This is a schema example, not verified production data.
     "primary": "manual",
     "urls": [],
     "last_verified_at": "2026-07-18"
+  },
+  "data_quality": {
+    "base_details": "manual",
+    "caregiver_notes": "needs_parent_verification",
+    "source_quality": "manual_seed",
+    "last_checked_at": "2026-07-18",
+    "needs_recheck": true,
+    "place_status": "active"
   }
 }
 ```
